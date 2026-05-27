@@ -288,14 +288,14 @@ img{max-width:100%}
           </tr>
           <tr>
             <th class="th-grade-sub"></th>
-            <th class="sem-vac">겨울방학</th>
             <th class="sem-prep">학기 준비</th>
+            <th class="sem-vac">겨울방학</th>
             <th class="sem-spring">봄 학기</th>
             <th class="sem-spring">봄 학기</th>
             <th class="sem-spring">봄 학기</th>
             <th class="sem-spring">봄 학기</th>
-            <th class="sem-vac">여름방학</th>
             <th class="sem-prep">여름 특강</th>
+            <th class="sem-vac">여름방학</th>
             <th class="sem-fall">가을 학기</th>
             <th class="sem-fall">가을 학기</th>
             <th class="sem-fall">가을 학기</th>
@@ -392,40 +392,40 @@ const GROUPS=[
   {id:'c',label:'중·고등군', range:'중학교·고등학교', cls:'gc',cardCls:'card-c',dot:'#7C3AED'},
 ];
 const ROUND_DESCS={1:'처음 시작하는 해 — AI·코딩 체험 중심',2:'두 번째 해 — 팀 프로젝트·서비스 제작',3:'세 번째 해 — 완성·포트폴리오·진로 연결'};
-const MONTH_LABELS={2:'2월 — 학기 준비',3:'3월 — 봄 학기 시작',4:'4월 — 프로젝트 심화',5:'5월 — AI & 메타버스',6:'6월 — 프로젝트 완성',8:'8월 — 여름 특강',9:'9월 — 2학기 시작',10:'10월 — 심화 & 협업',11:'11월 — 포트폴리오',12:'12월 — 최종 발표'};
-const MONTH_SUB={2:'새 학기를 준비합니다. 디지털 도구를 익히고 수업 방향을 안내합니다.',3:'봄 학기가 시작됩니다. AI와 코딩 도구를 처음 만납니다.',4:'첫 번째 프로젝트에 도전합니다. 아이디어를 실제로 만들어 봅니다.',5:'생성형 AI와 메타버스를 활용한 창작 수업입니다.',6:'한 학기 프로젝트를 완성하고 발표합니다.',8:'여름 특강으로 실습 중심 집중 수업을 진행합니다.',9:'2학기가 시작됩니다. 심화 주제로 역량을 키웁니다.',10:'팀 협업과 고급 프로젝트를 진행합니다.',11:'포트폴리오를 정리하고 발표를 준비합니다.',12:'최종 발표 및 연간 작품 아카이브를 완성합니다.'};
+const MONTH_LABELS={1:'1월 — 학기 준비',3:'3월 — 봄 학기 시작',4:'4월 — 프로젝트 심화',5:'5월 — AI & 메타버스',6:'6월 — 프로젝트 완성',7:'7월 — 여름 특강',9:'9월 — 2학기 시작',10:'10월 — 심화 & 협업',11:'11월 — 포트폴리오',12:'12월 — 최종 발표'};
+const MONTH_SUB={1:'새 학기를 준비합니다. 디지털 도구를 익히고 수업 방향을 안내합니다.',3:'봄 학기가 시작됩니다. AI와 코딩 도구를 처음 만납니다.',4:'첫 번째 프로젝트에 도전합니다. 아이디어를 실제로 만들어 봅니다.',5:'생성형 AI와 메타버스를 활용한 창작 수업입니다.',6:'한 학기 프로젝트를 완성하고 발표합니다.',7:'여름 특강으로 실습 중심 집중 수업을 진행합니다.',9:'2학기가 시작됩니다. 심화 주제로 역량을 키웁니다.',10:'팀 협업과 고급 프로젝트를 진행합니다.',11:'포트폴리오를 정리하고 발표를 준비합니다.',12:'최종 발표 및 연간 작품 아카이브를 완성합니다.'};
 const C={
   1:{
-    2:{a:{topic:'AI 도구 첫 만남',desc:'Midjourney·DALL-E로 AI 그림을 만들고 디지털 도구 사용법을 익힙니다. 수업 방향과 플랫폼을 소개합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','DALL-E']},b:{topic:'게임·앱 첫 만남',desc:'Scratch로 간단한 게임을 만들며 블록 코딩에 입문합니다. 앱 기획의 기초 개념을 소개합니다.',ct:['분해','알고리즘'],steam:['E','T'],tools:['Scratch','App Inventor']},c:{topic:'Python 환경 설정',desc:'Python 개발 환경을 설치하고 첫 코드를 실행합니다. 코딩의 기초 개념과 학습 방향을 안내합니다.',ct:['알고리즘','추상화'],steam:['T','M'],tools:['Python (IDE)','VS Code']}},
+    1:{a:{topic:'AI 도구 첫 만남',desc:'Midjourney·DALL-E로 AI 그림을 만들고 디지털 도구 사용법을 익힙니다. 수업 방향과 플랫폼을 소개합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','DALL-E']},b:{topic:'게임·앱 첫 만남',desc:'Scratch로 간단한 게임을 만들며 블록 코딩에 입문합니다. 앱 기획의 기초 개념을 소개합니다.',ct:['분해','알고리즘'],steam:['E','T'],tools:['Scratch','App Inventor']},c:{topic:'Python 환경 설정',desc:'Python 개발 환경을 설치하고 첫 코드를 실행합니다. 코딩의 기초 개념과 학습 방향을 안내합니다.',ct:['알고리즘','추상화'],steam:['T','M'],tools:['Python (IDE)','VS Code']}},
     3:{a:{topic:'AI 그림·이야기 창작',desc:'AI 이미지 생성 도구로 나만의 캐릭터와 이야기를 만듭니다. 패턴 인식과 추상화를 놀이처럼 배웁니다.',ct:['패턴 인식','추상화'],steam:['A','T'],tools:['Midjourney','DALL-E','Vibe Coding']},b:{topic:'스크래치 게임 제작',desc:'Scratch로 캐릭터를 움직이는 게임을 만듭니다. 알고리즘 설계와 디버깅 개념을 익힙니다.',ct:['분해','알고리즘','디버깅'],steam:['E','M','A'],tools:['Scratch']},c:{topic:'Python 기초 문법',desc:'변수·조건문·반복문을 배우고 간단한 계산 프로그램을 만듭니다. 알고리즘 설계의 기초를 다집니다.',ct:['알고리즘','디버깅'],steam:['T','M'],tools:['Python (IDE)']}},
     4:{a:{topic:'움직이는 그림책',desc:'Vibe Coding으로 그림이 움직이는 인터랙티브 그림책을 만듭니다. 분해와 알고리즘을 활용합니다.',ct:['분해','알고리즘'],steam:['A','E','T'],tools:['Vibe Coding']},b:{topic:'앱인벤터 앱 제작',desc:'App Inventor로 버튼과 화면이 있는 모바일 앱을 만듭니다. 설계→구현→테스트 과정을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['App Inventor']},c:{topic:'Python 게임 제작',desc:'Pygame으로 2D 게임을 만들며 객체 개념을 익힙니다. 알고리즘과 디버깅 능력을 실전으로 키웁니다.',ct:['알고리즘','디버깅','설계'],steam:['T','E','M','A'],tools:['Python','Pygame']}},
     5:{a:{topic:'AI 동물 도감',desc:'AI 도구로 동물을 생성하고 Vibe Coding으로 인터랙티브 도감을 만듭니다.',ct:['패턴 인식','추상화'],steam:['S','A','T'],tools:['AI Tool','Vibe Coding']},b:{topic:'바이브 코딩 입문',desc:'AI 코딩 도구로 나만의 웹 페이지를 만듭니다. 알고리즘과 추상화를 웹 표현으로 연결합니다.',ct:['분해','알고리즘','추상화'],steam:['T','E','A'],tools:['Vibe Coding','HTML/CSS']},c:{topic:'AI 활용 코딩',desc:'Python AI 라이브러리로 이미지 분류·텍스트 생성을 구현합니다. AI의 원리를 코드로 이해합니다.',ct:['알고리즘','추상화','패턴'],steam:['T','A','M'],tools:['Python','AI Library']}},
     6:{a:{topic:'인터랙티브 이야기',desc:'클릭하면 반응하는 이야기를 만들며 봄 학기를 마무리합니다. 분해와 알고리즘으로 이야기 구조를 설계합니다.',ct:['분해','알고리즘'],steam:['A','T','E'],tools:['Vibe Coding']},b:{topic:'메타버스 공간 제작',desc:'ZEP에서 나만의 메타버스 공간을 기획하고 만듭니다. 설계 사고와 공간 표현을 배웁니다.',ct:['분해','설계'],steam:['E','A'],tools:['ZEP','ZEPETO']},c:{topic:'챗봇 제작',desc:'ChatGPT API로 특정 주제에 답하는 챗봇을 만듭니다. 자동화와 API 개념을 실전에서 익힙니다.',ct:['알고리즘','자동화','추상화'],steam:['T','A'],tools:['Python','ChatGPT API']}},
-    8:{a:{topic:'AI 창작 여름 특강',desc:'여름 특강으로 AI 영상·음악 창작을 체험합니다. 생성형 AI 도구를 다양하게 경험합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Suno','Runway','DALL-E']},b:{topic:'앱 기획 프로젝트',desc:'아이디어 → 화면 설계 → 프로토타입 과정을 경험합니다. 팀으로 앱을 기획하고 Figma로 시각화합니다.',ct:['분해','추상화','설계'],steam:['E','T','A'],tools:['Figma','App Inventor']},c:{topic:'웹 기초 프로젝트',desc:'HTML·CSS·JavaScript로 간단한 웹 페이지를 만듭니다. 프론트엔드 기초와 DOM 조작을 배웁니다.',ct:['분해','알고리즘','디버깅'],steam:['T','E','A'],tools:['HTML','CSS','JavaScript']}},
+    7:{a:{topic:'AI 창작 여름 특강',desc:'여름 특강으로 AI 영상·음악 창작을 체험합니다. 생성형 AI 도구를 다양하게 경험합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Suno','Runway','DALL-E']},b:{topic:'앱 기획 프로젝트',desc:'아이디어 → 화면 설계 → 프로토타입 과정을 경험합니다. 팀으로 앱을 기획하고 Figma로 시각화합니다.',ct:['분해','추상화','설계'],steam:['E','T','A'],tools:['Figma','App Inventor']},c:{topic:'웹 기초 프로젝트',desc:'HTML·CSS·JavaScript로 간단한 웹 페이지를 만듭니다. 프론트엔드 기초와 DOM 조작을 배웁니다.',ct:['분해','알고리즘','디버깅'],steam:['T','E','A'],tools:['HTML','CSS','JavaScript']}},
     9:{a:{topic:'역사 공간 만들기',desc:'ZEP 메타버스에서 우리 역사를 담은 공간을 만듭니다. 분해와 설계로 이야기 공간을 구성합니다.',ct:['분해','설계'],steam:['S','A','E'],tools:['ZEP','MetaVerse']},b:{topic:'바이브 코딩 심화',desc:'AI 코딩 도구로 기능이 있는 웹 앱을 만듭니다. 알고리즘과 자동화를 응용합니다.',ct:['알고리즘','자동화','디버깅'],steam:['T','E','A','M'],tools:['Vibe Coding (Advanced)']},c:{topic:'Python 자동화',desc:'파일 처리·웹 크롤링·자동 이메일 등 실생활 자동화를 구현합니다. 자동화 사고를 키웁니다.',ct:['자동화','알고리즘'],steam:['T','E','M'],tools:['Python','Automation']}},
     10:{a:{topic:'ZEP 역사 체험맵',desc:'역사 인물·사건을 담은 인터랙티브 맵을 완성합니다. 설계와 협업으로 공간을 풍부하게 만듭니다.',ct:['분해','설계'],steam:['E','S'],tools:['ZEP']},b:{topic:'앱인벤터 심화',desc:'데이터베이스와 센서를 활용한 앱을 만듭니다. 알고리즘 심화와 디버깅 능력을 키웁니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['App Inventor']},c:{topic:'웹앱 제작',desc:'Flask로 서버를 구성하고 HTML과 연동한 웹앱을 만듭니다. 클라이언트-서버 구조를 이해합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Flask','HTML','CSS','JS']}},
     11:{a:{topic:'온라인 전시회',desc:'한 학기 작품을 모아 메타버스 전시회를 엽니다. 작품을 소개하는 발표 능력을 키웁니다.',ct:['분해','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','ZEP']},b:{topic:'포트폴리오 제작',desc:'만든 앱·웹·코딩 작품을 정리해 포트폴리오를 만듭니다. 결과물을 논리적으로 설명합니다.',ct:['추상화','커뮤니케이션'],steam:['A','E'],tools:['Document','Figma']},c:{topic:'AI 콘텐츠 제작',desc:'AI 도구와 Python을 결합해 자동화된 콘텐츠를 만듭니다. 창작과 기술을 통합합니다.',ct:['추상화','패턴','자동화'],steam:['T','A'],tools:['AI Tool','Python']}},
     12:{a:{topic:'겨울 전시회',desc:'연간 작품을 발표하고 메타버스 전시를 엽니다. 발표·소통 능력을 마무리합니다.',ct:['분해','커뮤니케이션'],steam:['A','T','E'],tools:['MetaVerse','ZEP']},b:{topic:'창작 페스티벌',desc:'앱·게임·웹 작품을 부스 형식으로 전시하고 발표합니다. 한 해의 성장을 돌아봅니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'데모데이',desc:'만든 서비스를 발표하는 데모데이를 진행합니다. 프레젠테이션과 질의응답 능력을 키웁니다.',ct:['커뮤니케이션','프레젠테이션'],steam:['T','E','A'],tools:['Presentation Tool']}},
   },
   2:{
-    2:{a:{topic:'팀 프로젝트 기획',desc:'팀을 구성하고 올해 만들 작품의 주제와 계획을 세웁니다. 분해와 설계 사고를 시작합니다.',ct:['분해','추상화','설계'],steam:['A','E'],tools:['Figma','Notion']},b:{topic:'서비스 아이디어 기획',desc:'사용자 문제를 정의하고 디지털 서비스 아이디어를 기획합니다. 사용자 스토리 작성법을 배웁니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Miro']},c:{topic:'데이터 분석 입문',desc:'Pandas로 실제 데이터를 읽고 분석합니다. 패턴 인식과 추상화를 데이터로 연결합니다.',ct:['패턴 인식','추상화'],steam:['M','T','S'],tools:['Python (Pandas)','Jupyter']}},
+    1:{a:{topic:'팀 프로젝트 기획',desc:'팀을 구성하고 올해 만들 작품의 주제와 계획을 세웁니다. 분해와 설계 사고를 시작합니다.',ct:['분해','추상화','설계'],steam:['A','E'],tools:['Figma','Notion']},b:{topic:'서비스 아이디어 기획',desc:'사용자 문제를 정의하고 디지털 서비스 아이디어를 기획합니다. 사용자 스토리 작성법을 배웁니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Miro']},c:{topic:'데이터 분석 입문',desc:'Pandas로 실제 데이터를 읽고 분석합니다. 패턴 인식과 추상화를 데이터로 연결합니다.',ct:['패턴 인식','추상화'],steam:['M','T','S'],tools:['Python (Pandas)','Jupyter']}},
     3:{a:{topic:'팀 AI 영상 제작',desc:'AI 영상·음악 도구로 팀 스토리를 만듭니다. 역할 분담과 협업을 처음 경험합니다.',ct:['분해','패턴 인식'],steam:['A','T'],tools:['Runway','Suno','Vibe Coding']},b:{topic:'데이터 시각화',desc:'Python으로 실생활 데이터를 그래프로 표현합니다. 수학적 사고와 코딩을 결합합니다.',ct:['패턴 인식','추상화'],steam:['M','T'],tools:['Python','Matplotlib']},c:{topic:'웹 서비스 제작',desc:'Flask·Django로 실제로 접속 가능한 웹 서비스를 만듭니다. 서버 구조와 데이터베이스를 이해합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A'],tools:['Flask','Django']}},
     4:{a:{topic:'메타버스 이야기 공간',desc:'팀이 기획한 이야기를 ZEP 메타버스로 구현합니다. 역할 분담·설계·구현을 팀으로 경험합니다.',ct:['분해','설계'],steam:['A','T','E'],tools:['ZEP','Vibe Coding']},b:{topic:'팀 앱 기획·제작',desc:'팀 아이디어를 앱인벤터·바이브코딩으로 구현합니다. 기획→구현→피드백 사이클을 돌립니다.',ct:['분해','알고리즘','디버깅'],steam:['T','E','A'],tools:['App Inventor','Vibe Coding']},c:{topic:'데이터 프로젝트',desc:'공공 데이터를 가져와 분석하고 시각화합니다. SQL 기초와 데이터 스토리텔링을 배웁니다.',ct:['패턴 인식','추상화','알고리즘'],steam:['M','T','S'],tools:['Python','SQL','Matplotlib']}},
     5:{a:{topic:'생성형 AI 창작',desc:'ChatGPT·DALL-E로 팀 스토리와 비주얼을 만듭니다. AI와 협력하는 창작 방식을 탐구합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['ChatGPT','DALL-E','Vibe Coding']},b:{topic:'Python 첫 프로젝트',desc:'Python으로 첫 텍스트 기반 프로그램을 완성합니다. 변수·조건·반복을 실전에 적용합니다.',ct:['알고리즘','디버깅','분해'],steam:['T','M'],tools:['Python']},c:{topic:'AI 서비스 기획',desc:'사용자 리서치 → 아이디어 → 프로토타입 과정으로 AI 서비스를 기획합니다. UX 사고를 배웁니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Design Tool']}},
     6:{a:{topic:'히스토리아 프로젝트',desc:'역사·문화 주제를 메타버스와 스토리로 표현합니다. 분해와 패턴 인식으로 복잡한 이야기를 구성합니다.',ct:['분해','패턴 인식'],steam:['S','A','E'],tools:['ZEP','Vibe Coding']},b:{topic:'서비스 제작 프로젝트',desc:'기획한 앱 서비스를 완성해 교내 발표합니다. 설계→구현→테스트→피드백 전 과정을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['App Inventor','Vibe Coding','Python']},c:{topic:'생성형 AI 활용',desc:'Claude·ChatGPT API로 프롬프트 엔지니어링과 자동화를 구현합니다. AI와 코드를 통합합니다.',ct:['추상화','패턴','자동화'],steam:['T','A'],tools:['ChatGPT','Claude API','Python']}},
-    8:{a:{topic:'메타버스 여름 특강',desc:'ZEP·ZEPETO에서 협업 공간을 만드는 심화 특강입니다. 설계와 협업 기술을 집중 연습합니다.',ct:['분해','설계'],steam:['E','A','T'],tools:['ZEP','ZEPETO']},b:{topic:'팀 메타버스 제작',desc:'팀이 주제를 정해 교내 전시용 메타버스 공간을 만듭니다. 협업 설계와 구현을 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['MetaVerse (Team)']},c:{topic:'팀 서비스 기획',desc:'팀 프로젝트로 실제 문제를 해결하는 서비스를 기획합니다. Figma·Notion으로 사양서를 작성합니다.',ct:['분해','추상화'],steam:['T','E','A'],tools:['Figma','Notion']}},
+    7:{a:{topic:'메타버스 여름 특강',desc:'ZEP·ZEPETO에서 협업 공간을 만드는 심화 특강입니다. 설계와 협업 기술을 집중 연습합니다.',ct:['분해','설계'],steam:['E','A','T'],tools:['ZEP','ZEPETO']},b:{topic:'팀 메타버스 제작',desc:'팀이 주제를 정해 교내 전시용 메타버스 공간을 만듭니다. 협업 설계와 구현을 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['MetaVerse (Team)']},c:{topic:'팀 서비스 기획',desc:'팀 프로젝트로 실제 문제를 해결하는 서비스를 기획합니다. Figma·Notion으로 사양서를 작성합니다.',ct:['분해','추상화'],steam:['T','E','A'],tools:['Figma','Notion']}},
     9:{a:{topic:'AI 캐릭터·세계관',desc:'AI 이미지 도구로 나만의 캐릭터와 세계관을 만듭니다. 추상화와 패턴을 활용해 일관된 스타일을 만듭니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','DALL-E']},b:{topic:'바이브 코딩 고급',desc:'API 연동·로그인 기능이 있는 웹앱을 바이브 코딩으로 만듭니다. 자동화와 설계 사고를 심화합니다.',ct:['알고리즘','설계','자동화'],steam:['T','E','A','M'],tools:['Vibe Coding (Advanced)']},c:{topic:'AI 기반 서비스 개발',desc:'Python·웹 프레임워크·AI API를 통합해 실제 서비스를 만듭니다. 풀스택 개발 흐름을 경험합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','M','S','A','E'],tools:['Python','Web Framework','AI API']}},
     10:{a:{topic:'팀 메타버스 협업',desc:'역할을 나눠 대형 메타버스 공간을 함께 만듭니다. 협업 능력과 프로젝트 관리를 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['MetaVerse','ZEP']},b:{topic:'서비스 제작 프로젝트',desc:'기획한 서비스의 전체 버전을 제작합니다. 여러 기능을 통합하고 사용자 테스트를 진행합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Multiple Tools']},c:{topic:'AI 데이터 분석',desc:'TensorFlow·Sklearn으로 머신러닝 모델을 만들고 결과를 분석합니다. AI 원리를 코드로 구현합니다.',ct:['패턴','알고리즘','자동화'],steam:['T','M','S'],tools:['TensorFlow','Sklearn','Python']}},
     11:{a:{topic:'디지털 전시관',desc:'팀 작품을 모아 메타버스 전시관을 꾸밉니다. 작품을 스토리로 엮어 관람객에게 소개합니다.',ct:['분해','설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','ZEP']},b:{topic:'팀 발표·시연',desc:'완성된 서비스를 발표하고 시연합니다. 발표 자료를 구성하고 질의응답을 준비합니다.',ct:['커뮤니케이션','추상화'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'서비스 구현·정리',desc:'서비스를 완성하고 코드를 정리합니다. README 작성과 기술 문서 작성법을 배웁니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['Web Framework','GitHub']}},
     12:{a:{topic:'메타뮤지엄 발표',desc:'연간 작품을 메타버스 뮤지엄으로 전시하고 발표합니다. 1년간의 성장을 돌아봅니다.',ct:['분해','추상화','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Presentation']},b:{topic:'프로젝트 발표회',desc:'팀 서비스를 전체 발표합니다. 성과와 배운 점을 공유하고 다음 목표를 세웁니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'프로젝트 발표',desc:'서비스 완성 발표와 코드 리뷰를 진행합니다. 개선 사항을 정리하고 3회차를 준비합니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation','GitHub']}},
   },
   3:{
-    2:{a:{topic:'AI 크리에이터 기획',desc:'올해 완성할 창작 작품의 콘셉트와 스토리를 기획합니다. 브랜딩 개념과 포트폴리오 목표를 세웁니다.',ct:['추상화','설계'],steam:['A','T','E'],tools:['Notion','Figma']},b:{topic:'창작 서비스 기획',desc:'실제 사용자가 쓸 수 있는 서비스 MVP를 기획합니다. 사용자 리서치와 PRD 작성을 경험합니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Notion','Miro']},c:{topic:'AI·데이터 진로 탐색',desc:'AI·데이터 분야의 직업과 진로를 탐색합니다. 나의 강점과 관심 분야를 연결하는 로드맵을 만듭니다.',ct:['추상화','패턴'],steam:['T','M','S'],tools:['진로 플랫폼','Notion']}},
+    1:{a:{topic:'AI 크리에이터 기획',desc:'올해 완성할 창작 작품의 콘셉트와 스토리를 기획합니다. 브랜딩 개념과 포트폴리오 목표를 세웁니다.',ct:['추상화','설계'],steam:['A','T','E'],tools:['Notion','Figma']},b:{topic:'창작 서비스 기획',desc:'실제 사용자가 쓸 수 있는 서비스 MVP를 기획합니다. 사용자 리서치와 PRD 작성을 경험합니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Notion','Miro']},c:{topic:'AI·데이터 진로 탐색',desc:'AI·데이터 분야의 직업과 진로를 탐색합니다. 나의 강점과 관심 분야를 연결하는 로드맵을 만듭니다.',ct:['추상화','패턴'],steam:['T','M','S'],tools:['진로 플랫폼','Notion']}},
     3:{a:{topic:'생성형 AI 작품 제작',desc:'Midjourney·Suno·Runway를 결합해 AI 미디어 작품을 만듭니다. 생성형 AI 활용 능력을 심화합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','Suno','Runway']},b:{topic:'앱 서비스 개발',desc:'Python·바이브코딩으로 실제 배포 가능한 앱 서비스를 만듭니다. 코드 품질과 사용자 경험을 고려합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Python','Vibe Coding','App Inventor']},c:{topic:'풀스택 프로젝트',desc:'프론트엔드·백엔드·데이터베이스를 모두 포함한 풀스택 웹 서비스를 구축합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A'],tools:['React','Flask','SQL','GitHub']}},
     4:{a:{topic:'팀 메타버스 월드',desc:'팀이 기획한 세계관을 대형 메타버스 월드로 구현합니다. 역할 분담·설계·구현의 모든 단계를 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['ZEP','MetaVerse']},b:{topic:'웹·앱 개발 프로젝트',desc:'웹과 앱을 동시에 지원하는 서비스를 만듭니다. 반응형 설계와 다플랫폼 개발을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['React','App Inventor','Vibe Coding']},c:{topic:'AI 서비스 개발',desc:'AI API를 핵심 기능으로 하는 서비스를 기획·개발합니다. 프롬프트 엔지니어링과 API 설계를 심화합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A','M'],tools:['Python','AI API','Web Framework']}},
     5:{a:{topic:'AI 단편 영화 제작',desc:'AI 도구로 각본·이미지·음악·편집까지 모두 직접 제작한 단편 영화를 만듭니다.',ct:['분해','추상화','패턴'],steam:['A','T'],tools:['Runway','Suno','DALL-E','편집 Tool']},b:{topic:'생성형 AI 서비스',desc:'생성형 AI를 핵심으로 하는 서비스(그림책·뉴스레터·퀴즈 생성기 등)를 만듭니다.',ct:['추상화','자동화','패턴'],steam:['T','A','E'],tools:['ChatGPT API','DALL-E','Python']},c:{topic:'생성형 AI 파이프라인',desc:'AI 콘텐츠 자동화 파이프라인을 구축합니다. 프롬프트 엔지니어링과 자동화를 결합합니다.',ct:['추상화','자동화','패턴'],steam:['T','A'],tools:['Midjourney','Claude API','Python']}},
     6:{a:{topic:'창작 포트폴리오 완성',desc:'3년간 만든 AI 작품을 포트폴리오로 정리합니다. 나만의 브랜딩과 스토리로 작품집을 완성합니다.',ct:['추상화','커뮤니케이션'],steam:['A','E'],tools:['Vibe Coding','Notion','Portfolio']},b:{topic:'서비스 MVP 완성',desc:'실제로 배포 가능한 MVP를 완성합니다. 사용자 피드백을 반영해 서비스를 개선합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Multiple Tools']},c:{topic:'서비스 MVP 배포',desc:'완성된 AI 서비스를 실제 환경에 배포합니다. Vercel·Heroku로 퍼블릭 URL을 만듭니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A','S','M'],tools:['Python','Vercel','GitHub']}},
-    8:{a:{topic:'AI 크리에이터 캠프',desc:'여름 특강으로 AI 창작물을 완성하고 SNS에 공유합니다. 디지털 크리에이터로서의 첫걸음을 만듭니다.',ct:['추상화','커뮤니케이션'],steam:['A','T'],tools:['AI Tools','SNS Platform']},b:{topic:'서비스 고도화',desc:'출시한 MVP를 사용자 피드백을 바탕으로 개선합니다. 애자일 방식의 반복 개발을 경험합니다.',ct:['디버깅','설계','자동화'],steam:['T','E'],tools:['Multiple Tools','GitHub']},c:{topic:'AI 프로젝트 고도화',desc:'AI 서비스의 성능을 개선하고 새로운 기능을 추가합니다. 코드 리뷰와 리팩토링을 경험합니다.',ct:['알고리즘','디버깅','자동화'],steam:['T','M','S'],tools:['Python','GitHub','CI/CD']}},
+    7:{a:{topic:'AI 크리에이터 캠프',desc:'여름 특강으로 AI 창작물을 완성하고 SNS에 공유합니다. 디지털 크리에이터로서의 첫걸음을 만듭니다.',ct:['추상화','커뮤니케이션'],steam:['A','T'],tools:['AI Tools','SNS Platform']},b:{topic:'서비스 고도화',desc:'출시한 MVP를 사용자 피드백을 바탕으로 개선합니다. 애자일 방식의 반복 개발을 경험합니다.',ct:['디버깅','설계','자동화'],steam:['T','E'],tools:['Multiple Tools','GitHub']},c:{topic:'AI 프로젝트 고도화',desc:'AI 서비스의 성능을 개선하고 새로운 기능을 추가합니다. 코드 리뷰와 리팩토링을 경험합니다.',ct:['알고리즘','디버깅','자동화'],steam:['T','M','S'],tools:['Python','GitHub','CI/CD']}},
     9:{a:{topic:'포트폴리오 사이트',desc:'나만의 포트폴리오 웹사이트를 Vibe Coding으로 만듭니다. 3년간의 작품을 한 곳에 담습니다.',ct:['분해','설계','추상화'],steam:['A','T','E'],tools:['Vibe Coding','GitHub Pages']},b:{topic:'서비스 포트폴리오',desc:'만든 서비스를 소개하는 포트폴리오를 완성합니다. 기술 스택과 문제 해결 과정을 서술합니다.',ct:['추상화','커뮤니케이션'],steam:['T','E','A'],tools:['Notion','GitHub','Figma']},c:{topic:'AI 서비스 완성',desc:'서비스를 완성하고 GitHub에 배포합니다. 기술 문서와 README를 작성합니다.',ct:['알고리즘','자동화','설계'],steam:['T','M','S','E'],tools:['Python','Web Framework','GitHub']}},
     10:{a:{topic:'전시회 기획',desc:'연말 전시회를 직접 기획합니다. 공간 구성·홍보·운영을 팀이 함께 준비합니다.',ct:['분해','설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Canva','Figma']},b:{topic:'발표 준비·리허설',desc:'최종 발표를 준비합니다. 발표 자료와 시연 시나리오를 완성하고 리허설을 진행합니다.',ct:['커뮤니케이션','추상화'],steam:['T','E','A'],tools:['Presentation','Demo']},c:{topic:'실전 데이터 분석',desc:'공공 데이터·AI 모델 결과를 분석하고 BI 대시보드로 시각화합니다. 데이터 기반 의사결정을 경험합니다.',ct:['패턴','알고리즘','추상화'],steam:['M','T','S'],tools:['Python','SQL','BI Tool']}},
     11:{a:{topic:'AI 영화제',desc:'만든 AI 단편 영화를 상영하는 영화제를 개최합니다. 작품 소개와 관람 이벤트를 기획합니다.',ct:['추상화','커뮤니케이션'],steam:['A','T'],tools:['AI Tool','Video Editor','MetaVerse']},b:{topic:'디지털 전시관',desc:'완성된 서비스를 전시하는 디지털 전시관을 엽니다. 방문자 경험을 설계합니다.',ct:['설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Web']},c:{topic:'포트폴리오 프로젝트',desc:'GitHub·웹·AI 서비스를 통합한 최종 포트폴리오를 완성합니다. 진학·취업에 활용할 수 있는 수준으로 정리합니다.',ct:['알고리즘','설계','추상화','자동화'],steam:['T','E','A','M','S'],tools:['GitHub','Web','AI Service']}},
@@ -434,7 +434,7 @@ const C={
 };
 
 const STEAM_CLS={S:'st-S',T:'st-T',E:'st-E',A:'st-A',M:'st-M'};
-const VAC=[1,7];
+const VAC=[2,8];
 const ALL_M=[1,2,3,4,5,6,7,8,9,10,11,12];
 let curRound=1, detRound=1;
 
@@ -456,7 +456,7 @@ function buildGrid(){
       td.className=`ov-cell ${g.cls}`;
       if(VAC.includes(m)){
         td.classList.add('vac');
-        td.innerHTML=`<span class="vac-label">${m===1?'겨울방학':'여름방학'}</span>`;
+        td.innerHTML=`<span class="vac-label">${m===2?'겨울방학':'여름방학'}</span>`;
       } else {
         const d=C[curRound][m]&&C[curRound][m][g.id];
         if(d){
@@ -542,7 +542,7 @@ document.querySelectorAll('#detailRoundBtns .round-btn').forEach(btn=>{
     btn.classList.add('active');
     detRound=parseInt(btn.dataset.round);
     const at=document.querySelector('.month-tab.active');
-    renderDetail(at?parseInt(at.dataset.month):2);
+    renderDetail(at?parseInt(at.dataset.month):1);
   });
 });
 
@@ -554,7 +554,7 @@ document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
 buildGrid();
 buildTabs();
-renderDetail(2);
+renderDetail(1);
 </script>
 </body>
 </html>
