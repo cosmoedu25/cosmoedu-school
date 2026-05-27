@@ -197,35 +197,44 @@ img{max-width:100%}
 .jr .rv.d2{transition-delay:.2s}
 .jr .rv.d3{transition-delay:.3s}
 
-/* ── 과목 아이콘 ── */
-.center-txt{text-align:center}
-.subj-row{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-.subj-icon-btn{display:flex;flex-direction:column;align-items:center;gap:.55rem;cursor:pointer;background:none;border:none;padding:0;transition:all var(--tr)}
-.subj-icon-btn:hover .subj-circle{transform:scale(1.08);box-shadow:0 6px 20px rgba(15,23,42,.14)}
-.subj-icon-btn.active .subj-circle{box-shadow:0 0 0 3px white,0 0 0 5px var(--subj-color)}
-.subj-circle{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.45rem;transition:all var(--tr);position:relative}
-.subj-label{font-size:.75rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color var(--tr)}
-.subj-icon-btn.active .subj-label{color:var(--text)}
-.subj-cases{display:none}
-.subj-cases.open{display:block;animation:fadeUp .28s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.subj-cases-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem;padding:.85rem 1.2rem;background:white;border-radius:var(--r);border:1px solid var(--border)}
-.subj-cases-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.subj-cases-title{font-size:1rem;font-weight:800}
-.subj-cases-desc{font-size:.82rem;color:var(--muted)}
-.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.case-card{background:white;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:all var(--tr)}
-.case-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(15,23,42,.1)}
-.case-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-direction:column;gap:.4rem}
-.case-body{padding:.9rem 1rem}
-.case-tag{font-size:.66rem;font-weight:700;padding:.18rem .55rem;border-radius:5px;display:inline-block;margin-bottom:.4rem}
-.case-title{font-size:.93rem;font-weight:800;margin-bottom:.3rem;line-height:1.35}
-.case-desc{font-size:.8rem;color:var(--muted);line-height:1.65;word-break:keep-all}
-.case-keywords{display:flex;gap:.25rem;margin-top:.6rem;flex-wrap:wrap}
-.case-kw{font-size:.66rem;font-weight:600;padding:.16rem .5rem;border-radius:5px;background:#F1F5F9;color:var(--muted)}
+/* ── 타이틀 + 회차 인라인 ── */
+.overview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.round-inline-wrap{display:flex;flex-direction:column;gap:.45rem;align-items:flex-end;padding-top:.2rem}
 
-@media(max-width:900px){.group-cards{grid-template-columns:1fr}.round-cards{grid-template-columns:1fr}.case-grid{grid-template-columns:1fr}}
-@media(max-width:640px){.sec{padding:52px 0}.hero{padding:88px 0 44px}.cta-box{padding:2.5rem 1.5rem}.subj-circle{width:58px;height:58px;font-size:1.25rem}.subj-row{gap:1rem}}
+/* ── 테이블 + 과목 필터 일체형 ── */
+.grid-outer{border-radius:var(--r) var(--r) 0 0}
+.subj-filter-wrap{border:1px solid var(--border);border-top:none;border-radius:0 0 var(--r) var(--r);background:white;padding:.65rem 1rem .9rem}
+.subj-filter{display:flex;gap:.38rem;flex-wrap:wrap}
+.subj-icon-btn{display:inline-flex;align-items:center;gap:.36rem;cursor:pointer;border-radius:100px;padding:.26rem .68rem .26rem .36rem;transition:all var(--tr);border:1.5px solid var(--border);background:rgba(15,23,42,.025)}
+.subj-icon-btn:hover{border-color:var(--subj-color);background:var(--subj-bg)}
+.subj-icon-btn.active{border-color:var(--subj-color);background:var(--subj-bg)}
+.subj-circle{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0}
+.subj-label{font-size:.73rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color var(--tr)}
+.subj-icon-btn.active .subj-label,.subj-icon-btn:hover .subj-label{color:var(--text)}
+.subj-cases{display:none;padding:.9rem 0 .1rem}
+.subj-cases.open{display:block;animation:fadeUp .25s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.subj-cases-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem;padding:.65rem 1rem;background:var(--bg);border-radius:var(--r);border:1px solid var(--border)}
+.subj-cases-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.subj-cases-title{font-size:.93rem;font-weight:800}
+.subj-cases-desc{font-size:.78rem;color:var(--muted)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.case-card{background:var(--bg);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:all var(--tr)}
+.case-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(15,23,42,.09)}
+.case-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-direction:column;gap:.4rem}
+.case-body{padding:.85rem 1rem}
+.case-tag{font-size:.64rem;font-weight:700;padding:.15rem .5rem;border-radius:5px;display:inline-block;margin-bottom:.35rem}
+.case-title{font-size:.9rem;font-weight:800;margin-bottom:.28rem;line-height:1.35}
+.case-desc{font-size:.78rem;color:var(--muted);line-height:1.62;word-break:keep-all}
+.case-keywords{display:flex;gap:.22rem;margin-top:.55rem;flex-wrap:wrap}
+.case-kw{font-size:.64rem;font-weight:600;padding:.14rem .48rem;border-radius:5px;background:#F1F5F9;color:var(--muted)}
+
+/* ── 월별 상세 (필터+내용 일체) ── */
+.month-detail-area{margin-top:1.8rem;padding-top:1.4rem;border-top:2px solid var(--border)}
+.month-filter-label{font-size:.68rem;font-weight:700;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.55rem}
+
+@media(max-width:900px){.group-cards{grid-template-columns:1fr}.round-cards{grid-template-columns:1fr}.case-grid{grid-template-columns:1fr}.overview-head{flex-direction:column;gap:.9rem}.round-inline-wrap{align-items:flex-start}}
+@media(max-width:640px){.sec{padding:52px 0}.hero{padding:88px 0 44px}.cta-box{padding:2.5rem 1.5rem}}
 </style>
 </head>
 <body>
@@ -259,24 +268,28 @@ img{max-width:100%}
   </div>
 </div>
 
-<!-- ══ 연간 그리드 + 영역 아이콘 (통합) ══ -->
+<!-- ══ 통합 섹션 ══ -->
 <section class="sec" id="overview">
   <div class="wrap">
-    <div class="rv">
-      <div class="sec-label">연간 커리큘럼 한눈에 보기</div>
-      <h2 class="sec-title">월별 · 학년군별 <span class="hl">수업 개요</span></h2>
-      <p class="sec-sub" style="margin-bottom:1.6rem">회차를 선택하고 셀을 클릭하면 수업 상세 정보를 확인할 수 있습니다.</p>
-    </div>
-    <div class="round-bar rv d1">
-      <span class="round-label">회차 선택:</span>
-      <div class="round-btns" id="gridRoundBtns">
-        <button class="round-btn active" data-round="1">1회차 · 입문</button>
-        <button class="round-btn" data-round="2">2회차 · 심화</button>
-        <button class="round-btn" data-round="3">3회차 · 완성</button>
+
+    <!-- 타이틀 + 회차 선택 인라인 -->
+    <div class="overview-head rv">
+      <div>
+        <div class="sec-label">연간 커리큘럼 한눈에 보기</div>
+        <h2 class="sec-title" style="margin-bottom:0">월별 · 학년군별 <span class="hl">수업 개요</span></h2>
       </div>
-      <span class="round-desc" id="roundDesc">처음 시작하는 해 — AI·코딩 체험 중심</span>
+      <div class="round-inline-wrap">
+        <div class="round-btns" id="gridRoundBtns">
+          <button class="round-btn active" data-round="1">1회차 · 입문</button>
+          <button class="round-btn" data-round="2">2회차 · 심화</button>
+          <button class="round-btn" data-round="3">3회차 · 완성</button>
+        </div>
+        <span class="round-desc" id="roundDesc" style="align-self:flex-end">처음 시작하는 해 — AI·코딩 체험 중심</span>
+      </div>
     </div>
-    <div class="grid-outer rv d2">
+
+    <!-- 연간 그리드 -->
+    <div class="grid-outer rv d1">
       <table class="ov-table">
         <thead>
           <tr>
@@ -303,17 +316,20 @@ img{max-width:100%}
         <tbody id="ovBody"></tbody>
       </table>
     </div>
-    <p style="font-size:.75rem;color:var(--dim);margin-top:.75rem;text-align:right"><i class="fas fa-hand-pointer" style="margin-right:.3rem"></i> 셀을 클릭하면 상세 내용을 확인할 수 있습니다</p>
 
-    <!-- 영역 아이콘 (테이블 하단) -->
-    <div style="margin-top:2.8rem;padding-top:2rem;border-top:1px solid var(--border)">
-      <div class="rv" style="margin-bottom:1.4rem">
-        <div class="sec-label" style="margin-bottom:.5rem">AI · 융합 · 진로</div>
-        <p style="font-size:.9rem;color:var(--muted);line-height:1.7;word-break:keep-all">코스모에듀는 AI를 매개로 미술·음악·역사·과학 등 다양한 교과를 융합합니다. 아이콘을 눌러 실제 수업 사례를 확인해 보세요.</p>
-      </div>
-      <div class="subj-row" id="subjRow"></div>
+    <!-- 과목 필터 (테이블 하단 일체형) -->
+    <div class="subj-filter-wrap">
+      <div class="subj-filter" id="subjRow"></div>
       <div class="subj-cases" id="subjCases"></div>
     </div>
+
+    <!-- 월별 상세 필터 + 내용 -->
+    <div class="month-detail-area">
+      <div class="month-filter-label">월 선택</div>
+      <div class="month-tabs" id="monthTabs"></div>
+      <div id="monthBlocks"></div>
+    </div>
+
   </div>
 </section>
 
@@ -344,26 +360,6 @@ img{max-width:100%}
         <div class="round-card-tags"><span class="round-card-tag">MVP 제작</span><span class="round-card-tag">GitHub 협업</span><span class="round-card-tag">포트폴리오</span><span class="round-card-tag">AI 아카이브</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec sec-alt">
-  <div class="wrap">
-    <div class="rv">
-      <div class="sec-label">월별 상세 커리큘럼</div>
-      <h2 class="sec-title">학기별 <span class="hl">수업 상세 내용</span></h2>
-      <p class="sec-sub" style="margin-bottom:.9rem">월을 선택해 각 학년군의 수업 내용을 확인하세요.</p>
-    </div>
-    <div class="round-bar rv d1" style="margin-bottom:1rem">
-      <span class="round-label">회차:</span>
-      <div class="round-btns" id="detailRoundBtns">
-        <button class="round-btn active" data-round="1">1회차</button>
-        <button class="round-btn" data-round="2">2회차</button>
-        <button class="round-btn" data-round="3">3회차</button>
-      </div>
-    </div>
-    <div class="month-tabs rv d1" id="monthTabs"></div>
-    <div id="monthBlocks"></div>
   </div>
 </section>
 
@@ -474,7 +470,7 @@ const C={
 const STEAM_CLS={S:'st-S',T:'st-T',E:'st-E',A:'st-A',M:'st-M'};
 const VAC=[2,8];
 const ALL_M=[3,4,5,6,7,8,9,10,11,12,1,2];
-let curRound=1, detRound=1;
+let curRound=1;
 
 function steamH(a){return a.map(s=>`<span class="steam-tag ${STEAM_CLS[s]||'st-T'}">${s}</span>`).join('')}
 function toolH(a){return a.map(t=>`<span class="tool-pill">${t}</span>`).join('')}
@@ -532,7 +528,7 @@ function buildTabs(){
 function renderDetail(m){
   const con=document.getElementById('monthBlocks');
   const cards=GROUPS.map(g=>{
-    const d=C[detRound][m]&&C[detRound][m][g.id];
+    const d=C[curRound][m]&&C[curRound][m][g.id];
     if(!d)return'';
     return`<div class="group-card ${g.cardCls}">
       <div class="gc-head"><div class="gc-dot" style="background:${g.dot}"></div><div class="gc-info"><div class="gc-grade">${g.label} <span style="opacity:.65;font-size:.65rem">${g.range}</span></div><div class="gc-topic">${d.topic}</div></div></div>
@@ -572,15 +568,8 @@ document.querySelectorAll('#gridRoundBtns .round-btn').forEach(btn=>{
     curRound=parseInt(btn.dataset.round);
     document.getElementById('roundDesc').textContent=ROUND_DESCS[curRound];
     buildGrid();
-  });
-});
-document.querySelectorAll('#detailRoundBtns .round-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('#detailRoundBtns .round-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    detRound=parseInt(btn.dataset.round);
     const at=document.querySelector('.month-tab.active');
-    renderDetail(at?parseInt(at.dataset.month):1);
+    if(at) renderDetail(parseInt(at.dataset.month));
   });
 });
 
@@ -651,6 +640,7 @@ function buildSubjects(){
     const btn=document.createElement('button');
     btn.className='subj-icon-btn';
     btn.style.setProperty('--subj-color',s.color);
+    btn.style.setProperty('--subj-bg',s.bg);
     btn.innerHTML=`<div class="subj-circle" style="background:${s.bg}"><i class="fas ${s.icon}" style="color:${s.color}"></i></div><span class="subj-label">${s.label}</span>`;
     btn.addEventListener('click',()=>{
       const isActive=btn.classList.contains('active');
