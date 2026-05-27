@@ -377,13 +377,16 @@ img{max-width:100%}
   .curr-panel.on{grid-template-columns:1fr}
 }
 
-/* ── 카카오 채널 플로팅 버튼 ── */
-.kakao-float{position:fixed;bottom:2rem;right:2rem;z-index:150;display:flex;flex-direction:column;align-items:center;gap:.45rem}
-.kakao-float-btn{width:54px;height:54px;background:#FEE500;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.18);border:none;transition:transform .22s ease,box-shadow .22s ease;color:#3B1F1F;font-size:1.45rem;text-decoration:none}
+/* ── 플로팅 위젯 (무료상담 + 카카오 채널) ── */
+.float-stack{position:fixed;bottom:2rem;right:2rem;z-index:150;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.float-consult{display:flex;align-items:center;gap:.45rem;background:var(--blue);color:#fff;font-size:.82rem;font-weight:700;padding:.55rem 1.1rem;border-radius:24px;text-decoration:none;box-shadow:0 4px 18px rgba(37,99,235,.38);transition:transform .22s ease,box-shadow .22s ease;white-space:nowrap}
+.float-consult:hover{transform:scale(1.06);box-shadow:0 6px 24px rgba(37,99,235,.5)}
+.float-consult i{font-size:.78rem}
+.kakao-float{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.kakao-float-btn{width:54px;height:54px;background:#FEE500;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.18);border:none;transition:transform .22s ease,box-shadow .22s ease;color:#3B1F1F;text-decoration:none}
 .kakao-float-btn:hover{transform:scale(1.1);box-shadow:0 7px 26px rgba(0,0,0,.26)}
-.kakao-float-label{font-size:.67rem;font-weight:700;color:var(--text);background:white;border:1px solid var(--border);padding:.18rem .6rem;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);white-space:nowrap;opacity:0;transform:translateY(4px);transition:all .2s ease;pointer-events:none}
-.kakao-float:hover .kakao-float-label{opacity:1;transform:translateY(0)}
-@media(max-width:768px){.kakao-float{bottom:1.4rem;right:1.2rem}.kakao-float-btn{width:48px;height:48px;font-size:1.25rem}}
+.kakao-float-label{font-size:.67rem;font-weight:700;color:var(--muted);white-space:nowrap}
+@media(max-width:768px){.float-stack{bottom:1.2rem;right:1rem}.kakao-float-btn{width:48px;height:48px}.float-consult{font-size:.78rem;padding:.48rem .9rem}}
 </style>
 </head>
 <body>
@@ -422,7 +425,6 @@ img{max-width:100%}
         <p class="hero-p">강사 없이도, 장비 없이도, 커리큘럼 걱정 없이도.<br>우리 기관 상황에 맞는 패키지로 시작하세요.</p>
         <div class="hero-btns">
           <a href="#packages" class="btn btn-p"><i class="fas fa-th-large"></i> 패키지 선택하기</a>
-          <a href="#contact" class="btn btn-o">무료 상담 신청</a>
         </div>
         <div class="hero-stats">
           <div><div class="hs-num">17</div><div class="hs-lbl">전국 시/도 가능</div></div>
@@ -537,9 +539,6 @@ img{max-width:100%}
             <li><i class="fas fa-check"></i> 교사교육 무료 제공 (배워서 직접 진행 가능)</li>
             <li><i class="fas fa-check"></i> 이메일·채팅 기술 지원</li>
           </ul>
-          <div class="pk-cta">
-            <a href="#contact" class="pk-cta-outline">상담 신청 →</a>
-          </div>
         </div>
       </div>
 
@@ -567,9 +566,6 @@ img{max-width:100%}
             <li><i class="fas fa-check"></i> 수업 녹화본 제공 (복습 가능)</li>
             <li><i class="fas fa-check"></i> 학생 과제 피드백</li>
           </ul>
-          <div class="pk-cta">
-            <a href="#contact" class="pk-cta-primary">지금 시작하기 →</a>
-          </div>
         </div>
       </div>
 
@@ -637,9 +633,6 @@ img{max-width:100%}
             <li><i class="fas fa-check"></i> 원격 지원 환경 구성 포함</li>
             <li><i class="fas fa-check"></i> 초기 세팅비: <strong style="color:var(--text)">10~30만원</strong> (규모·지역 협의)</li>
           </ul>
-          <div class="pk-cta">
-            <a href="#contact" class="pk-cta-primary" style="background:linear-gradient(135deg,var(--purple),#6D28D9)">상담 신청하기 →</a>
-          </div>
         </div>
       </div>
 
@@ -686,9 +679,6 @@ img{max-width:100%}
           </div>
         </div>
 
-        <div style="margin-top:2rem">
-          <a href="#contact" class="btn btn-o rv" style="transition-delay:.45s">무료 상담 신청</a>
-        </div>
       </div>
 
       <!-- UI 목업 -->
@@ -897,9 +887,6 @@ img{max-width:100%}
       <span>커리큘럼은 학교 상황에 맞게 <strong style="color:var(--text)">완전히 맞춤 조정</strong>이 가능합니다. 홈스쿨링 소그룹, 초등~고등 혼합 반 등 다양한 형태에 맞게 설계해 드립니다.</span>
     </div>
 
-    <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem">
-      <a href="#contact" class="btn btn-o rv" style="transition-delay:.2s">무료 상담 신청</a>
-    </div>
   </div>
 </section>
 
@@ -1281,20 +1268,17 @@ img{max-width:100%}
 </nav>
 
 
-<!-- ══ KAKAO CHANNEL FLOAT ══ -->
-<!--
-  ★ 카카오 채널 설정 방법:
-  1. https://center-pf.kakao.com/ 에서 채널 생성 (무료)
-  2. 채널 홈 URL에서 채널 ID 확인 (예: https://pf.kakao.com/_xoAbcd → _xoAbcd)
-  3. 아래 href의 "_채널ID" 부분을 실제 채널 ID로 교체 (예: href="https://pf.kakao.com/_xoAbcd/chat")
--->
-<div class="kakao-float">
-  <a href="https://pf.kakao.com/_xjZsxjX/chat" class="kakao-float-btn" target="_blank" rel="noopener" aria-label="카카오톡 채널 상담">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 3C6.477 3 2 6.72 2 11.27c0 2.9 1.857 5.452 4.67 6.953l-.993 3.568a.3.3 0 0 0 .46.328L10.08 19.8c.628.09 1.27.137 1.92.137 5.523 0 10-3.72 10-8.267C22 6.72 17.523 3 12 3z"/>
-    </svg>
-  </a>
-  <span class="kakao-float-label">카카오 채널</span>
+<!-- ══ FLOATING WIDGET ══ -->
+<div class="float-stack">
+  <a href="#contact" class="float-consult"><i class="fas fa-comment-dots"></i> 무료 상담</a>
+  <div class="kakao-float">
+    <a href="https://pf.kakao.com/_xjZsxjX/chat" class="kakao-float-btn" target="_blank" rel="noopener" aria-label="카카오톡 채널 상담">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C6.477 3 2 6.72 2 11.27c0 2.9 1.857 5.452 4.67 6.953l-.993 3.568a.3.3 0 0 0 .46.328L10.08 19.8c.628.09 1.27.137 1.92.137 5.523 0 10-3.72 10-8.267C22 6.72 17.523 3 12 3z"/>
+      </svg>
+    </a>
+    <span class="kakao-float-label">카톡문의</span>
+  </div>
 </div>
 
 <!-- ══ JS ══ -->
