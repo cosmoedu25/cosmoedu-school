@@ -238,7 +238,7 @@ img{max-width:100%}
 
 /* ── 교육 사례 ── */
 .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.case-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all var(--tr);box-shadow:0 2px 8px rgba(15,23,42,.05)}
+.case-card{display:block;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all var(--tr);box-shadow:0 2px 8px rgba(15,23,42,.05);color:inherit;text-decoration:none}
 .case-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(15,23,42,.1)}
 .case-photo{position:relative;height:200px;background:rgba(15,23,42,.04);overflow:hidden}
 .case-img{width:100%;height:100%;object-fit:cover}
@@ -1209,7 +1209,7 @@ img{max-width:100%}
     <div class="cases-grid">
 
       <!-- 사례 1 -->
-      <div class="case-card rv">
+      <a href="https://pong2.app?center=11" class="case-card rv" target="_blank" rel="noopener">
         <div class="case-photo">
           <img src="" alt="교육 사례 사진" class="case-img">
           <div class="case-photo-placeholder">
@@ -1222,10 +1222,10 @@ img{max-width:100%}
           <h4 class="case-title">사례 기관명</h4>
           <p class="case-desc">수업 사례 내용이 여기에 들어갑니다. 어떤 수업을 진행했는지, 학생 반응과 성과를 간략히 소개합니다.</p>
         </div>
-      </div>
+      </a>
 
       <!-- 사례 2 -->
-      <div class="case-card rv d1">
+      <a href="https://pong2.app?center=100" class="case-card rv d1" target="_blank" rel="noopener">
         <div class="case-photo">
           <img src="" alt="교육 사례 사진" class="case-img">
           <div class="case-photo-placeholder">
@@ -1238,10 +1238,10 @@ img{max-width:100%}
           <h4 class="case-title">사례 기관명</h4>
           <p class="case-desc">수업 사례 내용이 여기에 들어갑니다. 어떤 수업을 진행했는지, 학생 반응과 성과를 간략히 소개합니다.</p>
         </div>
-      </div>
+      </a>
 
       <!-- 사례 3 -->
-      <div class="case-card rv d2">
+      <a href="https://pong2.app?center=1" class="case-card rv d2" target="_blank" rel="noopener">
         <div class="case-photo">
           <img src="" alt="교육 사례 사진" class="case-img">
           <div class="case-photo-placeholder">
@@ -1254,7 +1254,7 @@ img{max-width:100%}
           <h4 class="case-title">사례 기관명</h4>
           <p class="case-desc">수업 사례 내용이 여기에 들어갑니다. 어떤 수업을 진행했는지, 학생 반응과 성과를 간략히 소개합니다.</p>
         </div>
-      </div>
+      </a>
 
     </div>
 
