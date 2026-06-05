@@ -269,6 +269,15 @@ img{max-width:100%}
 .group-card.card-d .gc-grade,.group-card.card-d .gc-topic{color:#1D4ED8}
 .group-card.card-e .gc-head{background:rgba(190,24,93,.05)}
 .group-card.card-e .gc-grade,.group-card.card-e .gc-topic{color:#BE185D}
+/* 테이블 셀 색상 — gd, ge */
+.gd .cell-card{background:rgba(37,99,235,.07);border-color:rgba(37,99,235,.14)}
+.gd .cell-topic{color:#1D4ED8}
+.gd .cell-tools{color:#1D4ED8}
+.gd:not(.vac):hover .cell-card{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
+.ge .cell-card{background:rgba(190,24,93,.07);border-color:rgba(190,24,93,.14)}
+.ge .cell-topic{color:#BE185D}
+.ge .cell-tools{color:#BE185D}
+.ge:not(.vac):hover .cell-card{background:rgba(190,24,93,.15);border-color:rgba(190,24,93,.4)}
 </style>
 </head>
 <body>
@@ -731,6 +740,26 @@ const C={
  },
 },
 };
+
+/* ─── 상태 변수 & 상수 ─── */
+const ALL_M=[3,4,5,6,7,8,9,10,11,12,1,2];
+const VAC=[8,2];
+const STEAM_CLS={S:'st-S',T:'st-T',E:'st-E',A:'st-A',M:'st-M'};
+let curRound=1, selGrade=null, selMonth=null, selSubj=null;
+
+/* 회차 버튼 */
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('#gridRoundBtns .round-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('#gridRoundBtns .round-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      curRound=parseInt(btn.dataset.round);
+      document.getElementById('roundDesc').textContent=ROUND_DESCS[curRound];
+      buildGrid();
+      if(selMonth!==null||selSubj) renderUnified();
+    });
+  });
+});
 
 function steamH(a){return a.map(s=>`<span class="steam-tag ${STEAM_CLS[s]||'st-T'}">${s}</span>`).join('')}
 function toolH(a){return a.map(t=>`<span class="tool-pill">${t}</span>`).join('')}
