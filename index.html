@@ -1013,77 +1013,11 @@ img{max-width:100%}
       <div class="sec-label">원격수업</div>
       <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem">
         <h2 class="sec-title" style="margin-bottom:0">원격수업은<br><span class="hl">어떻게 진행되나요?</span></h2>
-        <button class="btn btn-p" onclick="toggleRemoteDetail(this)" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-chevron-down"></i> 자세히 보기</button>
+        <button class="btn btn-p" onclick="openRemoteModal()" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
       </div>
       <p class="sec-sub">주 1회 60분, Zoom 또는 Google Meet으로 진행하는 실시간 AI·코딩 수업입니다.<br>전문 강사가 직접 가르치며, 수업 녹화본과 과제 피드백을 제공합니다.<br>불가피한 사정 시 보충 수업을 제공하고, 방학·행사 기간은 일정 조율이 가능합니다.</p>
     </div>
 
-    <div id="remoteDetail" style="display:none">
-      <div class="remote-how">
-        <div class="remote-card rv">
-          <h4><i class="fas fa-calendar-alt"></i> 수업 구성</h4>
-          <ul class="remote-list">
-            <li><i class="fas fa-dot-circle"></i> <span>주 1회 실시간 수업 (60분)</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>월 4회 기준 운영 (한 달이 5주면 4회 진행)</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>수업 전 선생님과 일정 협의 후 확정</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>불가피한 사정 시 보충 수업 제공</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>방학·학교 행사 기간 조율 가능</span></li>
-          </ul>
-        </div>
-        <div class="remote-card rv d1">
-          <h4><i class="fas fa-chalkboard-teacher"></i> 수업 방식</h4>
-          <ul class="remote-list">
-            <li><i class="fas fa-dot-circle"></i> <span>Zoom 또는 Google Meet 실시간 화상 수업</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>강사 화면 공유로 실습 동시 진행</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>학생 개별 질문 실시간 답변</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>수업 녹화본 제공 (복습·결석자 대비)</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>수업 후 과제 플랫폼 제출 → 강사 피드백</span></li>
-          </ul>
-        </div>
-        <div class="remote-card rv d2">
-          <h4><i class="fas fa-user-tie"></i> 강사 정보</h4>
-          <ul class="remote-list">
-            <li><i class="fas fa-dot-circle"></i> <span>AI·코딩 교육 전문 강사</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>학교·학원·대안학교 수업 경험 보유</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>학생 수준에 맞춘 맞춤형 진도 조절</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>수업 외 질문 채널(카카오 오픈채팅 등) 운영</span></li>
-          </ul>
-        </div>
-        <div class="remote-card rv d3">
-          <h4><i class="fas fa-laptop-code"></i> 준비물 (학생)</h4>
-          <ul class="remote-list">
-            <li><i class="fas fa-dot-circle"></i> <span>인터넷이 연결된 컴퓨터 또는 노트북</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>마이크 (내장 마이크도 가능)</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>Zoom 또는 Google Meet 설치</span></li>
-            <li><i class="fas fa-dot-circle"></i> <span>코스모에듀 플랫폼 계정 (입학 시 발급)</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin:2.2rem 0 0" class="rv">수업 한 회 진행 흐름</h3>
-      <div class="remote-flow rv">
-        <div class="rf-step">
-          <div class="rf-icon"><i class="fas fa-sign-in-alt"></i></div>
-          <div class="rf-title">입장 & 준비</div>
-          <div class="rf-desc">5분 전 접속, 지난 수업 복습</div>
-        </div>
-        <div class="rf-step">
-          <div class="rf-icon"><i class="fas fa-play"></i></div>
-          <div class="rf-title">개념 설명</div>
-          <div class="rf-desc">강사 화면 공유, 이론 설명 (~20분)</div>
-        </div>
-        <div class="rf-step">
-          <div class="rf-icon"><i class="fas fa-code"></i></div>
-          <div class="rf-title">실습 코딩</div>
-          <div class="rf-desc">학생 직접 코딩, 실시간 Q&A (~30분)</div>
-        </div>
-        <div class="rf-step">
-          <div class="rf-icon"><i class="fas fa-tasks"></i></div>
-          <div class="rf-title">과제 안내</div>
-          <div class="rf-desc">다음 주까지 과제, 플랫폼 제출 (~10분)</div>
-        </div>
-      </div>
-    </div>
     </div><!-- /svc-col remote -->
 
     <div class="svc-divider"></div>
@@ -1094,98 +1028,11 @@ img{max-width:100%}
       <div class="sec-label">노트북 렌탈</div>
       <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem">
         <h2 class="sec-title" style="margin-bottom:0">노트북 렌탈은<br><span class="hl">어떻게 되나요?</span></h2>
-        <button class="btn btn-p" onclick="toggleLaptopDetail(this)" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-chevron-down"></i> 자세히 보기</button>
+        <button class="btn btn-p" onclick="openLaptopModal()" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
       </div>
       <p class="sec-sub">대당 월 3.8만원(임대형) 또는 5.9만원(인수형)으로 교육용 노트북을 이용하세요.<br>Windows 11, Intel i3, 8GB RAM, VS Code·Python 등 수업 환경이 미리 세팅되어 배송됩니다.<br>원격 지원 환경 구성 포함, 초기 세팅비 별도.</p>
     </div>
 
-    <div id="laptopDetail" style="display:none">
-      <div class="rental-price-banner rv">
-        <div class="rpb-top">
-          <h4>노트북 렌탈 요금</h4>
-          <p>교육용 노트북 · 기본 프로그램 세팅 완료 · 원격 지원 환경 구성 포함 · 대당 단가 · VAT 포함 · 계약기간 12개월</p>
-        </div>
-        <div class="rpb-dual">
-
-          <!-- 임대형 -->
-          <div class="rpb-type-card lease">
-            <div class="rpb-type-label">
-              <span class="badge lease">임대형</span>
-              계약 종료 후 <span style="color:var(--blue)">노트북 반납</span>
-            </div>
-            <div style="margin-top:.5rem">
-              <div style="font-size:2rem;font-weight:900;color:var(--blue);line-height:1">3.8만원<span style="font-size:.85rem;font-weight:400;color:var(--muted)">/대 · 월</span></div>
-              <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">12개월 × 3.8만 = <strong style="color:var(--text)">45.6만원</strong> · 만기 후 반납</div>
-            </div>
-          </div>
-
-          <div class="rpb-divider">또는</div>
-
-          <!-- 인수형 -->
-          <div class="rpb-type-card own">
-            <div class="rpb-type-label">
-              <span class="badge own">인수형</span>
-              만기 후 <span style="color:var(--purple)">노트북 소유권 취득</span>
-            </div>
-            <div style="margin-top:.5rem">
-              <div style="font-size:2rem;font-weight:900;color:var(--purple);line-height:1">5.9만원<span style="font-size:.85rem;font-weight:400;color:var(--muted)">/대 · 월</span></div>
-              <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">12개월 × 5.9만 = <strong style="color:var(--text)">70.8만원</strong> · 만기 후 소유</div>
-            </div>
-          </div>
-
-        </div>
-        <div class="rpb-vat">10대 이상 계약 시 3% 추가 할인 · 단기(3·6개월) 요금은 별도 문의</div>
-      </div>
-
-      <div class="laptop-grid">
-        <div class="laptop-spec-card rv">
-          <h4><i class="fas fa-laptop"></i> 기기 사양</h4>
-          <div class="spec-list">
-            <div class="spec-item"><span class="spec-k">운영체제</span><span class="spec-v">Windows 11 Home</span></div>
-            <div class="spec-item"><span class="spec-k">프로세서</span><span class="spec-v">Intel Core i3 이상</span></div>
-            <div class="spec-item"><span class="spec-k">메모리</span><span class="spec-v">8GB RAM</span></div>
-            <div class="spec-item"><span class="spec-k">저장공간</span><span class="spec-v">256GB SSD</span></div>
-            <div class="spec-item"><span class="spec-k">화면</span><span class="spec-v">14인치 FHD</span></div>
-            <div class="spec-item"><span class="spec-k">배터리</span><span class="spec-v">최대 8시간</span></div>
-          </div>
-        </div>
-        <div class="laptop-spec-card rv d1">
-          <h4><i class="fas fa-box-open"></i> 기본 설치 프로그램</h4>
-          <div class="spec-list">
-            <div class="spec-item"><span class="spec-k">코딩 환경</span><span class="spec-v">VS Code, Python 3.x</span></div>
-            <div class="spec-item"><span class="spec-k">AI 수업</span><span class="spec-v">Jupyter, 엔트리 앱</span></div>
-            <div class="spec-item"><span class="spec-k">원격수업</span><span class="spec-v">Zoom, Google Meet</span></div>
-            <div class="spec-item"><span class="spec-k">협업 도구</span><span class="spec-v">Google Workspace</span></div>
-            <div class="spec-item"><span class="spec-k">원격 지원</span><span class="spec-v">원격 제어 환경 설정 완료</span></div>
-            <div class="spec-item"><span class="spec-k">플랫폼</span><span class="spec-v">코스모에듀 플랫폼 연결</span></div>
-          </div>
-        </div>
-      </div>
-
-      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin:2.2rem 0 .2rem" class="rv">렌탈 프로세스</h3>
-      <div class="rental-process rv">
-        <div class="rp-step">
-          <div class="rp-icon" style="color:var(--blue)"><i class="fas fa-comments"></i></div>
-          <h5>신청 &amp; 상담</h5>
-          <p>학교 환경·학생 수 파악, 대수 결정</p>
-        </div>
-        <div class="rp-step">
-          <div class="rp-icon" style="color:var(--cyan)"><i class="fas fa-key"></i></div>
-          <h5>계정 발급</h5>
-          <p>플랫폼 계정 생성 및 환경 세팅</p>
-        </div>
-        <div class="rp-step">
-          <div class="rp-icon" style="color:var(--purple)"><i class="fas fa-truck"></i></div>
-          <h5>배송</h5>
-          <p>세팅 완료된 노트북 학교로 직배송</p>
-        </div>
-        <div class="rp-step">
-          <div class="rp-icon" style="color:var(--green)"><i class="fas fa-chalkboard-teacher"></i></div>
-          <h5>원격 교사교육</h5>
-          <p>담당 교사 대상 플랫폼·수업 운영 교육</p>
-        </div>
-      </div>
-    </div>
     </div><!-- /svc-col laptop -->
 
     </div><!-- /svc-row -->
@@ -1375,6 +1222,129 @@ img{max-width:100%}
 </nav>
 
 
+<!-- ══ REMOTE MODAL ══ -->
+<div class="qmodal-overlay" id="remoteModalOverlay">
+  <div class="qmodal" id="remoteModal">
+    <div class="qm-hd">
+      <div class="qm-hd-title"><i class="fas fa-video" style="color:var(--blue)"></i> 원격수업 상세 안내</div>
+      <button class="qm-close" onclick="closeRemoteModal()" aria-label="닫기"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="qm-body">
+      <div class="remote-how">
+        <div class="remote-card">
+          <h4><i class="fas fa-calendar-alt"></i> 수업 구성</h4>
+          <ul class="remote-list">
+            <li><i class="fas fa-dot-circle"></i> <span>주 1회 실시간 수업 (60분)</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>월 4회 기준 운영 (한 달이 5주면 4회 진행)</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>수업 전 선생님과 일정 협의 후 확정</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>불가피한 사정 시 보충 수업 제공</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>방학·학교 행사 기간 조율 가능</span></li>
+          </ul>
+        </div>
+        <div class="remote-card">
+          <h4><i class="fas fa-chalkboard-teacher"></i> 수업 방식</h4>
+          <ul class="remote-list">
+            <li><i class="fas fa-dot-circle"></i> <span>Zoom 또는 Google Meet 실시간 화상 수업</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>강사 화면 공유로 실습 동시 진행</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>학생 개별 질문 실시간 답변</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>수업 녹화본 제공 (복습·결석자 대비)</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>수업 후 과제 플랫폼 제출 → 강사 피드백</span></li>
+          </ul>
+        </div>
+        <div class="remote-card">
+          <h4><i class="fas fa-user-tie"></i> 강사 정보</h4>
+          <ul class="remote-list">
+            <li><i class="fas fa-dot-circle"></i> <span>AI·코딩 교육 전문 강사</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>학교·학원·대안학교 수업 경험 보유</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>학생 수준에 맞춘 맞춤형 진도 조절</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>수업 외 질문 채널(카카오 오픈채팅 등) 운영</span></li>
+          </ul>
+        </div>
+        <div class="remote-card">
+          <h4><i class="fas fa-laptop-code"></i> 준비물 (학생)</h4>
+          <ul class="remote-list">
+            <li><i class="fas fa-dot-circle"></i> <span>인터넷이 연결된 컴퓨터 또는 노트북</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>마이크 (내장 마이크도 가능)</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>Zoom 또는 Google Meet 설치</span></li>
+            <li><i class="fas fa-dot-circle"></i> <span>코스모에듀 플랫폼 계정 (입학 시 발급)</span></li>
+          </ul>
+        </div>
+      </div>
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin:2rem 0 .8rem">수업 한 회 진행 흐름</h3>
+      <div class="remote-flow">
+        <div class="rf-step"><div class="rf-icon"><i class="fas fa-sign-in-alt"></i></div><div class="rf-title">입장 &amp; 준비</div><div class="rf-desc">5분 전 접속, 지난 수업 복습</div></div>
+        <div class="rf-step"><div class="rf-icon"><i class="fas fa-play"></i></div><div class="rf-title">개념 설명</div><div class="rf-desc">강사 화면 공유, 이론 설명 (~20분)</div></div>
+        <div class="rf-step"><div class="rf-icon"><i class="fas fa-code"></i></div><div class="rf-title">실습 코딩</div><div class="rf-desc">학생 직접 코딩, 실시간 Q&amp;A (~30분)</div></div>
+        <div class="rf-step"><div class="rf-icon"><i class="fas fa-tasks"></i></div><div class="rf-title">과제 안내</div><div class="rf-desc">다음 주까지 과제, 플랫폼 제출 (~10분)</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LAPTOP MODAL ══ -->
+<div class="qmodal-overlay" id="laptopModalOverlay">
+  <div class="qmodal" id="laptopModal">
+    <div class="qm-hd">
+      <div class="qm-hd-title"><i class="fas fa-laptop" style="color:var(--blue)"></i> 노트북 렌탈 상세 안내</div>
+      <button class="qm-close" onclick="closeLaptopModal()" aria-label="닫기"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="qm-body">
+      <div class="rental-price-banner" style="margin-bottom:1.8rem">
+        <div class="rpb-top"><h4>노트북 렌탈 요금</h4><p>교육용 노트북 · 기본 프로그램 세팅 완료 · 원격 지원 환경 구성 포함 · 대당 단가 · VAT 포함 · 계약기간 12개월</p></div>
+        <div class="rpb-dual">
+          <div class="rpb-type-card lease">
+            <div class="rpb-type-label"><span class="badge lease">임대형</span> 계약 종료 후 <span style="color:var(--blue)">노트북 반납</span></div>
+            <div style="margin-top:.5rem">
+              <div style="font-size:2rem;font-weight:900;color:var(--blue);line-height:1">3.8만원<span style="font-size:.85rem;font-weight:400;color:var(--muted)">/대 · 월</span></div>
+              <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">12개월 × 3.8만 = <strong style="color:var(--text)">45.6만원</strong> · 만기 후 반납</div>
+            </div>
+          </div>
+          <div class="rpb-divider">또는</div>
+          <div class="rpb-type-card own">
+            <div class="rpb-type-label"><span class="badge own">인수형</span> 만기 후 <span style="color:var(--purple)">노트북 소유권 취득</span></div>
+            <div style="margin-top:.5rem">
+              <div style="font-size:2rem;font-weight:900;color:var(--purple);line-height:1">5.9만원<span style="font-size:.85rem;font-weight:400;color:var(--muted)">/대 · 월</span></div>
+              <div style="font-size:.75rem;color:var(--muted);margin-top:.3rem">12개월 × 5.9만 = <strong style="color:var(--text)">70.8만원</strong> · 만기 후 소유</div>
+            </div>
+          </div>
+        </div>
+        <div class="rpb-vat">10대 이상 계약 시 3% 추가 할인 · 단기(3·6개월) 요금은 별도 문의</div>
+      </div>
+      <div class="laptop-grid" style="margin-bottom:1.8rem">
+        <div class="laptop-spec-card">
+          <h4><i class="fas fa-laptop"></i> 기기 사양</h4>
+          <div class="spec-list">
+            <div class="spec-item"><span class="spec-k">운영체제</span><span class="spec-v">Windows 11 Home</span></div>
+            <div class="spec-item"><span class="spec-k">프로세서</span><span class="spec-v">Intel Core i3 이상</span></div>
+            <div class="spec-item"><span class="spec-k">메모리</span><span class="spec-v">8GB RAM</span></div>
+            <div class="spec-item"><span class="spec-k">저장공간</span><span class="spec-v">256GB SSD</span></div>
+            <div class="spec-item"><span class="spec-k">화면</span><span class="spec-v">14인치 FHD</span></div>
+            <div class="spec-item"><span class="spec-k">배터리</span><span class="spec-v">최대 8시간</span></div>
+          </div>
+        </div>
+        <div class="laptop-spec-card">
+          <h4><i class="fas fa-box-open"></i> 기본 설치 프로그램</h4>
+          <div class="spec-list">
+            <div class="spec-item"><span class="spec-k">코딩 환경</span><span class="spec-v">VS Code, Python 3.x</span></div>
+            <div class="spec-item"><span class="spec-k">AI 수업</span><span class="spec-v">Jupyter, 엔트리 앱</span></div>
+            <div class="spec-item"><span class="spec-k">원격수업</span><span class="spec-v">Zoom, Google Meet</span></div>
+            <div class="spec-item"><span class="spec-k">협업 도구</span><span class="spec-v">Google Workspace</span></div>
+            <div class="spec-item"><span class="spec-k">원격 지원</span><span class="spec-v">원격 제어 환경 설정 완료</span></div>
+            <div class="spec-item"><span class="spec-k">플랫폼</span><span class="spec-v">코스모에듀 플랫폼 연결</span></div>
+          </div>
+        </div>
+      </div>
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin:0 0 .8rem">렌탈 프로세스</h3>
+      <div class="rental-process">
+        <div class="rp-step"><div class="rp-icon" style="color:var(--blue)"><i class="fas fa-comments"></i></div><h5>신청 &amp; 상담</h5><p>학교 환경·학생 수 파악, 대수 결정</p></div>
+        <div class="rp-step"><div class="rp-icon" style="color:var(--cyan)"><i class="fas fa-key"></i></div><h5>계정 발급</h5><p>플랫폼 계정 생성 및 환경 세팅</p></div>
+        <div class="rp-step"><div class="rp-icon" style="color:var(--purple)"><i class="fas fa-truck"></i></div><h5>배송</h5><p>세팅 완료된 노트북 학교로 직배송</p></div>
+        <div class="rp-step"><div class="rp-icon" style="color:var(--green)"><i class="fas fa-chalkboard-teacher"></i></div><h5>원격 교사교육</h5><p>담당 교사 대상 플랫폼·수업 운영 교육</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ QUOTE MODAL ══ -->
 <div class="qmodal-overlay" id="qmodalOverlay">
   <div class="qmodal" id="qmodal">
@@ -1530,7 +1500,7 @@ img{max-width:100%}
   document.getElementById('qmodalOverlay').addEventListener('click', function(e){
     if(e.target === this) closeQuoteModal();
   });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeQuoteModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeQuoteModal(); closeRemoteModal(); closeLaptopModal(); } });
 
   /* ── 견적 계산기 로직 ── */
   (function(){
@@ -1652,23 +1622,27 @@ img{max-width:100%}
     render();
   })();
 
-  /* ── 원격수업 자세히 보기 토글 ── */
-  window.toggleRemoteDetail = function(btn){
-    var d=document.getElementById('remoteDetail');
-    var open=d.style.display==='block';
-    d.style.display=open?'none':'block';
-    btn.innerHTML=open?'<i class="fas fa-chevron-down"></i> 자세히 보기':'<i class="fas fa-chevron-up"></i> 간략히 보기';
-    if(!open) d.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+  /* ── 원격수업 모달 ── */
+  window.openRemoteModal = function(){
+    document.getElementById('remoteModalOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
   };
+  window.closeRemoteModal = function(){
+    document.getElementById('remoteModalOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  };
+  document.getElementById('remoteModalOverlay').addEventListener('click',function(e){if(e.target===this)window.closeRemoteModal();});
 
-  /* ── 노트북 자세히 보기 토글 ── */
-  window.toggleLaptopDetail = function(btn){
-    var d=document.getElementById('laptopDetail');
-    var open=d.style.display==='block';
-    d.style.display=open?'none':'block';
-    btn.innerHTML=open?'<i class="fas fa-chevron-down"></i> 자세히 보기':'<i class="fas fa-chevron-up"></i> 간략히 보기';
-    if(!open) d.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+  /* ── 노트북 모달 ── */
+  window.openLaptopModal = function(){
+    document.getElementById('laptopModalOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
   };
+  window.closeLaptopModal = function(){
+    document.getElementById('laptopModalOverlay').classList.remove('open');
+    document.body.style.overflow='';
+  };
+  document.getElementById('laptopModalOverlay').addEventListener('click',function(e){if(e.target===this)window.closeLaptopModal();});
 
 (function(){
   'use strict';
