@@ -1,0 +1,42 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Spacing & Radius" subtitle="Space scale, radii, shadows" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:16px 20px;background:#fff;font-family:'Segoe UI','Malgun Gothic',sans-serif;display:flex;flex-direction:column;gap:12px;}
+  .section-title{font-size:9px;font-weight:800;color:#94A3B8;letter-spacing:.1em;text-transform:uppercase;}
+  .row{display:flex;gap:10px;align-items:flex-end;}
+  .block{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .sq{background:#BFDBFE;border-radius:3px;}
+  .label{font-size:8px;color:#64748B;font-family:monospace;text-align:center;}
+  .divider{border:none;border-top:1px solid #F1F5F9;margin:2px 0;}
+  /* radius demos */
+  .r-demo{width:40px;height:28px;background:#BFDBFE;border:2px solid #3B82F6;}
+  /* shadow demos */
+  .s-demo{width:52px;height:32px;background:white;display:flex;align-items:center;justify-content:center;font-size:8px;color:#94A3B8;}
+</style>
+</head>
+<body>
+  <div class="section-title">Spacing</div>
+  <div class="row">
+    <div class="block"><div class="sq" style="width:4px;height:4px;"></div><div class="label">1 4px</div></div>
+    <div class="block"><div class="sq" style="width:8px;height:8px;"></div><div class="label">2 8px</div></div>
+    <div class="block"><div class="sq" style="width:12px;height:12px;"></div><div class="label">3 12px</div></div>
+    <div class="block"><div class="sq" style="width:16px;height:16px;"></div><div class="label">4 16px</div></div>
+    <div class="block"><div class="sq" style="width:24px;height:24px;"></div><div class="label">6 24px</div></div>
+    <div class="block"><div class="sq" style="width:32px;height:32px;"></div><div class="label">8 32px</div></div>
+    <div class="block"><div class="sq" style="width:48px;height:48px;"></div><div class="label">12 48px</div></div>
+    <div class="block"><div class="sq" style="width:64px;height:64px;"></div><div class="label">16 64px</div></div>
+    <div style="margin-left:16px;">
+      <div class="section-title" style="margin-bottom:6px;">Radii</div>
+      <div style="display:flex;gap:8px;align-items:flex-end;">
+        <div class="block"><div class="r-demo" style="border-radius:6px;"></div><div class="label">sm 6px</div></div>
+        <div class="block"><div class="r-demo" style="border-radius:12px;"></div><div class="label">md 12px</div></div>
+        <div class="block"><div class="r-demo" style="border-radius:20px;"></div><div class="label">xl 20px</div></div>
+        <div class="block"><div class="r-demo" style="border-radius:9999px;width:56px;"></div><div class="label">full pill</div></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

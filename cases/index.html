@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>수업 사례 — 코스모에듀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <style>
+    :root {
+      --brand: #6C47FF;
+      --brand-light: #EDE9FF;
+      --text: #0F172A;
+      --muted: #64748B;
+      --dim: #94A3B8;
+      --border: #E2E8F0;
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans KR', 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    .nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 5vw; height: 60px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-weight: 900; font-size: 17px; color: var(--brand); text-decoration: none; letter-spacing: -.02em; }
+    .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; font-weight: 500; margin-left: 24px; }
+    .nav-links a:hover { color: var(--brand); }
+
+    .hero { background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 60%, #312E81 100%); color: white; padding: 80px 5vw 72px; text-align: center; }
+    .hero-chip { display: inline-block; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 100px; padding: 5px 16px; font-size: 12px; font-weight: 700; letter-spacing: .1em; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 900; line-height: 1.2; letter-spacing: -.03em; margin-bottom: 16px; }
+    .hero h1 span { color: #A78BFA; }
+    .hero p { font-size: 17px; color: rgba(255,255,255,.65); max-width: 520px; margin: 0 auto; }
+
+    .main { max-width: 960px; margin: 0 auto; padding: 64px 20px 80px; }
+
+    /* ── Category cards ── */
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 64px; }
+    .cat-card { border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--text); background: var(--white); border: 1px solid var(--border); transition: box-shadow .2s, transform .2s; display: flex; flex-direction: column; }
+    .cat-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .cat-card-header { height: 200px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; position: relative; overflow: hidden; }
+    .cat-card-header img { width: 100%; height: 100%; object-fit: cover; }
+    .cat-card-overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 16px; background: linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 60%); }
+    .cat-keyword-row { display: flex; gap: 8px; }
+    .cat-kw { border-radius: 100px; padding: 3px 12px; font-size: 12px; font-weight: 700; }
+    .cat-card-body { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .cat-tag { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 8px; }
+    .cat-card h2 { font-size: 18px; font-weight: 900; letter-spacing: -.02em; margin-bottom: 8px; }
+    .cat-card p { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
+    .cat-link { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; }
+    .story-count { font-size: 12px; color: var(--dim); margin-top: 10px; display: flex; align-items: center; gap: 4px; }
+
+    /* 대안학교 */
+    .card-daean .cat-tag { color: #7C3AED; }
+    .card-daean .cat-link { color: #7C3AED; }
+
+    /* 코딩센터 */
+    .card-coding .cat-tag { color: #0891B2; }
+    .card-coding .cat-link { color: #0891B2; }
+
+    /* 온라인 */
+    .card-online .cat-tag { color: #0369A1; }
+    .card-online .cat-link { color: #0369A1; }
+
+    /* ── Keyword section ── */
+    .kw-section { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 36px 40px; margin-bottom: 48px; }
+    .kw-section-title { font-size: 14px; font-weight: 700; color: var(--dim); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 20px; }
+    .kw-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .kw-item { text-align: center; padding: 20px 12px; border-radius: 14px; }
+    .kw-item-daean { background: #EDE9FE; }
+    .kw-item-online { background: #CFFAFE; }
+    .kw-item-growth { background: #D1FAE5; }
+    .kw-circle { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; }
+    .kw-circle-연결 { background: #7C3AED; color: white; }
+    .kw-circle-표현 { background: #0891B2; color: white; }
+    .kw-circle-성장 { background: #047857; color: white; }
+    .kw-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .kw-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── Stats bar ── */
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1px; background: var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 64px; }
+    .stat-item { background: var(--white); padding: 22px 20px; text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 900; color: var(--brand); letter-spacing: -.03em; }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── CTA ── */
+    .cta-box { background: linear-gradient(135deg, #6C47FF 0%, #4C1D95 100%); border-radius: 20px; padding: 48px 40px; text-align: center; color: white; }
+    .cta-box h3 { font-size: 24px; font-weight: 900; margin-bottom: 10px; }
+    .cta-box p { font-size: 16px; color: rgba(255,255,255,.75); margin-bottom: 28px; }
+    .cta-btn { display: inline-block; background: white; color: var(--brand); font-weight: 800; font-size: 16px; padding: 14px 32px; border-radius: 100px; text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .main { padding: 40px 16px 60px; }
+      .kw-section { padding: 24px 20px; }
+      .cta-box { padding: 32px 24px; }
+      .kw-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">코스모에듀</a>
+  <div class="nav-links">
+    <a href="../index.html">홈</a>
+    <a href="../index.html#consultation">무료 상담</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-chip">Case Study</div>
+  <h1>함께한 교육기관들의<br><span>실제 수업 이야기</span></h1>
+  <p>학교·학원·대안학교에서 실제로 운영한 수업 사례입니다.<br>아이디어가 작품이 되고, 취미가 진로가 된 이야기들.</p>
+</div>
+
+<main class="main">
+
+  <!-- Keyword row -->
+  <div class="kw-section">
+    <div class="kw-section-title">우리 수업이 만들어내는 변화</div>
+    <div class="kw-row">
+      <div class="kw-item kw-item-daean">
+        <div class="kw-circle kw-circle-연결">연결</div>
+        <div class="kw-label">혼자였던 아이가 연결됩니다</div>
+        <div class="kw-desc">관심사를 콘텐츠로 만들어 친구들과 나눕니다</div>
+      </div>
+      <div class="kw-item kw-item-online">
+        <div class="kw-circle kw-circle-표현">표현</div>
+        <div class="kw-label">내 이야기를 직접 만듭니다</div>
+        <div class="kw-desc">낯선 환경 속 자신만의 방식으로 세계를 소개합니다</div>
+      </div>
+      <div class="kw-item kw-item-growth">
+        <div class="kw-circle kw-circle-성장">성장</div>
+        <div class="kw-label">좋아하는 것이 작품이 됩니다</div>
+        <div class="kw-desc">취미에서 출발해 진짜 결과물을 완성합니다</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">함께한 기관</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3개국+</div>
+      <div class="stat-label">온라인 수업 지역</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">초~고</div>
+      <div class="stat-label">전 학년 수업 운영</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">결과물 완성률</div>
+    </div>
+  </div>
+
+  <!-- Category cards -->
+  <div class="cat-grid">
+
+    <a href="daean.html" class="cat-card card-daean">
+      <div class="cat-card-header">
+        <img src="../docs/uploads/곤충맞추기.png" alt="대안학교 수업"/>
+        <div class="cat-card-overlay">
+          <div class="cat-keyword-row">
+            <span class="cat-kw" style="background:rgba(124,58,237,.8);color:#fff;">연결</span>
+            <span class="cat-kw" style="background:rgba(5,150,105,.8);color:#fff;">성장</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card-body">
+        <div class="cat-tag" style="color:#7C3AED;">대안학교</div>
+        <h2>모든 아이의 다름이<br>수업이 되었습니다</h2>
+        <p>경쟁 없는 환경에서, 곤충박사가 친구들의 선생님이 되고, 캐릭터가 굿즈가 된 이야기.</p>
+        <div class="story-count"><i class="bi bi-journal-text"></i> 스토리 2건 + 미니 수업 3건</div>
+        <div class="cat-link" style="color:#7C3AED;">자세히 보기 <i class="bi bi-arrow-right"></i></div>
+      </div>
+    </a>
+
+    <a href="coding.html" class="cat-card card-coding">
+      <div class="cat-card-header">
+        <img src="../docs/uploads/포레나북수원센터_파이썬_동물게임.jpg" alt="코딩센터 수업"/>
+        <div class="cat-card-overlay">
+          <div class="cat-keyword-row">
+            <span class="cat-kw" style="background:rgba(8,145,178,.8);color:#fff;">완성</span>
+            <span class="cat-kw" style="background:rgba(5,150,105,.8);color:#fff;">제작</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card-body">
+        <div class="cat-tag" style="color:#0891B2;">코딩센터 · 공부방</div>
+        <h2>전문가가 아니어도<br>앱을 완성합니다</h2>
+        <p>처음 코딩을 접한 학생들이 SDGs 앱, 지하철 앱, 동물 게임을 직접 완성했습니다.</p>
+        <div class="story-count"><i class="bi bi-journal-text"></i> 스토리 2건 + 학생 작품 4건</div>
+        <div class="cat-link" style="color:#0891B2;">자세히 보기 <i class="bi bi-arrow-right"></i></div>
+      </div>
+    </a>
+
+    <a href="online.html" class="cat-card card-online">
+      <div class="cat-card-header">
+        <img src="../docs/uploads/mk학교_지역소개콘텐츠_ZEP메타버스_중1죠해나.png" alt="온라인 수업"/>
+        <div class="cat-card-overlay">
+          <div class="cat-keyword-row">
+            <span class="cat-kw" style="background:rgba(8,145,178,.8);color:#fff;">표현</span>
+            <span class="cat-kw" style="background:rgba(99,102,241,.8);color:#fff;">진로</span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-card-body">
+        <div class="cat-tag" style="color:#0369A1;">온라인 수업</div>
+        <h2>멀리 있어도<br>함께 만들 수 있습니다</h2>
+        <p>5개국에 흩어진 MK 학생들이 메타버스로 자기 세계를 만들어 서로에게 보여줬습니다.</p>
+        <div class="story-count"><i class="bi bi-journal-text"></i> 스토리 2건 + 5개국 사례</div>
+        <div class="cat-link" style="color:#0369A1;">자세히 보기 <i class="bi bi-arrow-right"></i></div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3>우리 기관도 사례를 만들고 싶다면</h3>
+    <p>대안학교, 코딩센터, 공부방, 도서관, 학교 등 어디든 맞춤 수업을 제안해 드립니다.<br>먼저 무료 상담으로 시작해보세요.</p>
+    <a href="../index.html#consultation" class="cta-btn">무료 상담 신청하기</a>
+  </div>
+
+</main>
+</body>
+</html>

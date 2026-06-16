@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>온라인 수업 사례 — 코스모에듀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <style>
+    :root{--brand:#0369A1;--brand-light:#E0F2FE;--text:#0F172A;--muted:#64748B;--dim:#94A3B8;--border:#E2E8F0;--bg:#F8FAFC;--white:#FFFFFF}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans KR','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    .nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 5vw;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .nav-logo{font-weight:900;font-size:17px;color:#6C47FF;text-decoration:none;letter-spacing:-.02em}
+    .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500;margin-left:24px}
+    .nav-links a:hover{color:var(--brand)}
+    .hero{background:linear-gradient(135deg,#0C2340 0%,#0369A1 55%,#0891B2 100%);color:white;padding:72px 5vw 60px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px;display:flex;align-items:center;gap:6px}
+    .breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none}
+    .hero-chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;letter-spacing:.08em;margin-bottom:16px}
+    .hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:16px}
+    .hero p{font-size:16px;color:rgba(255,255,255,.7);max-width:600px}
+    .country-strip{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .country-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:6px 14px;font-size:13px;color:white;display:flex;align-items:center;gap:6px}
+    .main{max-width:860px;margin:0 auto;padding:60px 20px 80px}
+    .cat-nav{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+    .cat-nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--border);color:var(--muted);transition:all .15s}
+    .cat-nav a.active,.cat-nav a:hover{background:#6C47FF;border-color:#6C47FF;color:white}
+    .sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--brand);text-transform:uppercase;margin-bottom:6px}
+    .sec-title{font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+    .sec-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
+    .story{border-radius:20px;overflow:hidden;background:var(--white);border:1px solid var(--border);margin-bottom:40px}
+    .story-img{width:100%;height:280px;object-fit:cover;display:block}
+    .story-body{padding:28px 32px 32px}
+    .kw-badge{display:inline-flex;align-items:center;gap:6px;border-radius:100px;padding:5px 14px 5px 10px;font-size:12px;font-weight:700;margin-bottom:16px}
+    .kw-cyan{background:#CFFAFE;color:#0E7490}
+    .kw-purple{background:#EDE9FE;color:#6D28D9}
+    .story h2{font-size:21px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+    .story-org{font-size:13px;color:var(--dim);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:4px}
+    .story p{font-size:15px;color:#334155;line-height:1.8;margin-bottom:16px}
+    .story p:last-child{margin-bottom:0}
+    .made-box{background:#F1F5F9;border-radius:12px;padding:20px 24px;margin-top:20px}
+    .made-box h4{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+    .made-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .made-list li{font-size:14px;color:#334155;display:flex;align-items:flex-start;gap:8px}
+    .made-list li::before{content:"→";color:var(--brand);font-weight:700;flex-shrink:0;margin-top:1px}
+    .quote-box{background:linear-gradient(135deg,#EDE9FE,#DBEAFE);border-radius:16px;padding:24px 28px;margin:28px 0;border-left:4px solid #7C3AED}
+    .quote-text{font-size:16px;font-weight:600;color:#1E1B4B;line-height:1.7;font-style:italic;margin-bottom:8px}
+    .quote-credit{font-size:13px;color:var(--muted)}
+    .country-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:8px}
+    .country-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px;text-align:center}
+    .country-flag{font-size:28px;margin-bottom:8px}
+    .country-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .country-detail{font-size:12px;color:var(--muted);line-height:1.5}
+    .divider{height:1px;background:var(--border);margin:52px 0}
+    .mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:8px}
+    .mini-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .mini-img{height:130px;overflow:hidden}
+    .mini-img img{width:100%;height:100%;object-fit:cover}
+    .mini-body{padding:14px 16px}
+    .mini-tag{font-size:11px;font-weight:700;color:#6C47FF;background:#EDE9FF;border-radius:6px;padding:2px 8px;display:inline-block;margin-bottom:6px}
+    .mini-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+    .mini-desc{font-size:12px;color:var(--muted);line-height:1.6}
+    .cta-box{background:linear-gradient(135deg,#1E1B4B 0%,#4C1D95 100%);border-radius:20px;padding:40px 36px;text-align:center;color:white;margin-top:60px}
+    .cta-box h3{font-size:22px;font-weight:900;margin-bottom:10px}
+    .cta-box p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:24px}
+    .cta-btn{display:inline-block;background:white;color:#4C1D95;font-weight:800;font-size:15px;padding:12px 28px;border-radius:100px;text-decoration:none}
+    @media(max-width:640px){.story-body{padding:20px}.main{padding:40px 16px 60px}}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://school.cosmoedu.co.kr">코스모에듀</a>
+  <div class="nav-links">
+    <a href="index.html">← 사례 목록</a>
+    <a href="https://school.cosmoedu.co.kr/#consultation">무료 상담</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="breadcrumb">
+    <a href="index.html">수업 사례</a>
+    <i class="bi bi-chevron-right" style="font-size:11px"></i>
+    <span>온라인 수업</span>
+  </div>
+  <div class="hero-chip">온라인 · 원격 수업</div>
+  <h1>멀리 있어도<br>함께 만들 수 있습니다</h1>
+  <p>화면 너머의 아이들이 자신이 사는 세계를 직접 만들어 서로에게 보여줬습니다. 거리는 달라도, 같은 언어로 이어졌습니다.</p>
+  <div class="country-strip">
+    <div class="country-tag">🇷🇺 러시아</div>
+    <div class="country-tag">🇰🇿 카자흐스탄</div>
+    <div class="country-tag">🇱🇦 라오스</div>
+    <div class="country-tag">🇻🇳 베트남</div>
+    <div class="country-tag">🇧🇷 브라질</div>
+  </div>
+</div>
+
+<main class="main">
+
+  <div class="cat-nav">
+    <a href="daean.html">대안학교</a>
+    <a href="coding.html">코딩센터 · 공부방</a>
+    <a href="online.html" class="active">온라인 수업</a>
+  </div>
+
+  <div class="sec-label">Story 01</div>
+  <div class="sec-title">내가 사는 곳을 나만의 방식으로 보여줍니다</div>
+  <div class="sec-sub">두 개의 정체성 사이에서 스스로 서는 법을 배운 MK 학생들의 이야기</div>
+
+  <div class="story">
+    <img src="../docs/uploads/mk학교_지역소개콘텐츠_ZEP메타버스_중1죠해나.png" class="story-img" alt="MK 온라인학교 메타버스 수업">
+    <div class="story-body">
+      <div class="kw-badge kw-cyan"><i class="bi bi-broadcast"></i> 표현</div>
+      <h2>스스로 서는 법을 배웁니다</h2>
+      <div class="story-org"><i class="bi bi-globe"></i> MK 온라인학교 · 선교사·주재원 자녀 대상</div>
+      <p>선교사·주재원 자녀들을 위한 MK 온라인학교. 타국에서 자라는 아이들은 언어와 문화 사이에서 정체성의 혼란을 겪기도 합니다. 비슷한 처지의 친구들과 매주 화면으로만 만납니다.</p>
+      <p>코스모에듀 수업에서 아이들은 <strong>ZEP 메타버스 맵 만들기</strong>를 배웠습니다. 각자 자신이 살고 있는 지역을 직접 메타버스로 만들어 친구들에게 소개했습니다. 러시아의 겨울 풍경, 카자흐스탄의 초원, 베트남의 골목길이 하나의 가상 세계 안에서 이어졌습니다.</p>
+      <p>"나는 한국 사람인지 러시아 사람인지 모르겠어요"라고 했던 학생이, "저는 두 나라의 것을 다 알아요"라고 말하게 된 수업이었습니다.</p>
+
+      <div class="quote-box">
+        <div class="quote-text">"내가 사는 동네를 친구들이 직접 걸어다닐 수 있는 맵으로 만들었어요. 처음으로 내 세계가 특별하다는 걸 느꼈어요."</div>
+        <div class="quote-credit">— MK 온라인학교 수업 참여 학생</div>
+      </div>
+
+      <div class="made-box">
+        <h4>만든 것</h4>
+        <ul class="made-list">
+          <li>ZEP 메타버스로 자기 지역 소개 맵 제작</li>
+          <li>현지 문화·음식·명소를 맵 오브젝트로 구현</li>
+          <li>친구들이 직접 돌아다니며 체험하는 인터랙티브 공간</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-label">함께한 나라들</div>
+  <div class="sec-title">화면 너머의 아이들</div>
+  <div class="sec-sub">서로 다른 나라에서 접속해 한 화면에서 만났습니다</div>
+
+  <div class="country-grid">
+    <div class="country-card"><div class="country-flag">🇷🇺</div><div class="country-name">러시아</div><div class="country-detail">겨울 풍경과 광장을 메타버스로 재현</div></div>
+    <div class="country-card"><div class="country-flag">🇰🇿</div><div class="country-name">카자흐스탄</div><div class="country-detail">드넓은 초원 지형을 직접 맵으로 표현</div></div>
+    <div class="country-card"><div class="country-flag">🇱🇦</div><div class="country-name">라오스</div><div class="country-detail">메콩강 주변 마을 소개 맵 제작</div></div>
+    <div class="country-card"><div class="country-flag">🇻🇳</div><div class="country-name">베트남</div><div class="country-detail">골목 시장과 전통 음식을 오브젝트로 구현</div></div>
+    <div class="country-card"><div class="country-flag">🇧🇷</div><div class="country-name">브라질</div><div class="country-detail">다채로운 자연환경을 메타버스로 표현</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">더 보기</div>
+  <div class="sec-title">다른 기관 수업 사례</div>
+  <div class="sec-sub">도서관, 공유학교, 고등학교에서 진행한 수업들</div>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <div class="mini-img"><img src="../docs/uploads/안양시_관양문화의집_아이동화만들기.jpg" alt="안양 관양도서관"></div>
+      <div class="mini-body">
+        <span class="mini-tag">도서관</span>
+        <div class="mini-title">AI로 나만의 동화 만들기</div>
+        <div class="mini-desc">안양 관양도서관 · 생성형 AI 창작 수업</div>
+      </div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-img"><img src="../docs/uploads/ZEP메타버스_과학퀴즈만들기_초당고_용인공유학교.png" alt="용인공유학교"></div>
+      <div class="mini-body">
+        <span class="mini-tag">공유학교</span>
+        <div class="mini-title">ZEP 과학 퀴즈 게임 제작</div>
+        <div class="mini-desc">용인공유학교 · 메타버스 퀴즈 수업</div>
+      </div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-img"><img src="../docs/uploads/삼일고_인공지능캠프_생성형ai로뮤직비디오만들기.jpg" alt="삼일고등학교"></div>
+      <div class="mini-body">
+        <span class="mini-tag">고등학교</span>
+        <div class="mini-title">생성형 AI 뮤직비디오 제작</div>
+        <div class="mini-desc">삼일고등학교 · AI 캠프</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>우리 기관도 온라인 수업을 도입하고 싶다면</h3>
+    <p>원격 수업, 해외 학교, 비대면 프로그램 등 온라인 환경에 맞춘 커리큘럼을 제안해 드립니다.</p>
+    <a href="https://school.cosmoedu.co.kr/#consultation" class="cta-btn">무료 상담 신청하기</a>
+  </div>
+
+</main>
+</body>
+</html>

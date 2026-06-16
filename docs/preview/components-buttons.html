@@ -1,0 +1,25 @@
+<!-- @dsCard group="Components" viewport="700x120" name="Buttons" subtitle="Primary gradient, outline, and CTA button states" -->
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:20px 24px;background:#F8FAFC;font-family:'Segoe UI','Malgun Gothic',sans-serif;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:12px;font-weight:700;font-size:.9rem;cursor:pointer;border:none;text-decoration:none;}
+  .btn-p{background:linear-gradient(135deg,#2563EB,#0891B2);color:#fff;box-shadow:0 4px 18px rgba(37,99,235,.25);}
+  .btn-o{background:transparent;color:#0F172A;border:1.5px solid rgba(15,23,42,.1);}
+  .btn-cta{background:#2563EB;color:#fff;padding:.45rem 1rem;border-radius:8px;font-size:.85rem;}
+  .btn-dark{background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;box-shadow:0 4px 18px rgba(59,130,246,.3);}
+  .btn-ghost{background:rgba(37,99,235,.08);color:#2563EB;border:1px solid rgba(37,99,235,.2);}
+  .label{font-size:9px;color:#94A3B8;display:block;margin-top:4px;text-align:center;}
+  .col{display:flex;flex-direction:column;align-items:center;}
+</style>
+</head>
+<body>
+  <div class="col"><div class="btn btn-p">무료 상담 신청하기 →</div><span class="label">Primary (gradient)</span></div>
+  <div class="col"><div class="btn btn-o">더 알아보기</div><span class="label">Outline</span></div>
+  <div class="col"><div class="btn btn-cta">상담 신청</div><span class="label">Header CTA</span></div>
+  <div class="col"><div class="btn btn-dark">AI 수업 시작하기</div><span class="label">Dark gradient</span></div>
+  <div class="col"><div class="btn btn-ghost">자세히 보기</div><span class="label">Ghost</span></div>
+</body>
+</html>

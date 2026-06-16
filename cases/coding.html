@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>코딩센터 · 공부방 수업 사례 — 코스모에듀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  <style>
+    :root{--brand:#0891B2;--brand-light:#E0F7FA;--text:#0F172A;--muted:#64748B;--dim:#94A3B8;--border:#E2E8F0;--bg:#F8FAFC;--white:#FFFFFF}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Noto Sans KR','Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    .nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 5vw;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+    .nav-logo{font-weight:900;font-size:17px;color:#6C47FF;text-decoration:none;letter-spacing:-.02em}
+    .nav-links a{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500;margin-left:24px}
+    .nav-links a:hover{color:var(--brand)}
+    .hero{background:linear-gradient(135deg,#0C4A6E 0%,#0369A1 60%,#0891B2 100%);color:white;padding:72px 5vw 60px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px;display:flex;align-items:center;gap:6px}
+    .breadcrumb a{color:rgba(255,255,255,.5);text-decoration:none}
+    .hero-chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;letter-spacing:.08em;margin-bottom:16px}
+    .hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;line-height:1.2;letter-spacing:-.03em;margin-bottom:16px}
+    .hero p{font-size:16px;color:rgba(255,255,255,.7);max-width:560px}
+    .hero-badges{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+    .hero-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;color:rgba(255,255,255,.85)}
+    .main{max-width:860px;margin:0 auto;padding:60px 20px 80px}
+    .cat-nav{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
+    .cat-nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--border);color:var(--muted);transition:all .15s}
+    .cat-nav a.active,.cat-nav a:hover{background:#6C47FF;border-color:#6C47FF;color:white}
+    .sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--brand);text-transform:uppercase;margin-bottom:6px}
+    .sec-title{font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+    .sec-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
+    .story{border-radius:20px;overflow:hidden;background:var(--white);border:1px solid var(--border);margin-bottom:40px}
+    .story-img{width:100%;height:280px;object-fit:cover;display:block}
+    .story-body{padding:28px 32px 32px}
+    .kw-badge{display:inline-flex;align-items:center;gap:6px;border-radius:100px;padding:5px 14px 5px 10px;font-size:12px;font-weight:700;margin-bottom:16px}
+    .kw-green{background:#D1FAE5;color:#047857}
+    .kw-blue{background:#DBEAFE;color:#1D4ED8}
+    .story h2{font-size:21px;font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+    .story-org{font-size:13px;color:var(--dim);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:4px}
+    .story p{font-size:15px;color:#334155;line-height:1.8;margin-bottom:16px}
+    .story p:last-child{margin-bottom:0}
+    .made-box{background:#F1F5F9;border-radius:12px;padding:20px 24px;margin-top:20px}
+    .made-box h4{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+    .made-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .made-list li{font-size:14px;color:#334155;display:flex;align-items:flex-start;gap:8px}
+    .made-list li::before{content:"→";color:var(--brand);font-weight:700;flex-shrink:0;margin-top:1px}
+    .divider{height:1px;background:var(--border);margin:52px 0}
+    .work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:8px}
+    .work-card{border-radius:14px;overflow:hidden;background:var(--white);border:1px solid var(--border)}
+    .work-img{height:130px;overflow:hidden}
+    .work-img img{width:100%;height:100%;object-fit:cover}
+    .work-img-ph{height:130px;background:linear-gradient(135deg,#E0F7FA,#B2EBF2);display:flex;align-items:center;justify-content:center}
+    .work-img-ph i{font-size:30px;color:#0891B2}
+    .work-body{padding:12px 14px}
+    .work-tag{font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-light);border-radius:6px;padding:2px 8px;display:inline-block;margin-bottom:6px}
+    .work-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px}
+    .work-student{font-size:12px;color:var(--dim)}
+    .cta-box{background:linear-gradient(135deg,#0369A1 0%,#0891B2 100%);border-radius:20px;padding:40px 36px;text-align:center;color:white;margin-top:60px}
+    .cta-box h3{font-size:22px;font-weight:900;margin-bottom:10px}
+    .cta-box p{font-size:15px;color:rgba(255,255,255,.8);margin-bottom:24px}
+    .cta-btn{display:inline-block;background:white;color:#0369A1;font-weight:800;font-size:15px;padding:12px 28px;border-radius:100px;text-decoration:none}
+    @media(max-width:640px){.story-body{padding:20px}.main{padding:40px 16px 60px}}
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="https://school.cosmoedu.co.kr">코스모에듀</a>
+  <div class="nav-links">
+    <a href="index.html">← 사례 목록</a>
+    <a href="https://school.cosmoedu.co.kr/#consultation">무료 상담</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="breadcrumb">
+    <a href="index.html">수업 사례</a>
+    <i class="bi bi-chevron-right" style="font-size:11px"></i>
+    <span>코딩센터 · 공부방</span>
+  </div>
+  <div class="hero-chip">코딩센터 · 공부방 · 학원</div>
+  <h1>전문가가 아니어도<br>앱을 완성합니다</h1>
+  <p>처음 코딩을 접한 학생들이 아이디어를 직접 구현하는 과정. 완성된 결과물이 아니라, 만들어가는 경험이 핵심입니다.</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><i class="bi bi-building"></i> 코딩앤플레이 · 포레나북수원센터</div>
+    <div class="hero-badge"><i class="bi bi-person"></i> 초~중등</div>
+    <div class="hero-badge"><i class="bi bi-tools"></i> 파이썬 · 앱인벤터 · 바이브코딩</div>
+  </div>
+</div>
+
+<main class="main">
+
+  <div class="cat-nav">
+    <a href="daean.html">대안학교</a>
+    <a href="coding.html" class="active">코딩센터 · 공부방</a>
+    <a href="online.html">온라인 수업</a>
+  </div>
+
+  <!-- Story 1: SDGs 앱 -->
+  <div class="sec-label">Story 01</div>
+  <div class="sec-title">아이디어만 있으면 앱을 완성할 수 있습니다</div>
+  <div class="sec-sub">환경을 주제로 직접 앱을 기획하고 완성한 중2 학생의 이야기</div>
+
+  <div class="story">
+    <img src="../docs/uploads/SDGs지속가능한개발주제_앱만들기_중2김유주.jpg" class="story-img" alt="SDGs 생태 기록 앱 EcoLog">
+    <div class="story-body">
+      <div class="kw-badge kw-green"><i class="bi bi-stars"></i> 완성</div>
+      <h2>SDGs 생태 기록 앱 EcoLog</h2>
+      <div class="story-org"><i class="bi bi-geo-alt"></i> 코딩앤플레이 포레나북수원센터 · 중2 김유주</div>
+      <p>처음 코딩을 시작한 학생이었습니다. "환경이 요즘 중요하다고 하는데, 뭔가 만들어보고 싶어요"라는 단순한 아이디어에서 출발했습니다.</p>
+      <p>SDGs(지속가능한 개발 목표)를 공부하며 직접 앱의 기획서를 작성했습니다. 생태계 변화를 기록하고 공유하는 앱 <strong>EcoLog</strong>를 구상했고, <strong>바이브코딩 방식</strong>으로 아이디어를 단계별로 코드로 구현해나갔습니다. "코딩이 어려운 게 아니라 재미있는 거였어요"라는 말을 남겼습니다.</p>
+      <div class="made-box">
+        <h4>만든 것</h4>
+        <ul class="made-list">
+          <li>SDGs 주제 기반 앱 기획서 작성</li>
+          <li>생태 기록 앱 EcoLog 개발 (바이브코딩)</li>
+          <li>공유 기능 · 사진 첨부 · 위치 태그 구현</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story 2: 파이썬 동물 게임 -->
+  <div class="sec-label">Story 02</div>
+  <div class="sec-title">파이썬으로 나만의 게임을 만들었습니다</div>
+  <div class="sec-sub">동물 블록 다리 건너기 — 파이썬의 첫 걸음이 게임이 되었습니다</div>
+
+  <div class="story">
+    <img src="../docs/uploads/포레나북수원센터_파이썬_동물게임.jpg" class="story-img" alt="파이썬 동물게임">
+    <div class="story-body">
+      <div class="kw-badge kw-blue"><i class="bi bi-controller"></i> 제작</div>
+      <h2>동물 블록 다리 건너기 게임</h2>
+      <div class="story-org"><i class="bi bi-geo-alt"></i> 코딩앤플레이 포레나북수원센터 · 초~중등</div>
+      <p>"파이썬은 어렵다"는 고정관념을 깨는 수업이었습니다. 좋아하는 동물 캐릭터를 직접 골라 게임의 주인공으로 설정하는 것부터 시작했습니다.</p>
+      <p>좋아하는 동물 사진을 블록 형태로 배치하고, 퀴즈 정답 여부에 따라 다리를 건너는 게임을 파이썬으로 만들었습니다. "내가 만든 게임을 친구한테 보여줬더니 같이 해달라고 했어요"라는 후기가 인상적이었습니다.</p>
+      <div class="made-box">
+        <h4>만든 것</h4>
+        <ul class="made-list">
+          <li>동물 캐릭터 선택 및 이미지 처리 (파이썬)</li>
+          <li>퀴즈 기반 다리 건너기 게임 로직 구현</li>
+          <li>점수판 및 난이도 조절 기능</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sec-label">학생 작품</div>
+  <div class="sec-title">직접 만든 앱 · 게임 모음</div>
+  <div class="sec-sub">다양한 수업에서 학생들이 완성한 실제 결과물입니다</div>
+
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-img"><img src="../docs/uploads/앱인벤터_영단어공부해_중3박주연.jpg" alt="영단어 공부 앱"></div>
+      <div class="work-body">
+        <span class="work-tag">앱인벤터</span>
+        <div class="work-title">영단어 공부 앱</div>
+        <div class="work-student">중3 박주연 · 퀴즈 기능 탑재</div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-img"><img src="../docs/uploads/앱인벤터_지하철노선앱_초6최서후.jpg" alt="지하철 노선 앱"></div>
+      <div class="work-body">
+        <span class="work-tag">앱인벤터</span>
+        <div class="work-title">실시간 지하철 노선 앱</div>
+        <div class="work-student">초6 최서후 · 실시간 API 연동</div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-img"><img src="../docs/uploads/SDGs지속가능한개발주제_앱만들기_중2김유주.png" alt="EcoLog 앱"></div>
+      <div class="work-body">
+        <span class="work-tag">바이브코딩</span>
+        <div class="work-title">생태 기록 앱 EcoLog</div>
+        <div class="work-student">중2 김유주 · SDGs 주제</div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-img"><img src="../docs/uploads/포레나북수원센터_파이썬_동물게임.jpg" alt="동물게임"></div>
+      <div class="work-body">
+        <span class="work-tag">파이썬</span>
+        <div class="work-title">동물 블록 다리 건너기</div>
+        <div class="work-student">초~중등 · 파이썬 게임 제작</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>우리 센터에도 이 수업을 도입하고 싶다면</h3>
+    <p>공부방, 코딩학원, 방과후 센터 환경에 맞춘 커리큘럼을 무료로 상담해 드립니다.</p>
+    <a href="https://school.cosmoedu.co.kr/#consultation" class="cta-btn">무료 상담 신청하기</a>
+  </div>
+
+</main>
+</body>
+</html>

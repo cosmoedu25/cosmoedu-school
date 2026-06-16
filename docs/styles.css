@@ -1,0 +1,9 @@
+/* CosmoeduVenture Design System — root entry point */
+@import "css/header.css";
+@import "css/footer.css";
+@import "css/about.css";
+@import "css/programs.css";
+@import "css/career.css";
+@import "css/teacher.css";
+@import "css/popup.css";
+@import "css/alternative.css";

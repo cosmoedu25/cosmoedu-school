@@ -1,0 +1,84 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "image-slot.js"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--alt-bg",
+      "--alt-blue",
+      "--alt-blue-dark",
+      "--alt-border",
+      "--alt-card",
+      "--alt-card2",
+      "--alt-cyan",
+      "--alt-dim",
+      "--alt-glow",
+      "--alt-green",
+      "--alt-muted",
+      "--alt-orange",
+      "--alt-purple",
+      "--alt-radius",
+      "--alt-text",
+      "--alt-transition"
+    ],
+    "tokenKinds": {
+      "--alt-bg": "color",
+      "--alt-card": "color",
+      "--alt-card2": "color",
+      "--alt-border": "color",
+      "--alt-blue": "color",
+      "--alt-blue-dark": "color",
+      "--alt-cyan": "color",
+      "--alt-purple": "color",
+      "--alt-green": "color",
+      "--alt-orange": "color",
+      "--alt-text": "font",
+      "--alt-muted": "color",
+      "--alt-dim": "color",
+      "--alt-glow": "color",
+      "--alt-radius": "radius",
+      "--alt-transition": "other"
+    },
+    "fontFamilies": []
+  }
+}

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>커리큘럼 상세 | 코스모에듀 스쿨</title>
+<meta name="description" content="코스모에듀 스쿨 AI·코딩 커리큘럼 — 1~3학년군·4~6학년군·중고등군, 3회차 연간 로드맵.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --bg:#F8FAFC;--bg2:#EFF6FF;--bg3:#FFFFFF;
+  --blue:#2563EB;--blue-d:#1D4ED8;--blue-l:#3B82F6;
+  --cyan:#0891B2;--cyan-l:#06B6D4;
+  --purple:#7C3AED;--green:#059669;--amber:#D97706;--red:#EF4444;
+  --text:#0F172A;--muted:#64748B;--dim:#94A3B8;
+  --border:rgba(15,23,42,.1);
+  --r:12px;--tr:.25s ease;
+  --ca:#2563EB; --cb:#059669; --cc:#7C3AED;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI','Malgun Gothic',sans-serif;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.sec{padding:72px 0}
+.sec-alt{background:var(--bg2)}
+
+.hd{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:all var(--tr);padding:.85rem 0}
+.hd.scrolled{padding:.55rem 0;background:rgba(255,255,255,.98);box-shadow:0 2px 12px rgba(15,23,42,.08)}
+.hd-inner{display:flex;justify-content:space-between;align-items:center}
+.hd-logo img{height:26px;width:auto;object-fit:contain}
+.hd-logo:hover{opacity:.7;transition:opacity var(--tr)}
+.hd-back{display:inline-flex;align-items:center;gap:.45rem;font-size:.88rem;font-weight:500;color:var(--muted);border-radius:8px;padding:.4rem .85rem;transition:all var(--tr)}
+.hd-back:hover{color:var(--text);background:rgba(15,23,42,.05)}
+.hd-cta{background:var(--blue);color:#fff!important;padding:.45rem 1rem;border-radius:8px;font-weight:600;font-size:.88rem;transition:all var(--tr)}
+.hd-cta:hover{background:var(--blue-d)}
+
+.hero{padding:100px 0 52px;background:linear-gradient(160deg,#EBF5FF 0%,#F8FAFC 55%,#EFF6FF 100%);border-bottom:1px solid var(--border)}
+.hero-label{display:inline-flex;align-items:center;gap:.45rem;font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);background:rgba(8,145,178,.08);border:1px solid rgba(8,145,178,.22);padding:.3rem .9rem;border-radius:100px;margin-bottom:1rem}
+.hero h1{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:900;line-height:1.18;margin-bottom:.7rem;word-break:keep-all}
+.hero h1 span{background:linear-gradient(130deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:.97rem;color:var(--muted);max-width:600px;line-height:1.85;margin-bottom:1.5rem;word-break:keep-all}
+.hero-chips{display:flex;gap:.55rem;flex-wrap:wrap}
+.hero-chip{display:inline-flex;align-items:center;gap:.4rem;background:white;border:1px solid var(--border);border-radius:100px;padding:.3rem .9rem;font-size:.8rem;font-weight:600;color:var(--text)}
+
+.sec-label{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);background:rgba(8,145,178,.08);border:1px solid rgba(8,145,178,.25);padding:.28rem .85rem;border-radius:100px;margin-bottom:.85rem}
+.sec-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.25;margin-bottom:.5rem}
+.sec-title .hl{background:linear-gradient(130deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{font-size:.92rem;color:var(--muted);max-width:620px;line-height:1.85;word-break:keep-all}
+
+/* 회차 카드 */
+.round-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.round-card{background:white;border-radius:var(--r);border:2px solid var(--border);padding:1.4rem 1.5rem;position:relative;overflow:hidden}
+.round-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.round-card.r1::before{background:linear-gradient(90deg,#2563EB,#0891B2)}
+.round-card.r2::before{background:linear-gradient(90deg,#059669,#0891B2)}
+.round-card.r3::before{background:linear-gradient(90deg,#7C3AED,#2563EB)}
+.round-card-num{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:.35rem}
+.round-card-title{font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.round-card-desc{font-size:.83rem;color:var(--muted);line-height:1.7;word-break:keep-all}
+.round-card-tags{display:flex;gap:.35rem;margin-top:.7rem;flex-wrap:wrap}
+.round-card-tag{font-size:.7rem;font-weight:600;padding:.2rem .6rem;border-radius:6px;background:#F1F5F9;color:var(--muted)}
+
+/* 회차 선택 바 */
+.round-bar{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem;flex-wrap:wrap}
+.round-label{font-size:.82rem;font-weight:700;color:var(--muted)}
+.round-btns{display:flex;gap:.4rem}
+.round-btn{padding:.42rem 1.1rem;border-radius:100px;border:1.5px solid var(--border);font-size:.83rem;font-weight:700;cursor:pointer;transition:all var(--tr);color:var(--muted);background:white}
+.round-btn:hover{border-color:var(--blue);color:var(--blue)}
+.round-btn.active{background:var(--blue);border-color:var(--blue);color:white}
+.round-desc{font-size:.78rem;color:var(--muted);padding:.28rem .8rem;background:rgba(37,99,235,.06);border-radius:6px;border:1px solid rgba(37,99,235,.12)}
+
+/* 연간 그리드 */
+.grid-table-block{border-radius:var(--r) var(--r) 0 0;overflow:hidden;border:1px solid var(--border);border-bottom:none;background:white;box-shadow:0 4px 24px rgba(15,23,42,.07)}
+.grid-scroll{overflow-x:auto}
+.grid-scroll::-webkit-scrollbar{height:6px}
+.grid-scroll::-webkit-scrollbar-track{background:#F1F5F9}
+.grid-scroll::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
+/* 학기 바 (테이블 외부) */
+.sem-table{width:100%;min-width:1180px;border-collapse:collapse;table-layout:fixed}
+.sem-spacer{width:100px;min-width:100px;background:#0F172A}
+.sem-cell{text-align:center;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:.3rem .2rem;border:1px solid rgba(15,23,42,.07)}
+.sem-cell.spring{background:rgba(16,185,129,.12);color:#065F46}
+.sem-cell.fall{background:rgba(245,158,11,.12);color:#92400E}
+.sem-cell.prep{background:rgba(37,99,235,.08);color:#1D4ED8}
+.sem-cell.vac{background:rgba(148,163,184,.1);color:#94A3B8}
+/* 데이터 테이블 */
+.ov-table{width:100%;min-width:1180px;border-collapse:collapse;table-layout:fixed}
+.col-grade{width:100px}
+.col-month{width:88px}
+.ov-table th,.ov-table td{border:1px solid rgba(15,23,42,.07);text-align:center;vertical-align:middle}
+.ov-table thead th{background:#0F172A;color:white;font-size:.74rem;font-weight:700;padding:.55rem .3rem;letter-spacing:.04em}
+.ov-table thead th.th-grade{background:#1E293B;font-size:.7rem;position:sticky;left:0;z-index:2}
+/* 월 헤더 클릭 */
+.month-th{cursor:pointer;user-select:none;transition:background .15s}
+.month-th:hover:not(.vac-th){background:#2A3A50!important}
+.month-th.sel{background:var(--blue)!important}
+.vac-th{cursor:default}
+.grade-cell{background:#1E293B!important;position:sticky;left:0;z-index:1;min-width:100px;width:100px;padding:.7rem .5rem;cursor:pointer;transition:opacity .15s}
+.grade-cell:hover{opacity:.8}
+.grade-cell.sel{outline:2px solid var(--cyan-l);outline-offset:-2px}
+.grade-label{display:flex;flex-direction:column;align-items:center;gap:4px}
+.grade-dot{width:10px;height:10px;border-radius:50%}
+.grade-name{font-size:.76rem;font-weight:800;color:white;line-height:1.3;text-align:center}
+.grade-range{font-size:.62rem;color:#94A3B8;text-align:center;line-height:1.4}
+.ov-cell{padding:4px;min-width:88px;width:88px;height:76px;cursor:pointer;transition:all .18s ease;position:relative}
+.ov-cell.vac{background:rgba(148,163,184,.06)!important;cursor:default}
+.ov-cell.vac .vac-label{font-size:.65rem;color:#CBD5E1;font-weight:600;letter-spacing:.04em}
+.cell-card{width:100%;height:100%;border-radius:8px;padding:5px 7px;display:flex;flex-direction:column;justify-content:space-between;border:1.5px solid transparent;transition:all .18s ease}
+.ov-cell:not(.vac):hover .cell-card{transform:scale(1.06);box-shadow:0 4px 16px rgba(15,23,42,.16)}
+.cell-topic{font-size:.7rem;font-weight:700;line-height:1.3;text-align:left;word-break:keep-all}
+.cell-tools{font-size:.6rem;font-weight:500;opacity:.75;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+.ga .cell-card{background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.12)}
+.ga .cell-topic{color:var(--ca)}
+.ga .cell-tools{color:var(--ca)}
+.ga:not(.vac):hover .cell-card{background:rgba(37,99,235,.15);border-color:rgba(37,99,235,.4)}
+.gb .cell-card{background:rgba(5,150,105,.08);border-color:rgba(5,150,105,.12)}
+.gb .cell-topic{color:var(--cb)}
+.gb .cell-tools{color:var(--cb)}
+.gb:not(.vac):hover .cell-card{background:rgba(5,150,105,.15);border-color:rgba(5,150,105,.4)}
+.gc .cell-card{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.12)}
+.gc .cell-topic{color:var(--cc)}
+.gc .cell-tools{color:var(--cc)}
+.gc:not(.vac):hover .cell-card{background:rgba(124,58,237,.15);border-color:rgba(124,58,237,.4)}
+.ov-table tbody tr:nth-child(even) .grade-cell{background:#1A2840!important}
+.ov-table tbody tr:nth-child(even) td:not(.grade-cell){background:rgba(15,23,42,.018)}
+
+/* 월별 상세 */
+.month-tabs{display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.month-tab{padding:.38rem .9rem;border-radius:100px;border:1.5px solid var(--border);font-size:.82rem;font-weight:600;cursor:pointer;transition:all var(--tr);color:var(--muted);background:white}
+.month-tab:hover{border-color:var(--blue);color:var(--blue)}
+.month-tab.active{background:var(--blue);border-color:var(--blue);color:white}
+.month-tab.vac-tab{border-style:dashed;color:var(--dim);cursor:default;opacity:.55}
+.month-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding:.9rem 1.4rem;background:white;border-radius:var(--r);border:1px solid var(--border)}
+.month-num{font-size:2.2rem;font-weight:900;line-height:1;background:linear-gradient(130deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:58px}
+.month-info h3{font-size:1.05rem;font-weight:800;margin-bottom:.15rem}
+.month-info p{font-size:.82rem;color:var(--muted)}
+.group-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.group-card{background:white;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:all var(--tr)}
+.group-card:hover{box-shadow:0 8px 28px rgba(15,23,42,.09);transform:translateY(-2px)}
+.gc-head{padding:.85rem 1.1rem .6rem;display:flex;align-items:flex-start;gap:.6rem}
+.gc-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.gc-info{flex:1}
+.gc-grade{font-size:.72rem;font-weight:800;margin-bottom:.2rem}
+.gc-topic{font-size:.97rem;font-weight:800;line-height:1.3;word-break:keep-all}
+.gc-body{padding:.1rem 1.1rem 1rem}
+.gc-desc{font-size:.82rem;color:var(--muted);line-height:1.7;margin-bottom:.75rem;word-break:keep-all}
+.gc-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.42rem}
+.gc-row-label{font-size:.66rem;font-weight:700;color:var(--dim);min-width:30px;margin-top:3px;letter-spacing:.04em;flex-shrink:0}
+.ct-tags{display:flex;flex-wrap:wrap;gap:.25rem}
+.ct-tag{font-size:.67rem;font-weight:600;padding:.16rem .5rem;border-radius:5px;background:rgba(37,99,235,.08);color:var(--blue)}
+.steam-tags{display:flex;gap:.22rem;flex-wrap:wrap}
+.steam-tag{font-size:.67rem;font-weight:700;width:21px;height:21px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.st-S{background:rgba(5,150,105,.1);color:#065F46}
+.st-T{background:rgba(37,99,235,.1);color:var(--blue)}
+.st-E{background:rgba(217,119,6,.1);color:var(--amber)}
+.st-A{background:rgba(243,68,100,.1);color:#e11d48}
+.st-M{background:rgba(124,58,237,.1);color:var(--purple)}
+.tool-pills{display:flex;flex-wrap:wrap;gap:.2rem}
+.tool-pill{font-size:.7rem;font-weight:600;padding:.18rem .55rem;border-radius:5px;background:#F1F5F9;color:var(--muted);border:1px solid var(--border)}
+.group-card.card-a .gc-head{background:rgba(37,99,235,.04)}
+.group-card.card-a .gc-grade{color:var(--ca)}
+.group-card.card-a .gc-topic{color:var(--ca)}
+.group-card.card-b .gc-head{background:rgba(5,150,105,.04)}
+.group-card.card-b .gc-grade{color:var(--cb)}
+.group-card.card-b .gc-topic{color:var(--cb)}
+.group-card.card-c .gc-head{background:rgba(124,58,237,.04)}
+.group-card.card-c .gc-grade{color:var(--cc)}
+.group-card.card-c .gc-topic{color:var(--cc)}
+
+/* CTA / Footer */
+.cta-box{background:linear-gradient(135deg,#EBF4FF,#EFF6FF);border:1px solid rgba(37,99,235,.15);border-radius:16px;padding:3.5rem 2.5rem;text-align:center}
+.cta-box h3{font-size:1.5rem;font-weight:800;margin-bottom:.6rem}
+.cta-box p{color:var(--muted);margin-bottom:1.8rem;font-size:.97rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.78rem 1.6rem;border-radius:var(--r);font-weight:700;font-size:.95rem;cursor:pointer;border:none;transition:all var(--tr)}
+.btn-p{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;box-shadow:0 4px 18px rgba(37,99,235,.25)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.38)}
+.btn-o{background:transparent;color:var(--text);border:1.5px solid var(--border)}
+.btn-o:hover{border-color:var(--blue);color:var(--blue)}
+.footer{background:#0F172A;border-top:1px solid rgba(255,255,255,.06);padding:2rem 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo img{height:20px;width:auto;object-fit:contain}
+.footer-copy{font-size:.78rem;color:#475569}
+
+/* 모달 */
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:500;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .22s ease;backdrop-filter:blur(4px)}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal{background:white;border-radius:16px;width:100%;max-width:480px;box-shadow:0 32px 80px rgba(15,23,42,.22);transform:translateY(14px) scale(.97);transition:all .22s ease;overflow:hidden}
+.modal-bg.open .modal{transform:translateY(0) scale(1)}
+.modal-head{padding:1.3rem 1.5rem .9rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.modal-head-info{flex:1}
+.modal-grade-badge{font-size:.72rem;font-weight:800;padding:.2rem .7rem;border-radius:100px;display:inline-block;margin-bottom:.4rem}
+.modal-topic{font-size:1.18rem;font-weight:900;line-height:1.25;word-break:keep-all}
+.modal-meta{font-size:.78rem;color:var(--muted);margin-top:.2rem}
+.modal-close{width:32px;height:32px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:.88rem;transition:all var(--tr);flex-shrink:0}
+.modal-close:hover{background:#F1F5F9;color:var(--text)}
+.modal-body{padding:1.1rem 1.5rem}
+.modal-sec{margin-bottom:.9rem}
+.modal-sec:last-child{margin-bottom:0}
+.modal-sec-label{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:.4rem}
+.modal-desc{font-size:.86rem;color:var(--muted);line-height:1.72;margin-bottom:.85rem;word-break:keep-all}
+
+/* 애니메이션 */
+.jr .rv{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.jr .rv.in{opacity:1;transform:translateY(0)}
+.jr .rv.d1{transition-delay:.1s}
+.jr .rv.d2{transition-delay:.2s}
+.jr .rv.d3{transition-delay:.3s}
+
+/* ── 3단 설명 섹션 ── */
+.desc-sec{background:linear-gradient(160deg,#EBF5FF 0%,#F8FAFC 55%,#EFF6FF 100%);border-bottom:1px solid var(--border);padding-top:88px}
+.desc-grid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:2.5rem;align-items:start}
+.round-mini-list{display:flex;flex-direction:column;gap:.6rem;margin-top:.9rem}
+.round-mini{background:white;border-radius:10px;border:1.5px solid var(--border);padding:.8rem 1rem .8rem 1.2rem;position:relative;overflow:hidden}
+.round-mini::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.round-mini.r1::before{background:linear-gradient(180deg,#2563EB,#0891B2)}
+.round-mini.r2::before{background:linear-gradient(180deg,#059669,#0891B2)}
+.round-mini.r3::before{background:linear-gradient(180deg,#7C3AED,#2563EB)}
+.round-mini-top{display:flex;align-items:baseline;gap:.5rem;margin-bottom:.22rem}
+.round-mini-num{font-size:.65rem;font-weight:800;color:var(--dim)}
+.round-mini-title{font-size:.9rem;font-weight:800}
+.round-mini-desc{font-size:.78rem;color:var(--muted);line-height:1.6;word-break:keep-all}
+.fuse-tags{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.85rem}
+.fuse-tag{display:inline-flex;align-items:center;gap:.28rem;font-size:.75rem;font-weight:600;padding:.28rem .65rem;border-radius:100px;background:white;border:1px solid var(--border);color:var(--text)}
+
+/* ── 타이틀 + 회차 인라인 ── */
+.overview-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;margin-bottom:1.4rem;flex-wrap:wrap}
+.round-inline-wrap{display:flex;flex-direction:column;gap:.45rem;align-items:flex-end;padding-top:.2rem}
+
+/* ── 과목 아이콘 (원형, 전체 행, 가운데 정렬) ── */
+.subj-filter-wrap{border:1px solid var(--border);border-top:none;border-radius:0 0 var(--r) var(--r);background:white;padding:.8rem 1.2rem 1rem}
+.subj-filter{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;padding:.3rem 0 .5rem}
+.subj-icon-btn{display:flex;flex-direction:column;align-items:center;gap:.5rem;cursor:pointer;background:none;border:none;padding:0;transition:all var(--tr)}
+.subj-icon-btn:hover .subj-circle{transform:scale(1.08);box-shadow:0 6px 20px rgba(15,23,42,.14)}
+.subj-icon-btn.active .subj-circle{box-shadow:0 0 0 3px white,0 0 0 5px var(--subj-color)}
+.subj-circle{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.25rem;transition:all var(--tr)}
+.subj-label{font-size:.71rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color var(--tr)}
+.subj-icon-btn.active .subj-label,.subj-icon-btn:hover .subj-label{color:var(--text)}
+
+/* ── 통합 상세 패널 ── */
+.unified-detail{display:none;padding:.85rem 0 .2rem;border-top:1px solid var(--border);margin-top:.7rem;animation:fadeUp .25s ease}
+.unified-detail.open{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.subj-cases-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1.1rem;padding:.65rem 1rem;background:var(--bg);border-radius:var(--r);border:1px solid var(--border)}
+.subj-cases-icon{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0}
+.subj-cases-title{font-size:.93rem;font-weight:800}
+.subj-cases-desc{font-size:.78rem;color:var(--muted)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.case-card{background:var(--bg);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:all var(--tr)}
+.case-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(15,23,42,.09)}
+.case-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-direction:column;gap:.4rem}
+.case-body{padding:.85rem 1rem}
+.case-tag{font-size:.64rem;font-weight:700;padding:.15rem .5rem;border-radius:5px;display:inline-block;margin-bottom:.35rem}
+.case-title{font-size:.9rem;font-weight:800;margin-bottom:.28rem;line-height:1.35}
+.case-desc{font-size:.78rem;color:var(--muted);line-height:1.62;word-break:keep-all}
+.case-keywords{display:flex;gap:.22rem;margin-top:.55rem;flex-wrap:wrap}
+.case-kw{font-size:.64rem;font-weight:600;padding:.14rem .48rem;border-radius:5px;background:#F1F5F9;color:var(--muted)}
+
+@media(max-width:1024px){.desc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.group-cards{grid-template-columns:1fr}.round-cards{grid-template-columns:1fr}.case-grid{grid-template-columns:1fr}.overview-head{flex-direction:column;gap:.9rem}.round-inline-wrap{align-items:flex-start}.desc-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.sec{padding:52px 0}.cta-box{padding:2.5rem 1.5rem}.subj-circle{width:48px;height:48px;font-size:1.05rem}.subj-filter{gap:1rem}.desc-sec{padding-top:80px}}
+</style>
+</head>
+<body>
+
+<header class="hd" id="hd">
+  <div class="wrap">
+    <div class="hd-inner">
+      <a href="index.html" class="hd-logo">
+        <img src="https://app.cosmoedu.co.kr/resource/cosmoedu_logo(white)_1024x180.png" alt="코스모에듀" loading="lazy">
+      </a>
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <a href="index.html#curriculum" class="hd-back"><i class="fas fa-arrow-left"></i> 커리큘럼으로</a>
+        <a href="index.html#contact" class="hd-cta">무료 상담</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ 3단 설명 섹션 ══ -->
+<section class="sec desc-sec" id="intro">
+  <div class="wrap">
+    <div class="desc-grid rv">
+
+      <!-- 1단: 소개 -->
+      <div class="desc-col">
+        <div class="hero-label" style="margin-bottom:.85rem"><i class="fas fa-book-open"></i> 코스모에듀 스쿨 커리큘럼</div>
+        <h1 style="font-size:clamp(1.45rem,2.8vw,2rem);font-weight:900;line-height:1.25;margin-bottom:.55rem;word-break:keep-all">3개 학년군 · 3회차<br><span style="background:linear-gradient(130deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">연간 AI·코딩 로드맵</span></h1>
+        <p style="font-size:.86rem;color:var(--muted);line-height:1.75;word-break:keep-all;margin-bottom:1rem">학년을 3개 그룹으로 나눠 함께 수업합니다. 각 그룹은 동일한 3회차 로드맵을 따르며, 처음 시작하는 해에는 모두 <strong>1회차(입문·체험)</strong>부터 시작합니다.</p>
+        <div class="hero-chips">
+          <span class="hero-chip" style="border-color:rgba(37,99,235,.3)"><span style="width:8px;height:8px;border-radius:50%;background:#2563EB;display:inline-block"></span>&nbsp;1~3학년군</span>
+          <span class="hero-chip" style="border-color:rgba(5,150,105,.3)"><span style="width:8px;height:8px;border-radius:50%;background:#059669;display:inline-block"></span>&nbsp;4~6학년군</span>
+          <span class="hero-chip" style="border-color:rgba(124,58,237,.3)"><span style="width:8px;height:8px;border-radius:50%;background:#7C3AED;display:inline-block"></span>&nbsp;중·고등군</span>
+          <span class="hero-chip"><i class="fas fa-rotate" style="color:var(--cyan);font-size:.72rem"></i> 3회차 순환</span>
+          <span class="hero-chip"><i class="fas fa-calendar-alt" style="color:var(--amber);font-size:.72rem"></i> 연 10개월 수업</span>
+        </div>
+      </div>
+
+      <!-- 2단: 3회차 로드맵 -->
+      <div class="desc-col">
+        <div class="sec-label">3회차 로드맵</div>
+        <h2 style="font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.1rem">매년 심화되는 3단계</h2>
+        <p style="font-size:.78rem;color:var(--muted);margin-bottom:.8rem">처음 듣는 학생은 누구나 1회차부터 시작합니다.</p>
+        <div class="round-mini-list">
+          <div class="round-mini r1">
+            <div class="round-mini-top"><span class="round-mini-num">1회차 · Year 1</span><span class="round-mini-title">입문 · 체험</span></div>
+            <div class="round-mini-desc">AI·코딩 도구를 처음 만납니다. 재미있는 창작 활동으로 디지털 도구에 친숙해지고 컴퓨팅 사고의 기초를 쌓습니다.</div>
+          </div>
+          <div class="round-mini r2">
+            <div class="round-mini-top"><span class="round-mini-num">2회차 · Year 2</span><span class="round-mini-title">심화 · 프로젝트</span></div>
+            <div class="round-mini-desc">팀 프로젝트와 실제 서비스 제작에 도전합니다. 기획·구현·발표 전 과정을 경험하며 문제 해결 역량을 키웁니다.</div>
+          </div>
+          <div class="round-mini r3">
+            <div class="round-mini-top"><span class="round-mini-num">3회차 · Year 3</span><span class="round-mini-title">완성 · 포트폴리오</span></div>
+            <div class="round-mini-desc">실전 수준의 AI 서비스·포트폴리오를 완성합니다. 진로와 연결된 심화 프로젝트로 창의·기술 역량을 집대성합니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3단: AI 융합 -->
+      <div class="desc-col">
+        <div class="sec-label">AI · 융합 · 진로</div>
+        <h2 style="font-size:1rem;font-weight:800;color:var(--text);margin-bottom:.45rem">다양한 교과와 AI 융합</h2>
+        <p style="font-size:.82rem;color:var(--muted);line-height:1.7;word-break:keep-all;margin-bottom:.2rem">대안학교 특성에 맞게 AI를 매개로 미술·음악·역사·과학 등 다양한 교과를 융합합니다. 모든 수업이 창의·진로와 연결됩니다.</p>
+        <div class="fuse-tags">
+          <span class="fuse-tag">🤖 AI·컴퓨팅</span>
+          <span class="fuse-tag">🎨 미술·창작</span>
+          <span class="fuse-tag">🎵 음악</span>
+          <span class="fuse-tag">🏛 역사</span>
+          <span class="fuse-tag">🔬 과학</span>
+          <span class="fuse-tag">🌍 사회</span>
+          <span class="fuse-tag">🧭 진로</span>
+          <span class="fuse-tag">💻 디지털 리터러시</span>
+        </div>
+        <div style="margin-top:1.1rem;padding:.85rem;background:rgba(37,99,235,.05);border-radius:10px;border:1px solid rgba(37,99,235,.12)">
+          <div style="font-size:.68rem;font-weight:800;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem">대안학교 특화</div>
+          <p style="font-size:.79rem;color:var(--muted);line-height:1.65;word-break:keep-all">진로 탐색과 AI 역량을 동시에 키웁니다. 3년간의 수업이 포트폴리오로 완성됩니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 연간 그리드 + 통합 상세 ══ -->
+<section class="sec" id="overview">
+  <div class="wrap">
+
+    <!-- 타이틀 + 회차 인라인 -->
+    <div class="overview-head rv">
+      <div>
+        <div class="sec-label">연간 커리큘럼 한눈에 보기</div>
+        <h2 class="sec-title" style="margin-bottom:0">월별 · 학년군별 <span class="hl">수업 개요</span></h2>
+      </div>
+      <div class="round-inline-wrap">
+        <div class="round-btns" id="gridRoundBtns">
+          <button class="round-btn active" data-round="1">1회차 · 입문</button>
+          <button class="round-btn" data-round="2">2회차 · 심화</button>
+          <button class="round-btn" data-round="3">3회차 · 완성</button>
+        </div>
+        <span class="round-desc" id="roundDesc" style="align-self:flex-end">처음 시작하는 해 — AI·코딩 체험 중심</span>
+      </div>
+    </div>
+
+    <!-- 학기 바 + 데이터 테이블 (같은 스크롤 컨테이너) -->
+    <div class="grid-table-block rv d1">
+      <div class="grid-scroll">
+        <!-- 학기 바 (테이블 외부) -->
+        <table class="sem-table">
+          <colgroup><col class="col-grade"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"></colgroup>
+          <tbody><tr>
+            <td class="sem-spacer"></td>
+            <td class="sem-cell spring" colspan="4">봄 학기</td>
+            <td class="sem-cell prep">여름 특강</td>
+            <td class="sem-cell vac">여름방학</td>
+            <td class="sem-cell fall" colspan="4">가을 학기</td>
+            <td class="sem-cell prep">학기 준비</td>
+            <td class="sem-cell vac">겨울방학</td>
+          </tr></tbody>
+        </table>
+        <!-- 데이터 테이블 (2행 헤더 제거, 1행만) -->
+        <table class="ov-table">
+          <colgroup><col class="col-grade"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"><col class="col-month"></colgroup>
+          <thead>
+            <tr>
+              <th class="th-grade">학년군</th>
+              <th class="month-th" data-month="3">3월</th>
+              <th class="month-th" data-month="4">4월</th>
+              <th class="month-th" data-month="5">5월</th>
+              <th class="month-th" data-month="6">6월</th>
+              <th class="month-th" data-month="7">7월</th>
+              <th class="month-th vac-th" data-month="8">8월</th>
+              <th class="month-th" data-month="9">9월</th>
+              <th class="month-th" data-month="10">10월</th>
+              <th class="month-th" data-month="11">11월</th>
+              <th class="month-th" data-month="12">12월</th>
+              <th class="month-th" data-month="1">1월</th>
+              <th class="month-th vac-th" data-month="2">2월</th>
+            </tr>
+          </thead>
+          <tbody id="ovBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 과목 아이콘 (원형, 가운데) + 통합 상세 패널 -->
+    <div class="subj-filter-wrap">
+      <div class="subj-filter" id="subjRow"></div>
+      <div class="unified-detail" id="unifiedDetail"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <h3>우리 학교·학원에 맞는 커리큘럼이 궁금하다면?</h3>
+      <p>학년 구성·인원·목표에 맞게 커스터마이즈된 커리큘럼을 제안해 드립니다.</p>
+      <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap">
+        <a href="index.html#contact" class="btn btn-p"><i class="fas fa-comments"></i> 무료 상담 신청</a>
+        <a href="quote.html" class="btn btn-o"><i class="fas fa-calculator"></i> 견적 계산해 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">
+        <img src="https://app.cosmoedu.co.kr/resource/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀" loading="lazy">
+      </a>
+      <p class="footer-copy">© 2025 코스모에듀벤처. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-head" id="mHead">
+      <div class="modal-head-info">
+        <div class="modal-grade-badge" id="mGrade"></div>
+        <div class="modal-topic" id="mTopic"></div>
+        <div class="modal-meta" id="mMeta"></div>
+      </div>
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-sec">
+        <div class="modal-sec-label">수업 내용</div>
+        <div class="modal-desc" id="mDesc"></div>
+      </div>
+      <div class="modal-sec">
+        <div class="modal-sec-label">CT 요소</div>
+        <div class="ct-tags" id="mCT"></div>
+      </div>
+      <div class="modal-sec">
+        <div class="modal-sec-label">STEAM 요소</div>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap" id="mSTEAM"></div>
+      </div>
+      <div class="modal-sec">
+        <div class="modal-sec-label">활용 플랫폼 · 도구</div>
+        <div class="tool-pills" id="mTools"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const GROUPS=[
+  {id:'a',label:'1~3학년군',range:'초등 1·2·3학년',cls:'ga',cardCls:'card-a',dot:'#2563EB'},
+  {id:'b',label:'4~6학년군',range:'초등 4·5·6학년',cls:'gb',cardCls:'card-b',dot:'#059669'},
+  {id:'c',label:'중·고등군', range:'중학교·고등학교', cls:'gc',cardCls:'card-c',dot:'#7C3AED'},
+];
+const ROUND_DESCS={1:'처음 시작하는 해 — AI·코딩 체험 중심',2:'두 번째 해 — 팀 프로젝트·서비스 제작',3:'세 번째 해 — 완성·포트폴리오·진로 연결'};
+const MONTH_LABELS={1:'1월 — 학기 준비',3:'3월 — 봄 학기 시작',4:'4월 — 프로젝트 심화',5:'5월 — AI & 메타버스',6:'6월 — 프로젝트 완성',7:'7월 — 여름 특강',9:'9월 — 2학기 시작',10:'10월 — 심화 & 협업',11:'11월 — 포트폴리오',12:'12월 — 최종 발표'};
+const MONTH_SUB={1:'새 학기를 준비합니다. 디지털 도구를 익히고 수업 방향을 안내합니다.',3:'봄 학기가 시작됩니다. AI와 코딩 도구를 처음 만납니다.',4:'첫 번째 프로젝트에 도전합니다. 아이디어를 실제로 만들어 봅니다.',5:'생성형 AI와 메타버스를 활용한 창작 수업입니다.',6:'한 학기 프로젝트를 완성하고 발표합니다.',7:'여름 특강으로 실습 중심 집중 수업을 진행합니다.',9:'2학기가 시작됩니다. 심화 주제로 역량을 키웁니다.',10:'팀 협업과 고급 프로젝트를 진행합니다.',11:'포트폴리오를 정리하고 발표를 준비합니다.',12:'최종 발표 및 연간 작품 아카이브를 완성합니다.'};
+const C={
+  1:{
+    1:{a:{topic:'AI 도구 첫 만남',desc:'Midjourney·DALL-E로 AI 그림을 만들고 디지털 도구 사용법을 익힙니다. 수업 방향과 플랫폼을 소개합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','DALL-E']},b:{topic:'게임·앱 첫 만남',desc:'Scratch로 간단한 게임을 만들며 블록 코딩에 입문합니다. 앱 기획의 기초 개념을 소개합니다.',ct:['분해','알고리즘'],steam:['E','T'],tools:['Scratch','App Inventor']},c:{topic:'Python 환경 설정',desc:'Python 개발 환경을 설치하고 첫 코드를 실행합니다. 코딩의 기초 개념과 학습 방향을 안내합니다.',ct:['알고리즘','추상화'],steam:['T','M'],tools:['Python (IDE)','VS Code']}},
+    3:{a:{topic:'AI 그림·이야기 창작',desc:'AI 이미지 생성 도구로 나만의 캐릭터와 이야기를 만듭니다. 패턴 인식과 추상화를 놀이처럼 배웁니다.',ct:['패턴 인식','추상화'],steam:['A','T'],tools:['Midjourney','DALL-E','Vibe Coding']},b:{topic:'스크래치 게임 제작',desc:'Scratch로 캐릭터를 움직이는 게임을 만듭니다. 알고리즘 설계와 디버깅 개념을 익힙니다.',ct:['분해','알고리즘','디버깅'],steam:['E','M','A'],tools:['Scratch']},c:{topic:'Python 기초 문법',desc:'변수·조건문·반복문을 배우고 간단한 계산 프로그램을 만듭니다. 알고리즘 설계의 기초를 다집니다.',ct:['알고리즘','디버깅'],steam:['T','M'],tools:['Python (IDE)']}},
+    4:{a:{topic:'움직이는 그림책',desc:'Vibe Coding으로 그림이 움직이는 인터랙티브 그림책을 만듭니다. 분해와 알고리즘을 활용합니다.',ct:['분해','알고리즘'],steam:['A','E','T'],tools:['Vibe Coding']},b:{topic:'앱인벤터 앱 제작',desc:'App Inventor로 버튼과 화면이 있는 모바일 앱을 만듭니다. 설계→구현→테스트 과정을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['App Inventor']},c:{topic:'Python 게임 제작',desc:'Pygame으로 2D 게임을 만들며 객체 개념을 익힙니다. 알고리즘과 디버깅 능력을 실전으로 키웁니다.',ct:['알고리즘','디버깅','설계'],steam:['T','E','M','A'],tools:['Python','Pygame']}},
+    5:{a:{topic:'AI 동물 도감',desc:'AI 도구로 동물을 생성하고 Vibe Coding으로 인터랙티브 도감을 만듭니다.',ct:['패턴 인식','추상화'],steam:['S','A','T'],tools:['AI Tool','Vibe Coding']},b:{topic:'바이브 코딩 입문',desc:'AI 코딩 도구로 나만의 웹 페이지를 만듭니다. 알고리즘과 추상화를 웹 표현으로 연결합니다.',ct:['분해','알고리즘','추상화'],steam:['T','E','A'],tools:['Vibe Coding','HTML/CSS']},c:{topic:'AI 활용 코딩',desc:'Python AI 라이브러리로 이미지 분류·텍스트 생성을 구현합니다. AI의 원리를 코드로 이해합니다.',ct:['알고리즘','추상화','패턴'],steam:['T','A','M'],tools:['Python','AI Library']}},
+    6:{a:{topic:'인터랙티브 이야기',desc:'클릭하면 반응하는 이야기를 만들며 봄 학기를 마무리합니다. 분해와 알고리즘으로 이야기 구조를 설계합니다.',ct:['분해','알고리즘'],steam:['A','T','E'],tools:['Vibe Coding']},b:{topic:'메타버스 공간 제작',desc:'ZEP에서 나만의 메타버스 공간을 기획하고 만듭니다. 설계 사고와 공간 표현을 배웁니다.',ct:['분해','설계'],steam:['E','A'],tools:['ZEP','ZEPETO']},c:{topic:'챗봇 제작',desc:'ChatGPT API로 특정 주제에 답하는 챗봇을 만듭니다. 자동화와 API 개념을 실전에서 익힙니다.',ct:['알고리즘','자동화','추상화'],steam:['T','A'],tools:['Python','ChatGPT API']}},
+    7:{a:{topic:'AI 창작 여름 특강',desc:'여름 특강으로 AI 영상·음악 창작을 체험합니다. 생성형 AI 도구를 다양하게 경험합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Suno','Runway','DALL-E']},b:{topic:'앱 기획 프로젝트',desc:'아이디어 → 화면 설계 → 프로토타입 과정을 경험합니다. 팀으로 앱을 기획하고 Figma로 시각화합니다.',ct:['분해','추상화','설계'],steam:['E','T','A'],tools:['Figma','App Inventor']},c:{topic:'웹 기초 프로젝트',desc:'HTML·CSS·JavaScript로 간단한 웹 페이지를 만듭니다. 프론트엔드 기초와 DOM 조작을 배웁니다.',ct:['분해','알고리즘','디버깅'],steam:['T','E','A'],tools:['HTML','CSS','JavaScript']}},
+    9:{a:{topic:'역사 공간 만들기',desc:'ZEP 메타버스에서 우리 역사를 담은 공간을 만듭니다. 분해와 설계로 이야기 공간을 구성합니다.',ct:['분해','설계'],steam:['S','A','E'],tools:['ZEP','MetaVerse']},b:{topic:'바이브 코딩 심화',desc:'AI 코딩 도구로 기능이 있는 웹 앱을 만듭니다. 알고리즘과 자동화를 응용합니다.',ct:['알고리즘','자동화','디버깅'],steam:['T','E','A','M'],tools:['Vibe Coding (Advanced)']},c:{topic:'Python 자동화',desc:'파일 처리·웹 크롤링·자동 이메일 등 실생활 자동화를 구현합니다. 자동화 사고를 키웁니다.',ct:['자동화','알고리즘'],steam:['T','E','M'],tools:['Python','Automation']}},
+    10:{a:{topic:'ZEP 역사 체험맵',desc:'역사 인물·사건을 담은 인터랙티브 맵을 완성합니다. 설계와 협업으로 공간을 풍부하게 만듭니다.',ct:['분해','설계'],steam:['E','S'],tools:['ZEP']},b:{topic:'앱인벤터 심화',desc:'데이터베이스와 센서를 활용한 앱을 만듭니다. 알고리즘 심화와 디버깅 능력을 키웁니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['App Inventor']},c:{topic:'웹앱 제작',desc:'Flask로 서버를 구성하고 HTML과 연동한 웹앱을 만듭니다. 클라이언트-서버 구조를 이해합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Flask','HTML','CSS','JS']}},
+    11:{a:{topic:'온라인 전시회',desc:'한 학기 작품을 모아 메타버스 전시회를 엽니다. 작품을 소개하는 발표 능력을 키웁니다.',ct:['분해','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','ZEP']},b:{topic:'포트폴리오 제작',desc:'만든 앱·웹·코딩 작품을 정리해 포트폴리오를 만듭니다. 결과물을 논리적으로 설명합니다.',ct:['추상화','커뮤니케이션'],steam:['A','E'],tools:['Document','Figma']},c:{topic:'AI 콘텐츠 제작',desc:'AI 도구와 Python을 결합해 자동화된 콘텐츠를 만듭니다. 창작과 기술을 통합합니다.',ct:['추상화','패턴','자동화'],steam:['T','A'],tools:['AI Tool','Python']}},
+    12:{a:{topic:'겨울 전시회',desc:'연간 작품을 발표하고 메타버스 전시를 엽니다. 발표·소통 능력을 마무리합니다.',ct:['분해','커뮤니케이션'],steam:['A','T','E'],tools:['MetaVerse','ZEP']},b:{topic:'창작 페스티벌',desc:'앱·게임·웹 작품을 부스 형식으로 전시하고 발표합니다. 한 해의 성장을 돌아봅니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'데모데이',desc:'만든 서비스를 발표하는 데모데이를 진행합니다. 프레젠테이션과 질의응답 능력을 키웁니다.',ct:['커뮤니케이션','프레젠테이션'],steam:['T','E','A'],tools:['Presentation Tool']}},
+  },
+  2:{
+    1:{a:{topic:'팀 프로젝트 기획',desc:'팀을 구성하고 올해 만들 작품의 주제와 계획을 세웁니다. 분해와 설계 사고를 시작합니다.',ct:['분해','추상화','설계'],steam:['A','E'],tools:['Figma','Notion']},b:{topic:'서비스 아이디어 기획',desc:'사용자 문제를 정의하고 디지털 서비스 아이디어를 기획합니다. 사용자 스토리 작성법을 배웁니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Miro']},c:{topic:'데이터 분석 입문',desc:'Pandas로 실제 데이터를 읽고 분석합니다. 패턴 인식과 추상화를 데이터로 연결합니다.',ct:['패턴 인식','추상화'],steam:['M','T','S'],tools:['Python (Pandas)','Jupyter']}},
+    3:{a:{topic:'팀 AI 영상 제작',desc:'AI 영상·음악 도구로 팀 스토리를 만듭니다. 역할 분담과 협업을 처음 경험합니다.',ct:['분해','패턴 인식'],steam:['A','T'],tools:['Runway','Suno','Vibe Coding']},b:{topic:'데이터 시각화',desc:'Python으로 실생활 데이터를 그래프로 표현합니다. 수학적 사고와 코딩을 결합합니다.',ct:['패턴 인식','추상화'],steam:['M','T'],tools:['Python','Matplotlib']},c:{topic:'웹 서비스 제작',desc:'Flask·Django로 실제로 접속 가능한 웹 서비스를 만듭니다. 서버 구조와 데이터베이스를 이해합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A'],tools:['Flask','Django']}},
+    4:{a:{topic:'메타버스 이야기 공간',desc:'팀이 기획한 이야기를 ZEP 메타버스로 구현합니다. 역할 분담·설계·구현을 팀으로 경험합니다.',ct:['분해','설계'],steam:['A','T','E'],tools:['ZEP','Vibe Coding']},b:{topic:'팀 앱 기획·제작',desc:'팀 아이디어를 앱인벤터·바이브코딩으로 구현합니다. 기획→구현→피드백 사이클을 돌립니다.',ct:['분해','알고리즘','디버깅'],steam:['T','E','A'],tools:['App Inventor','Vibe Coding']},c:{topic:'데이터 프로젝트',desc:'공공 데이터를 가져와 분석하고 시각화합니다. SQL 기초와 데이터 스토리텔링을 배웁니다.',ct:['패턴 인식','추상화','알고리즘'],steam:['M','T','S'],tools:['Python','SQL','Matplotlib']}},
+    5:{a:{topic:'생성형 AI 창작',desc:'ChatGPT·DALL-E로 팀 스토리와 비주얼을 만듭니다. AI와 협력하는 창작 방식을 탐구합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['ChatGPT','DALL-E','Vibe Coding']},b:{topic:'Python 첫 프로젝트',desc:'Python으로 첫 텍스트 기반 프로그램을 완성합니다. 변수·조건·반복을 실전에 적용합니다.',ct:['알고리즘','디버깅','분해'],steam:['T','M'],tools:['Python']},c:{topic:'AI 서비스 기획',desc:'사용자 리서치 → 아이디어 → 프로토타입 과정으로 AI 서비스를 기획합니다. UX 사고를 배웁니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Design Tool']}},
+    6:{a:{topic:'히스토리아 프로젝트',desc:'역사·문화 주제를 메타버스와 스토리로 표현합니다. 분해와 패턴 인식으로 복잡한 이야기를 구성합니다.',ct:['분해','패턴 인식'],steam:['S','A','E'],tools:['ZEP','Vibe Coding']},b:{topic:'서비스 제작 프로젝트',desc:'기획한 앱 서비스를 완성해 교내 발표합니다. 설계→구현→테스트→피드백 전 과정을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['App Inventor','Vibe Coding','Python']},c:{topic:'생성형 AI 활용',desc:'Claude·ChatGPT API로 프롬프트 엔지니어링과 자동화를 구현합니다. AI와 코드를 통합합니다.',ct:['추상화','패턴','자동화'],steam:['T','A'],tools:['ChatGPT','Claude API','Python']}},
+    7:{a:{topic:'메타버스 여름 특강',desc:'ZEP·ZEPETO에서 협업 공간을 만드는 심화 특강입니다. 설계와 협업 기술을 집중 연습합니다.',ct:['분해','설계'],steam:['E','A','T'],tools:['ZEP','ZEPETO']},b:{topic:'팀 메타버스 제작',desc:'팀이 주제를 정해 교내 전시용 메타버스 공간을 만듭니다. 협업 설계와 구현을 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['MetaVerse (Team)']},c:{topic:'팀 서비스 기획',desc:'팀 프로젝트로 실제 문제를 해결하는 서비스를 기획합니다. Figma·Notion으로 사양서를 작성합니다.',ct:['분해','추상화'],steam:['T','E','A'],tools:['Figma','Notion']}},
+    9:{a:{topic:'AI 캐릭터·세계관',desc:'AI 이미지 도구로 나만의 캐릭터와 세계관을 만듭니다. 추상화와 패턴을 활용해 일관된 스타일을 만듭니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','DALL-E']},b:{topic:'바이브 코딩 고급',desc:'API 연동·로그인 기능이 있는 웹앱을 바이브 코딩으로 만듭니다. 자동화와 설계 사고를 심화합니다.',ct:['알고리즘','설계','자동화'],steam:['T','E','A','M'],tools:['Vibe Coding (Advanced)']},c:{topic:'AI 기반 서비스 개발',desc:'Python·웹 프레임워크·AI API를 통합해 실제 서비스를 만듭니다. 풀스택 개발 흐름을 경험합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','M','S','A','E'],tools:['Python','Web Framework','AI API']}},
+    10:{a:{topic:'팀 메타버스 협업',desc:'역할을 나눠 대형 메타버스 공간을 함께 만듭니다. 협업 능력과 프로젝트 관리를 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['MetaVerse','ZEP']},b:{topic:'서비스 제작 프로젝트',desc:'기획한 서비스의 전체 버전을 제작합니다. 여러 기능을 통합하고 사용자 테스트를 진행합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Multiple Tools']},c:{topic:'AI 데이터 분석',desc:'TensorFlow·Sklearn으로 머신러닝 모델을 만들고 결과를 분석합니다. AI 원리를 코드로 구현합니다.',ct:['패턴','알고리즘','자동화'],steam:['T','M','S'],tools:['TensorFlow','Sklearn','Python']}},
+    11:{a:{topic:'디지털 전시관',desc:'팀 작품을 모아 메타버스 전시관을 꾸밉니다. 작품을 스토리로 엮어 관람객에게 소개합니다.',ct:['분해','설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','ZEP']},b:{topic:'팀 발표·시연',desc:'완성된 서비스를 발표하고 시연합니다. 발표 자료를 구성하고 질의응답을 준비합니다.',ct:['커뮤니케이션','추상화'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'서비스 구현·정리',desc:'서비스를 완성하고 코드를 정리합니다. README 작성과 기술 문서 작성법을 배웁니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E'],tools:['Web Framework','GitHub']}},
+    12:{a:{topic:'메타뮤지엄 발표',desc:'연간 작품을 메타버스 뮤지엄으로 전시하고 발표합니다. 1년간의 성장을 돌아봅니다.',ct:['분해','추상화','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Presentation']},b:{topic:'프로젝트 발표회',desc:'팀 서비스를 전체 발표합니다. 성과와 배운 점을 공유하고 다음 목표를 세웁니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation']},c:{topic:'프로젝트 발표',desc:'서비스 완성 발표와 코드 리뷰를 진행합니다. 개선 사항을 정리하고 3회차를 준비합니다.',ct:['커뮤니케이션'],steam:['T','E','A'],tools:['Presentation','GitHub']}},
+  },
+  3:{
+    1:{a:{topic:'AI 크리에이터 기획',desc:'올해 완성할 창작 작품의 콘셉트와 스토리를 기획합니다. 브랜딩 개념과 포트폴리오 목표를 세웁니다.',ct:['추상화','설계'],steam:['A','T','E'],tools:['Notion','Figma']},b:{topic:'창작 서비스 기획',desc:'실제 사용자가 쓸 수 있는 서비스 MVP를 기획합니다. 사용자 리서치와 PRD 작성을 경험합니다.',ct:['분해','추상화','설계'],steam:['T','E','A'],tools:['Figma','Notion','Miro']},c:{topic:'AI·데이터 진로 탐색',desc:'AI·데이터 분야의 직업과 진로를 탐색합니다. 나의 강점과 관심 분야를 연결하는 로드맵을 만듭니다.',ct:['추상화','패턴'],steam:['T','M','S'],tools:['진로 플랫폼','Notion']}},
+    3:{a:{topic:'생성형 AI 작품 제작',desc:'Midjourney·Suno·Runway를 결합해 AI 미디어 작품을 만듭니다. 생성형 AI 활용 능력을 심화합니다.',ct:['추상화','패턴 인식'],steam:['A','T'],tools:['Midjourney','Suno','Runway']},b:{topic:'앱 서비스 개발',desc:'Python·바이브코딩으로 실제 배포 가능한 앱 서비스를 만듭니다. 코드 품질과 사용자 경험을 고려합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Python','Vibe Coding','App Inventor']},c:{topic:'풀스택 프로젝트',desc:'프론트엔드·백엔드·데이터베이스를 모두 포함한 풀스택 웹 서비스를 구축합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A'],tools:['React','Flask','SQL','GitHub']}},
+    4:{a:{topic:'팀 메타버스 월드',desc:'팀이 기획한 세계관을 대형 메타버스 월드로 구현합니다. 역할 분담·설계·구현의 모든 단계를 경험합니다.',ct:['분해','설계','협업'],steam:['E','A','T'],tools:['ZEP','MetaVerse']},b:{topic:'웹·앱 개발 프로젝트',desc:'웹과 앱을 동시에 지원하는 서비스를 만듭니다. 반응형 설계와 다플랫폼 개발을 경험합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['React','App Inventor','Vibe Coding']},c:{topic:'AI 서비스 개발',desc:'AI API를 핵심 기능으로 하는 서비스를 기획·개발합니다. 프롬프트 엔지니어링과 API 설계를 심화합니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A','M'],tools:['Python','AI API','Web Framework']}},
+    5:{a:{topic:'AI 단편 영화 제작',desc:'AI 도구로 각본·이미지·음악·편집까지 모두 직접 제작한 단편 영화를 만듭니다.',ct:['분해','추상화','패턴'],steam:['A','T'],tools:['Runway','Suno','DALL-E','편집 Tool']},b:{topic:'생성형 AI 서비스',desc:'생성형 AI를 핵심으로 하는 서비스(그림책·뉴스레터·퀴즈 생성기 등)를 만듭니다.',ct:['추상화','자동화','패턴'],steam:['T','A','E'],tools:['ChatGPT API','DALL-E','Python']},c:{topic:'생성형 AI 파이프라인',desc:'AI 콘텐츠 자동화 파이프라인을 구축합니다. 프롬프트 엔지니어링과 자동화를 결합합니다.',ct:['추상화','자동화','패턴'],steam:['T','A'],tools:['Midjourney','Claude API','Python']}},
+    6:{a:{topic:'창작 포트폴리오 완성',desc:'3년간 만든 AI 작품을 포트폴리오로 정리합니다. 나만의 브랜딩과 스토리로 작품집을 완성합니다.',ct:['추상화','커뮤니케이션'],steam:['A','E'],tools:['Vibe Coding','Notion','Portfolio']},b:{topic:'서비스 MVP 완성',desc:'실제로 배포 가능한 MVP를 완성합니다. 사용자 피드백을 반영해 서비스를 개선합니다.',ct:['알고리즘','설계','디버깅'],steam:['T','E','A'],tools:['Multiple Tools']},c:{topic:'서비스 MVP 배포',desc:'완성된 AI 서비스를 실제 환경에 배포합니다. Vercel·Heroku로 퍼블릭 URL을 만듭니다.',ct:['알고리즘','설계','디버깅','자동화'],steam:['T','E','A','S','M'],tools:['Python','Vercel','GitHub']}},
+    7:{a:{topic:'AI 크리에이터 캠프',desc:'여름 특강으로 AI 창작물을 완성하고 SNS에 공유합니다. 디지털 크리에이터로서의 첫걸음을 만듭니다.',ct:['추상화','커뮤니케이션'],steam:['A','T'],tools:['AI Tools','SNS Platform']},b:{topic:'서비스 고도화',desc:'출시한 MVP를 사용자 피드백을 바탕으로 개선합니다. 애자일 방식의 반복 개발을 경험합니다.',ct:['디버깅','설계','자동화'],steam:['T','E'],tools:['Multiple Tools','GitHub']},c:{topic:'AI 프로젝트 고도화',desc:'AI 서비스의 성능을 개선하고 새로운 기능을 추가합니다. 코드 리뷰와 리팩토링을 경험합니다.',ct:['알고리즘','디버깅','자동화'],steam:['T','M','S'],tools:['Python','GitHub','CI/CD']}},
+    9:{a:{topic:'포트폴리오 사이트',desc:'나만의 포트폴리오 웹사이트를 Vibe Coding으로 만듭니다. 3년간의 작품을 한 곳에 담습니다.',ct:['분해','설계','추상화'],steam:['A','T','E'],tools:['Vibe Coding','GitHub Pages']},b:{topic:'서비스 포트폴리오',desc:'만든 서비스를 소개하는 포트폴리오를 완성합니다. 기술 스택과 문제 해결 과정을 서술합니다.',ct:['추상화','커뮤니케이션'],steam:['T','E','A'],tools:['Notion','GitHub','Figma']},c:{topic:'AI 서비스 완성',desc:'서비스를 완성하고 GitHub에 배포합니다. 기술 문서와 README를 작성합니다.',ct:['알고리즘','자동화','설계'],steam:['T','M','S','E'],tools:['Python','Web Framework','GitHub']}},
+    10:{a:{topic:'전시회 기획',desc:'연말 전시회를 직접 기획합니다. 공간 구성·홍보·운영을 팀이 함께 준비합니다.',ct:['분해','설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Canva','Figma']},b:{topic:'발표 준비·리허설',desc:'최종 발표를 준비합니다. 발표 자료와 시연 시나리오를 완성하고 리허설을 진행합니다.',ct:['커뮤니케이션','추상화'],steam:['T','E','A'],tools:['Presentation','Demo']},c:{topic:'실전 데이터 분석',desc:'공공 데이터·AI 모델 결과를 분석하고 BI 대시보드로 시각화합니다. 데이터 기반 의사결정을 경험합니다.',ct:['패턴','알고리즘','추상화'],steam:['M','T','S'],tools:['Python','SQL','BI Tool']}},
+    11:{a:{topic:'AI 영화제',desc:'만든 AI 단편 영화를 상영하는 영화제를 개최합니다. 작품 소개와 관람 이벤트를 기획합니다.',ct:['추상화','커뮤니케이션'],steam:['A','T'],tools:['AI Tool','Video Editor','MetaVerse']},b:{topic:'디지털 전시관',desc:'완성된 서비스를 전시하는 디지털 전시관을 엽니다. 방문자 경험을 설계합니다.',ct:['설계','커뮤니케이션'],steam:['A','E'],tools:['MetaVerse','Web']},c:{topic:'포트폴리오 프로젝트',desc:'GitHub·웹·AI 서비스를 통합한 최종 포트폴리오를 완성합니다. 진학·취업에 활용할 수 있는 수준으로 정리합니다.',ct:['알고리즘','설계','추상화','자동화'],steam:['T','E','A','M','S'],tools:['GitHub','Web','AI Service']}},
+    12:{a:{topic:'창작 아카이브',desc:'3년간의 AI 창작 여정을 정리한 디지털 아카이브를 만듭니다. 나의 성장을 스스로 서술합니다.',ct:['추상화','커뮤니케이션'],steam:['A','T','E'],tools:['MetaVerse','Vibe Coding']},b:{topic:'진로 발표',desc:'만든 서비스와 연결된 진로를 발표합니다. 나의 강점과 관심 분야를 연결한 미래 계획을 공유합니다.',ct:['커뮤니케이션','추상화'],steam:['T','E','A'],tools:['Presentation','Portfolio']},c:{topic:'최종 발표·아카이브',desc:'서비스·데이터 분석·포트폴리오를 통합 발표합니다. GitHub와 웹에 전 과정을 아카이브합니다.',ct:['커뮤니케이션'],steam:['T','E','A','M','S'],tools:['GitHub','Web Archive','Portfolio']}},
+  }
+};
+
+const STEAM_CLS={S:'st-S',T:'st-T',E:'st-E',A:'st-A',M:'st-M'};
+const VAC=[2,8];
+const ALL_M=[3,4,5,6,7,8,9,10,11,12,1,2];
+let curRound=1, selMonth=null, selSubj=null, selGrade=null;
+
+function steamH(a){return a.map(s=>`<span class="steam-tag ${STEAM_CLS[s]||'st-T'}">${s}</span>`).join('')}
+function toolH(a){return a.map(t=>`<span class="tool-pill">${t}</span>`).join('')}
+function ctH(a){return a.map(t=>`<span class="ct-tag">${t}</span>`).join('')}
+
+function buildGrid(){
+  const tb=document.getElementById('ovBody');
+  tb.innerHTML='';
+  GROUPS.forEach(g=>{
+    const tr=document.createElement('tr');
+    const tdG=document.createElement('td');
+    tdG.className='grade-cell'+(selGrade===g.id?' sel':'');
+    tdG.dataset.grade=g.id;
+    tdG.innerHTML=`<div class="grade-label"><div class="grade-dot" style="background:${g.dot}"></div><div class="grade-name">${g.label}</div><div class="grade-range">${g.range}</div></div>`;
+    tr.appendChild(tdG);
+    ALL_M.forEach(m=>{
+      const td=document.createElement('td');
+      td.className=`ov-cell ${g.cls}`;
+      if(VAC.includes(m)){
+        td.classList.add('vac');
+        td.innerHTML=`<span class="vac-label">${m===2?'겨울방학':'여름방학'}</span>`;
+      } else {
+        const d=C[curRound][m]&&C[curRound][m][g.id];
+        if(d){
+          td.innerHTML=`<div class="cell-card"><div class="cell-topic">${d.topic}</div><div class="cell-tools">${d.tools[0]}</div></div>`;
+          td.addEventListener('click',()=>openModal(m,g,d,curRound));
+        }
+      }
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  });
+}
+
+function initTableClicks(){
+  // 월 헤더 클릭
+  document.querySelectorAll('.month-th:not(.vac-th)').forEach(th=>{
+    th.addEventListener('click',()=>{
+      document.querySelectorAll('.month-th').forEach(t=>t.classList.remove('sel'));
+      th.classList.add('sel');
+      selMonth=parseInt(th.dataset.month);
+      selSubj=null;
+      document.querySelectorAll('.subj-icon-btn').forEach(b=>b.classList.remove('active'));
+      renderUnified();
+    });
+  });
+  // 학년군 셀 클릭 (이벤트 위임)
+  document.getElementById('ovBody').addEventListener('click',e=>{
+    const gc=e.target.closest('.grade-cell');
+    if(!gc) return;
+    const gid=gc.dataset.grade;
+    selGrade=(selGrade===gid)?null:gid;
+    buildGrid();
+    if(selMonth!==null||selSubj) renderUnified();
+  });
+}
+
+function renderUnified(){
+  const el=document.getElementById('unifiedDetail');
+  if(!el) return;
+  if(selSubj){
+    const s=SUBJECTS.find(x=>x.id===selSubj);
+    if(!s){el.className='unified-detail';return;}
+    el.innerHTML=buildSubjectHTML(s);
+    el.className='unified-detail open';
+  } else if(selMonth!==null && !VAC.includes(selMonth)){
+    el.innerHTML=buildMonthHTML(selMonth);
+    el.className='unified-detail open';
+  } else {
+    el.innerHTML='';
+    el.className='unified-detail';
+  }
+}
+
+function buildMonthHTML(m){
+  const grps=selGrade?GROUPS.filter(g=>g.id===selGrade):GROUPS;
+  const cards=grps.map(g=>{
+    const d=C[curRound][m]&&C[curRound][m][g.id];
+    if(!d) return'';
+    return`<div class="group-card ${g.cardCls}">
+      <div class="gc-head"><div class="gc-dot" style="background:${g.dot}"></div><div class="gc-info"><div class="gc-grade">${g.label} <span style="opacity:.65;font-size:.65rem">${g.range}</span></div><div class="gc-topic">${d.topic}</div></div></div>
+      <div class="gc-body">
+        <div class="gc-desc">${d.desc}</div>
+        <div class="gc-row"><div class="gc-row-label">CT</div><div class="ct-tags">${ctH(d.ct)}</div></div>
+        <div class="gc-row"><div class="gc-row-label">STEAM</div><div class="steam-tags">${steamH(d.steam)}</div></div>
+        <div class="gc-row"><div class="gc-row-label">도구</div><div class="tool-pills">${toolH(d.tools)}</div></div>
+      </div></div>`;
+  }).join('');
+  const cols=selGrade?'1fr':'repeat(3,1fr)';
+  return`<div class="month-header"><div class="month-num">${m}</div><div class="month-info"><h3>${MONTH_LABELS[m]||m+'월'}</h3><p>${MONTH_SUB[m]||''}</p></div></div><div class="group-cards" style="grid-template-columns:${cols}">${cards}</div>`;
+}
+
+function buildSubjectHTML(s){
+  const cardsHTML=s.cases.map(c=>`
+    <div class="case-card">
+      <div class="case-thumb" style="background:${c.thumbBg}">${c.thumb}<span style="font-size:.7rem;color:${c.tagColor};font-weight:700;margin-top:-.2rem">${c.tag}</span></div>
+      <div class="case-body">
+        <span class="case-tag" style="background:${s.bg};color:${s.color}">${c.tag}</span>
+        <div class="case-title">${c.title}</div>
+        <div class="case-desc">${c.desc}</div>
+        <div class="case-keywords">${c.kw.map(k=>`<span class="case-kw">${k}</span>`).join('')}</div>
+      </div></div>`).join('');
+  return`<div class="subj-cases-head"><div class="subj-cases-icon" style="background:${s.bg}"><i class="fas ${s.icon}" style="color:${s.color}"></i></div><div><div class="subj-cases-title">${s.label} 수업 사례</div><div class="subj-cases-desc">${s.desc}</div></div></div><div class="case-grid">${cardsHTML}</div>`;
+}
+
+function openModal(month,g,d,round){
+  const rl=['','1회차 · 입문','2회차 · 심화','3회차 · 완성'][round];
+  document.getElementById('mHead').style.background=g.dot+'10';
+  const mb=document.getElementById('mGrade');
+  mb.textContent=g.label+' · '+g.range;mb.style.background=g.dot+'18';mb.style.color=g.dot;
+  const mt=document.getElementById('mTopic');mt.textContent=d.topic;mt.style.color=g.dot;
+  document.getElementById('mMeta').textContent=month+'월 · '+rl;
+  document.getElementById('mDesc').textContent=d.desc;
+  document.getElementById('mCT').innerHTML=ctH(d.ct);
+  document.getElementById('mSTEAM').innerHTML=steamH(d.steam)+`<span style="font-size:.77rem;color:var(--muted);margin-left:.25rem">${d.steam.join(', ')}</span>`;
+  document.getElementById('mTools').innerHTML=toolH(d.tools);
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('modalClose').addEventListener('click',closeModal);
+document.getElementById('modalBg').addEventListener('click',e=>{if(e.target===document.getElementById('modalBg'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+document.querySelectorAll('#gridRoundBtns .round-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#gridRoundBtns .round-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    curRound=parseInt(btn.dataset.round);
+    document.getElementById('roundDesc').textContent=ROUND_DESCS[curRound];
+    buildGrid();
+    if(selMonth!==null||selSubj) renderUnified();
+  });
+});
+
+/* ─── 과목 아이콘 데이터 ─── */
+const SUBJECTS=[
+  {id:'ai',label:'AI·컴퓨팅',icon:'fa-robot',color:'#2563EB',bg:'rgba(37,99,235,.1)',
+   desc:'인공지능 원리와 컴퓨팅 사고력을 모든 학년군에서 배웁니다.',
+   cases:[
+     {thumb:'🤖',thumbBg:'rgba(37,99,235,.08)',tag:'1~3학년군',tagColor:'#2563EB',title:'AI 그림 연구소',desc:'Midjourney·DALL-E로 나만의 캐릭터와 세계관을 만듭니다. 프롬프트 입력→결과 비교→수정 과정에서 AI 원리를 자연스럽게 체험합니다.',kw:['생성형 AI','패턴 인식','추상화']},
+     {thumb:'⚙️',thumbBg:'rgba(37,99,235,.08)',tag:'4~6학년군',tagColor:'#2563EB',title:'바이브 코딩 입문',desc:'AI 코딩 도구로 웹 페이지를 만들며 알고리즘 설계와 디버깅을 경험합니다. "말로 코딩하기"로 컴퓨팅 사고를 키웁니다.',kw:['알고리즘','자동화','Vibe Coding']},
+     {thumb:'🧠',thumbBg:'rgba(37,99,235,.08)',tag:'중·고등군',tagColor:'#2563EB',title:'AI 기반 서비스 개발',desc:'Python·AI API를 통합해 실제로 동작하는 AI 서비스를 만듭니다. 머신러닝 원리부터 배포까지 전 과정을 경험합니다.',kw:['Python','AI API','풀스택']},
+   ]},
+  {id:'art',label:'미술·창작',icon:'fa-palette',color:'#E11D48',bg:'rgba(225,29,72,.1)',
+   desc:'AI 이미지·영상·메타버스를 활용해 디지털 미술과 창작을 경험합니다.',
+   cases:[
+     {thumb:'🎨',thumbBg:'rgba(225,29,72,.08)',tag:'1~3학년군',tagColor:'#E11D48',title:'움직이는 그림책',desc:'Vibe Coding으로 그림이 움직이는 인터랙티브 그림책을 만듭니다. 스토리·디자인·코딩이 결합된 디지털 창작 활동입니다.',kw:['Vibe Coding','스토리텔링','인터랙션']},
+     {thumb:'🎬',thumbBg:'rgba(225,29,72,.08)',tag:'중·고등군',tagColor:'#E11D48',title:'AI 단편 영화 제작',desc:'Runway·Suno·DALL-E로 각본·이미지·음악·편집까지 모두 직접 제작합니다. 학교 AI 영화제에서 상영합니다.',kw:['Runway','Suno','영상 편집']},
+     {thumb:'🖼️',thumbBg:'rgba(225,29,72,.08)',tag:'전 학년군',tagColor:'#E11D48',title:'메타버스 전시회',desc:'한 학기 작품을 모아 ZEP 메타버스에 전시회를 엽니다. 공간 구성·작품 배치·관람객 응대를 직접 기획합니다.',kw:['ZEP','전시 기획','포트폴리오']},
+   ]},
+  {id:'music',label:'음악',icon:'fa-music',color:'#7C3AED',bg:'rgba(124,58,237,.1)',
+   desc:'AI 작곡 도구로 음악을 만들고, 사운드와 영상을 결합한 디지털 창작을 합니다.',
+   cases:[
+     {thumb:'🎵',thumbBg:'rgba(124,58,237,.08)',tag:'1~3학년군',tagColor:'#7C3AED',title:'AI 배경음악 만들기',desc:'Suno AI로 나만의 그림책·영상에 어울리는 배경음악을 만듭니다. 장르·분위기·템포를 직접 설정하며 음악 감각을 키웁니다.',kw:['Suno','음악 이론','창작']},
+     {thumb:'🎤',thumbBg:'rgba(124,58,237,.08)',tag:'중·고등군',tagColor:'#7C3AED',title:'AI 뮤직비디오 제작',desc:'Suno로 작곡하고 Runway로 뮤직비디오를 만듭니다. 음악·영상·스토리를 통합한 종합 창작 프로젝트입니다.',kw:['Suno','Runway','멀티미디어']},
+     {thumb:'🎼',thumbBg:'rgba(124,58,237,.08)',tag:'4~6학년군',tagColor:'#7C3AED',title:'AI 창작 여름 특강',desc:'방학 특강으로 AI 음악·영상을 집중 체험합니다. 팀이 함께 주제를 정해 미디어 작품을 완성합니다.',kw:['AI Tool','팀 창작','발표']},
+   ]},
+  {id:'history',label:'역사',icon:'fa-landmark',color:'#92400E',bg:'rgba(146,64,14,.1)',
+   desc:'역사 주제를 메타버스와 디지털 스토리텔링으로 재현하며 창의적으로 탐구합니다.',
+   cases:[
+     {thumb:'🏛️',thumbBg:'rgba(146,64,14,.08)',tag:'1~3학년군',tagColor:'#92400E',title:'히스토리아 프로젝트',desc:'우리 역사 속 인물·사건을 Vibe Coding과 ZEP으로 재현합니다. 역사 조사→스토리 구성→메타버스 구현 과정을 팀으로 경험합니다.',kw:['ZEP','스토리텔링','역사 탐구']},
+     {thumb:'🗺️',thumbBg:'rgba(146,64,14,.08)',tag:'1~3학년군',tagColor:'#92400E',title:'ZEP 역사 체험맵',desc:'역사 유적지·전투·인물을 담은 인터랙티브 체험 맵을 만듭니다. 방문자가 직접 탐험하며 역사를 배우는 공간을 설계합니다.',kw:['ZEP','공간 설계','인터랙션']},
+     {thumb:'📜',thumbBg:'rgba(146,64,14,.08)',tag:'중·고등군',tagColor:'#92400E',title:'역사 데이터 시각화',desc:'역사 통계(인구·무역·전쟁)를 Python으로 분석하고 시각화합니다. 데이터로 역사를 읽는 새로운 관점을 경험합니다.',kw:['Python','데이터 분석','역사']},
+   ]},
+  {id:'science',label:'과학',icon:'fa-flask',color:'#0891B2',bg:'rgba(8,145,178,.1)',
+   desc:'과학 데이터 분석·AI 실험·메이커 활동으로 과학과 기술을 융합합니다.',
+   cases:[
+     {thumb:'🔬',thumbBg:'rgba(8,145,178,.08)',tag:'중·고등군',tagColor:'#0891B2',title:'데이터 과학 프로젝트',desc:'기상·생태·환경 공공 데이터를 Python Pandas로 분석합니다. 과학적 가설을 세우고 데이터로 검증하는 탐구 활동입니다.',kw:['Pandas','데이터 분석','가설 검증']},
+     {thumb:'🌱',thumbBg:'rgba(8,145,178,.08)',tag:'4~6학년군',tagColor:'#0891B2',title:'AI 동물 도감',desc:'AI 이미지 도구로 동물을 생성하고 생태 정보를 담은 인터랙티브 도감을 만듭니다. 생물 분류 체계를 코드 구조로 이해합니다.',kw:['AI Tool','Vibe Coding','생물']},
+     {thumb:'🤖',thumbBg:'rgba(8,145,178,.08)',tag:'중·고등군',tagColor:'#0891B2',title:'AI 이미지 분류',desc:'Python TensorFlow로 꽃·동물·암석을 분류하는 AI 모델을 만듭니다. 머신러닝의 원리를 과학 데이터로 이해합니다.',kw:['TensorFlow','분류','머신러닝']},
+   ]},
+  {id:'social',label:'사회',icon:'fa-globe',color:'#059669',bg:'rgba(5,150,105,.1)',
+   desc:'사회 문제를 디지털 서비스로 해결하고 진로와 연결해 탐구합니다.',
+   cases:[
+     {thumb:'🌍',thumbBg:'rgba(5,150,105,.08)',tag:'4~6학년군',tagColor:'#059669',title:'서비스 MVP 제작',desc:'우리 주변의 사회 문제(쓰레기·교통·안전)를 앱으로 해결하는 MVP를 만듭니다. 사용자 인터뷰→기획→개발→발표의 전 과정을 경험합니다.',kw:['App Inventor','UX 기획','사회 문제']},
+     {thumb:'📊',thumbBg:'rgba(5,150,105,.08)',tag:'중·고등군',tagColor:'#059669',title:'공공 데이터 분석',desc:'통계청·서울 열린데이터 광장의 데이터로 사회 현상을 분석합니다. BI 대시보드로 시각화해 발표합니다.',kw:['Python','SQL','BI Tool']},
+     {thumb:'🤝',thumbBg:'rgba(5,150,105,.08)',tag:'전 학년군',tagColor:'#059669',title:'팀 협업 프로젝트',desc:'역할을 분담해 팀 프로젝트를 완성합니다. 기획·개발·발표의 협업 과정에서 민주적 의사결정과 소통 능력을 키웁니다.',kw:['팀 협업','발표','의사소통']},
+   ]},
+  {id:'career',label:'진로',icon:'fa-compass',color:'#D97706',bg:'rgba(217,119,6,.1)',
+   desc:'AI·디지털 분야의 다양한 직업을 탐색하고 나만의 포트폴리오를 쌓습니다.',
+   cases:[
+     {thumb:'🗺️',thumbBg:'rgba(217,119,6,.08)',tag:'중·고등군',tagColor:'#D97706',title:'AI·데이터 진로 탐색',desc:'AI 엔지니어·데이터 사이언티스트·UX 디자이너 등 디지털 직업을 탐색합니다. 나의 강점과 관심사를 연결한 진로 로드맵을 만듭니다.',kw:['진로 설계','포트폴리오','로드맵']},
+     {thumb:'💼',thumbBg:'rgba(217,119,6,.08)',tag:'4~6학년군',tagColor:'#D97706',title:'진로 발표',desc:'3년간 만든 서비스와 포트폴리오를 발표합니다. 내가 해결하고 싶은 문제와 미래 직업을 연결해 발표합니다.',kw:['포트폴리오','발표','진로']},
+     {thumb:'🚀',thumbBg:'rgba(217,119,6,.08)',tag:'전 학년군',tagColor:'#D97706',title:'최종 발표·아카이브',desc:'3년간의 학습 여정을 GitHub·웹·메타버스에 아카이브합니다. 포트폴리오를 중학교 입학·고등학교 진학에 활용합니다.',kw:['GitHub','포트폴리오','아카이브']},
+   ]},
+  {id:'literacy',label:'디지털 리터러시',icon:'fa-laptop-code',color:'#0369A1',bg:'rgba(3,105,161,.1)',
+   desc:'정보 검색·미디어 비판·데이터 이해 등 디지털 시민으로서의 기초 역량을 키웁니다.',
+   cases:[
+     {thumb:'💻',thumbBg:'rgba(3,105,161,.08)',tag:'1~3학년군',tagColor:'#0369A1',title:'AI 도구 첫 만남',desc:'AI 그림 도구의 작동 원리를 이해하고 올바른 사용법을 배웁니다. "AI가 만든 것과 내가 만든 것"의 차이를 탐구합니다.',kw:['AI 윤리','미디어 이해','창작']},
+     {thumb:'🔍',thumbBg:'rgba(3,105,161,.08)',tag:'4~6학년군',tagColor:'#0369A1',title:'정보 검색과 팩트체크',desc:'검색 결과를 비판적으로 읽는 법을 배웁니다. AI가 생성한 정보의 신뢰성을 검증하는 팩트체크 활동을 합니다.',kw:['미디어 리터러시','팩트체크','비판적 사고']},
+     {thumb:'🛡️',thumbBg:'rgba(3,105,161,.08)',tag:'중·고등군',tagColor:'#0369A1',title:'디지털 시민 프로젝트',desc:'개인정보 보호·저작권·사이버 예절을 탐구하고 학교 캠페인 자료를 제작합니다. 디지털 시민으로서의 책임을 실천합니다.',kw:['디지털 윤리','개인정보','저작권']},
+   ]},
+];
+
+function buildSubjects(){
+  const row=document.getElementById('subjRow');
+  SUBJECTS.forEach(s=>{
+    const btn=document.createElement('button');
+    btn.className='subj-icon-btn';
+    btn.style.setProperty('--subj-color',s.color);
+    btn.style.setProperty('--subj-bg',s.bg);
+    btn.innerHTML=`<div class="subj-circle" style="background:${s.bg}"><i class="fas ${s.icon}" style="color:${s.color}"></i></div><span class="subj-label">${s.label}</span>`;
+    btn.addEventListener('click',()=>{
+      const isActive=btn.classList.contains('active');
+      document.querySelectorAll('.subj-icon-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.month-th').forEach(t=>t.classList.remove('sel'));
+      selMonth=null;
+      if(!isActive){
+        btn.classList.add('active');
+        selSubj=s.id;
+      } else {
+        selSubj=null;
+      }
+      renderUnified();
+      if(selSubj) setTimeout(()=>document.getElementById('unifiedDetail').scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+    });
+    row.appendChild(btn);
+  });
+}
+
+function renderSubjectCases(s){
+  const cases=document.getElementById('subjCases');
+  const cardsHTML=s.cases.map(c=>`
+    <div class="case-card">
+      <div class="case-thumb" style="background:${c.thumbBg}">${c.thumb}<span style="font-size:.7rem;color:${c.tagColor};font-weight:700;margin-top:-.2rem">${c.tag}</span></div>
+      <div class="case-body">
+        <span class="case-tag" style="background:${s.bg};color:${s.color}">${c.tag}</span>
+        <div class="case-title">${c.title}</div>
+        <div class="case-desc">${c.desc}</div>
+        <div class="case-keywords">${c.kw.map(k=>`<span class="case-kw">${k}</span>`).join('')}</div>
+      </div>
+    </div>`).join('');
+  cases.innerHTML=`
+    <div class="subj-cases-head">
+      <div class="subj-cases-icon" style="background:${s.bg}"><i class="fas ${s.icon}" style="color:${s.color}"></i></div>
+      <div>
+        <div class="subj-cases-title">${s.label} 수업 사례</div>
+        <div class="subj-cases-desc">${s.desc}</div>
+      </div>
+    </div>
+    <div class="case-grid">${cardsHTML}</div>`;
+}
+
+buildSubjects();
+
+var hd=document.getElementById('hd');
+window.addEventListener('scroll',()=>hd.classList.toggle('scrolled',window.scrollY>50),{passive:true});
+document.body.classList.add('jr');
+var ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+buildGrid();
+initTableClicks();
+</script>
+</body>
+</html>
