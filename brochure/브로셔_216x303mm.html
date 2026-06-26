@@ -1,0 +1,3417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>코스모에듀 브로셔 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nanum+Myeongjo:wght@400;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="image-slot.js"></script>
+<style>
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --blue:#071A66; --blue-d:#151D63; --blue-l:#08A7D4;
+  --cyan:#08A7D4; --cyan-l:#3CC7DE;
+  --purple:#D91B63; --green:#0E7490; --amber:#E85F96;
+  --magenta:#D91B63; --pink:#F4B2C8;
+  --text:#0F172A; --muted:#64748B; --dim:#94A3B8;
+  --light:#F3F8FF; --border:rgba(7,26,102,.1);
+}
+
+body {
+  font-family:'Noto Sans KR','Malgun Gothic',sans-serif;
+  background:#D1D5DB;
+  display:flex; flex-direction:column; align-items:center;
+  gap:24px; padding:24px;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+@page { size:216mm 303mm; margin:0; }
+
+@media print {
+  body { background:white; padding:0; gap:0; }
+  .page { box-shadow:none !important; }
+  .page::after { display:none !important; }
+  .print-btn { display:none !important; }
+}
+
+.page {
+  width:216mm; min-height:303mm; height:303mm;
+  background:white; position:relative; overflow:hidden;
+  box-shadow:0 6px 32px rgba(0,0,0,.18);
+  page-break-after:always;
+}
+
+@media screen {
+  .page::after {
+    content:"";
+    position:absolute;
+    inset:3mm;
+    border:1px dashed rgba(217,27,99,.65);
+    pointer-events:none;
+    z-index:999;
+  }
+}
+
+/* ─── PRINT BLEED: 216x303mm, A4 trim sits 3mm inside ─── */
+.pg-hd {
+  height:15mm !important;
+  padding-left:16mm !important;
+  padding-right:16mm !important;
+  padding-top:3mm !important;
+}
+.pg-body {
+  width:auto !important;
+  height:calc(297mm - 12mm) !important;
+  margin-left:3mm !important;
+  margin-right:3mm !important;
+}
+.p1-copy { left:17mm !important; top:18mm !important; }
+.p1-photo-students { left:89mm !important; top:80mm !important; }
+.p1-photo-robot { left:89mm !important; top:148mm !important; }
+.p1-badge { left:94mm !important; top:67mm !important; }
+.p1-service { right:15mm !important; top:153mm !important; }
+.p1-features { left:29mm !important; right:28mm !important; bottom:28mm !important; }
+.p1-footer { height:16.8mm !important; padding-bottom:3mm !important; }
+.p8-inner { padding:15mm 19mm !important; }
+.p8-footer { height:16.8mm !important; padding-left:19mm !important; padding-right:19mm !important; padding-bottom:3mm !important; }
+
+/* ─── PRINT BUTTON ─── */
+.print-btn {
+  position:fixed; bottom:20px; right:20px; z-index:999;
+  background:var(--blue); color:white;
+  border:none; border-radius:10px;
+  padding:12px 22px; font-size:14px; font-weight:700;
+  font-family:inherit; cursor:pointer;
+  box-shadow:0 4px 16px rgba(7,26,102,.4);
+  display:flex; align-items:center; gap:8px;
+}
+.print-btn:hover { background:var(--blue-d); }
+
+/* ─── INNER PAGE HEADER ─── */
+.pg-hd {
+  width:100%; height:12mm;
+  background:#071A66;
+  border-bottom:none;
+  box-shadow:0 2mm 7mm rgba(7,26,102,.24), 0 .45mm 0 rgba(7,26,102,.08);
+  display:flex; align-items:center;
+  justify-content:space-between;
+  padding:0 13mm;
+  position:relative; z-index:5;
+}
+.pg-hd-label {
+  color:rgba(255,255,255,.82);
+  font-size:7pt; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+}
+.pg-hd-logo { height:6mm; opacity:1; filter:none; }
+
+/* ─── INNER PAGE BODY ─── */
+.pg-body {
+  padding:10mm 13mm 9mm;
+  height:calc(297mm - 12mm);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+
+/* ─── SHARED TYPOGRAPHY ─── */
+.sec-chip {
+  display:inline-block; width:fit-content; align-self:flex-start;
+  font-size:6.5pt; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--cyan);
+  background:rgba(8,167,212,.08);
+  border:1px solid rgba(8,167,212,.28);
+  padding:1.5pt 8pt; border-radius:100pt;
+  margin-bottom:3.5mm;
+}
+.pg-ttl {
+  font-size:21pt; font-weight:900; line-height:1.18;
+  color:var(--text); margin-bottom:0; word-break:keep-all;
+}
+.pg-ttl .hl {
+  background:linear-gradient(130deg,#071A66,#08A7D4);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.body-text {
+  font-size:9pt; color:var(--muted);
+  line-height:1.75; word-break:keep-all;
+}
+
+.student-quote {
+  font-family:'Noto Serif KR Medium','Noto Serif KR','Nanum Myeongjo','Batang','바탕',serif;
+  font-size:16.5pt; font-weight:500; color:var(--text);
+  line-height:1.55; word-break:keep-all; margin-bottom:3mm;
+  letter-spacing:-.035em;
+}
+.student-quote-mark {
+  font-size:1.6em; font-weight:400; color:#CBD5E1;
+  vertical-align:-.12em;
+}
+.student-quote-mark:first-child { margin-right:.5mm; }
+.student-quote-mark:last-child { margin-left:.5mm; }
+
+/* ════════════════════════════
+   PAGE 1 – FRONT COVER (Vector)
+════════════════════════════ */
+.p1 { background:#fff; color:#06165D; }
+.p1 svg { display:block; }
+.p1-art { position:absolute; inset:0; z-index:0; pointer-events:none; }
+.p1-photo {
+  position:absolute; z-index:1; object-fit:cover; display:block;
+  box-shadow:0 5mm 16mm rgba(15,23,42,.13);
+}
+.p1-photo-students {
+  left:86mm; top:77mm; width:107mm; height:68mm;
+  border-radius:39mm 0 0 39mm;
+}
+.p1-photo-robot {
+  left:86mm; top:145mm; width:67mm; height:65mm;
+}
+.p1-copy { position:absolute; z-index:2; left:14mm; top:15mm; }
+.p1-kicker { font-size:10pt; font-weight:500; color:#111827; letter-spacing:.01em; margin-bottom:7mm; }
+.p1-cover-logo { display:block; width:125mm; height:auto; margin-left:-4.5mm; margin-bottom:6.5mm; }
+.p1-ko { margin-top:0; font-size:38pt; font-weight:900; line-height:.98; color:#071A66; letter-spacing:0; }
+.p1-ko .blue { color:#08A7D4; display:block; margin-top:2mm; }
+.p1-rule { width:19mm; height:.7mm; background:#071A66; margin:7mm 0 5mm; }
+.p1-desc { font-size:13pt; font-weight:500; line-height:1.55; color:#111827; letter-spacing:0; }
+.p1-desc b { color:#08A7D4; font-weight:900; }
+.p1-badge {
+  position:absolute; z-index:3; left:91mm; top:64mm;
+  width:36mm; height:36mm; border-radius:50%;
+  background:#151D63; color:#fff; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:7.6pt; line-height:1.55; font-weight:500;
+  box-shadow:0 4mm 12mm rgba(7,26,102,.28);
+}
+.p1-service {
+  position:absolute; z-index:3; right:12mm; top:150mm;
+  width:68mm; height:64mm; border-radius:0 33mm 33mm 0;
+  background:linear-gradient(135deg,#E52A77 0%,#D91862 58%,#C91459 100%);
+  color:#fff; padding:7mm 10mm 7mm 12mm;
+  display:flex; flex-direction:column; justify-content:center; gap:3.2mm;
+}
+.p1-service-row { display:grid; grid-template-columns:8mm 1fr; align-items:center; gap:3mm; }
+.p1-service-row i { font-size:13pt; text-align:center; }
+.p1-service-row span { font-size:11.2pt; font-weight:800; }
+.p1-service-row + .p1-service-row { border-top:1px solid rgba(255,255,255,.28); padding-top:3.2mm; }
+.p1-features {
+  position:absolute; z-index:2; left:26mm; right:25mm; bottom:25mm;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+}
+.p1-feature { min-height:41mm; text-align:center; padding:0 8mm; }
+.p1-feature + .p1-feature { border-left:1px solid rgba(7,26,102,.18); }
+.p1-feature-icon {
+  width:15mm; height:15mm; border-radius:50%; margin:0 auto 4mm;
+  display:flex; align-items:center; justify-content:center; color:white; font-size:14pt;
+  background:#071A66;
+}
+.p1-feature:nth-child(1) .p1-feature-icon { background:#08A7D4; }
+.p1-feature:nth-child(2) .p1-feature-icon { background:#071A66; }
+.p1-feature:nth-child(3) .p1-feature-icon { background:#D91B63; }
+.p1-feature-title { font-size:10.5pt; font-weight:900; line-height:1.45; color:#071A66; word-break:keep-all; }
+.p1-feature-desc { margin-top:4mm; font-size:8.3pt; line-height:1.7; color:#333; word-break:keep-all; }
+.p1-footer {
+  position:absolute; z-index:4; bottom:0; left:0; right:0; height:13.8mm;
+  background:linear-gradient(to right,#071A66 0%,#0A1B67 55%,#10206F 100%);
+  border-top:none;
+  box-shadow:0 -2mm 7mm rgba(7,26,102,.22), 0 -.35mm 0 rgba(7,26,102,.08);
+  display:flex; align-items:center; justify-content:center; gap:11mm;
+  color:#fff; font-size:13.8pt; font-weight:700;
+}
+.p1-footer span { display:flex; align-items:center; gap:2.5mm; }
+.p1-footer i { color:rgba(255,255,255,.83); font-size:13.5pt; }
+
+/* ════════════════════════════
+   PAGE 2 – 수업특징
+════════════════════════════ */
+.p2-circles {
+  display:flex; gap:8mm; justify-content:center;
+  margin-bottom:8mm;
+}
+.p2-circle {
+  display:flex; flex-direction:column; align-items:center; gap:3mm;
+}
+.p2-circ-icon {
+  width:22mm; height:22mm; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22pt; flex-shrink:0;
+}
+.ci-blue  { background:rgba(7,26,102,.12); color:var(--blue); }
+.ci-cyan  { background:rgba(8,167,212,.12);  color:var(--cyan); }
+.ci-purple{ background:rgba(217,27,99,.12); color:var(--purple); }
+
+.p2-circ-lbl {
+  font-size:10pt; font-weight:800; color:var(--text);
+  letter-spacing:-.01em;
+}
+
+.p2-divider { width:100%; height:1px; background:var(--border); margin:5mm 0; }
+
+.p2-worry {
+  background:linear-gradient(135deg, rgba(7,26,102,.06), rgba(8,167,212,.06));
+  border:1px solid rgba(7,26,102,.14);
+  border-radius:12pt; padding:6mm 7mm; margin-bottom:6mm;
+}
+.p2-worry-ttl {
+  font-size:14pt; font-weight:800; color:var(--blue);
+  margin-bottom:2mm; word-break:keep-all;
+}
+.p2-worry-sub { font-size:9pt; color:var(--muted); line-height:1.7; word-break:keep-all; }
+
+.p2-bullets { display:flex; flex-direction:column; gap:3mm; }
+.p2-bullet {
+  display:flex; align-items:center; gap:3.5mm;
+  padding:3.5mm 5mm;
+  background:white; border:1px solid var(--border);
+  border-radius:8pt;
+  box-shadow:0 1px 4px rgba(15,23,42,.04);
+}
+.p2-bullet-icon {
+  width:9mm; height:9mm; border-radius:8pt;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11pt; flex-shrink:0;
+}
+.bi-blue   { background:rgba(7,26,102,.1);  color:var(--blue); }
+.bi-cyan   { background:rgba(8,167,212,.1);  color:var(--cyan); }
+.bi-purple { background:rgba(217,27,99,.1); color:var(--purple); }
+
+.p2-bullet-text { font-size:10pt; font-weight:700; color:var(--text); }
+.p2-bullet-desc { font-size:8pt; color:var(--muted); margin-top:1pt; word-break:keep-all; }
+
+/* ════════════════════════════
+   PAGE 3 – 솔루션
+════════════════════════════ */
+.p3-img-wrap {
+  border-radius:10pt; overflow:hidden;
+  border:1px solid var(--border);
+  margin-bottom:6mm; flex-shrink:0;
+  box-shadow:0 4px 16px rgba(15,23,42,.08);
+}
+.p3-headline {
+  text-align:center; margin-bottom:5mm;
+}
+.p3-headline-main {
+  font-size:18pt; font-weight:900; color:var(--text); word-break:keep-all;
+}
+.p3-headline-main .hl {
+  background:linear-gradient(130deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.p3-tiers { display:flex; flex-direction:column; gap:3mm; }
+.p3-tier {
+  display:flex; align-items:stretch; gap:0;
+  border:1px solid var(--border); border-radius:10pt; overflow:hidden;
+  transition:all .2s;
+}
+.p3-tier-badge {
+  width:38mm; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:4mm 3mm; gap:2mm; flex-shrink:0;
+}
+.tb-1 { background:var(--light); }
+.tb-2 { background:rgba(8,167,212,.1); }
+.tb-3 { background:linear-gradient(135deg,var(--blue),var(--cyan)); }
+
+.p3-tier-num {
+  font-size:9pt; font-weight:700; letter-spacing:.06em;
+  color:var(--muted);
+}
+.tb-3 .p3-tier-num { color:rgba(255,255,255,.7); }
+.p3-tier-name {
+  font-size:10pt; font-weight:900; color:var(--text);
+  text-align:center; word-break:keep-all; line-height:1.3;
+}
+.tb-3 .p3-tier-name { color:white; }
+
+.p3-tier-body {
+  flex:1; padding:4mm 5mm;
+  display:flex; flex-direction:column; justify-content:center;
+  border-left:1px solid var(--border);
+}
+.tb-3 + .p3-tier-body { border-left:none; }
+.p3-tier-items {
+  display:flex; flex-wrap:wrap; gap:2mm;
+}
+.p3-item {
+  display:inline-flex; align-items:center; gap:1.5mm;
+  font-size:8pt; font-weight:500; color:var(--muted);
+  background:var(--light); border:1px solid var(--border);
+  border-radius:6pt; padding:1.5pt 6pt;
+}
+.p3-item i { color:var(--blue); font-size:7pt; }
+.tb-3-body { background:rgba(7,26,102,.03); }
+.tb-3-body .p3-item { background:white; }
+
+/* ════════════════════════════
+   PAGE 4 – 커리큘럼
+════════════════════════════ */
+.cur-grid {
+  display:grid;
+  grid-template-columns:7mm repeat(3,1fr);
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  gap:2.5mm; flex:1; min-height:0;
+  margin-left:-9.5mm; width:calc(100% + 9.5mm);
+}
+.cur-row { display:contents; }
+.cur-cell {
+  display:flex; flex-direction:column;
+  align-items:center; gap:0;
+  background:white; border:1px solid var(--border);
+  border-radius:7pt; overflow:hidden;
+  box-shadow:0 1px 5px rgba(15,23,42,.04);
+  height:100%; min-height:0;
+}
+.cur-slot { flex:0 0 70%; width:100%; overflow:hidden; padding:2mm 2mm 1mm; min-height:0; }
+.cur-slot img { width:100%; height:100%; object-fit:cover; border-radius:6pt; display:block; }
+.cur-name {
+  flex:0 0 auto;
+  width:100%; min-height:0;
+  font-size:7pt; font-weight:700; color:var(--text);
+  text-align:center; line-height:1.3; word-break:keep-all;
+  display:flex; align-items:center; justify-content:center;
+  padding:1.5mm 2mm 0.5mm;
+}
+.cur-desc {
+  flex:1;
+  width:100%; min-height:0;
+  font-size:5.5pt; color:var(--muted); text-align:center;
+  line-height:1.45; word-break:keep-all;
+  padding:0 2.5mm 1.5mm;
+}
+
+/* ════════════════════════════
+   PAGE 5 – 연간 계획표
+════════════════════════════ */
+.p5-top-slot { flex-shrink:0; margin-bottom:4mm; }
+.p5-grade-row {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:4mm; margin-bottom:4mm;
+}
+.p5-grade-card {
+  display:flex; flex-direction:column; gap:2mm;
+}
+.p5-grade-lbl {
+  font-size:8pt; font-weight:800; text-align:center; padding:2mm;
+  border-radius:6pt;
+}
+.gl-1 { background:rgba(7,26,102,.1); color:var(--blue); }
+.gl-2 { background:rgba(8,167,212,.1);  color:var(--cyan); }
+.gl-3 { background:rgba(217,27,99,.1); color:var(--purple); }
+
+.p5-subj {
+  display:flex; gap:3mm; justify-content:center; flex-wrap:wrap;
+  margin-top:2mm;
+}
+.p5-subj-item {
+  display:flex; flex-direction:column; align-items:center; gap:1.5mm;
+}
+.p5-subj-circle {
+  width:12mm; height:12mm; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:7pt; font-weight:800; color:white;
+}
+.sc-art   { background:#E11D48; }
+.sc-music { background:#D91B63; }
+.sc-sci   { background:#0E7490; }
+.sc-soc   { background:#E85F96; }
+.sc-code  { background:var(--blue); }
+.p5-subj-lbl { font-size:6.5pt; color:var(--muted); font-weight:500; }
+
+/* ════════════════════════════
+   PAGE 6 – 플랫폼
+════════════════════════════ */
+.plat-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  gap:2.5mm; flex:1; min-height:0;
+}
+.plat-card {
+  background:white; border:1px solid var(--border);
+  border-radius:7pt; overflow:hidden;
+  display:flex; flex-direction:column; height:100%;
+  box-shadow:0 1px 5px rgba(15,23,42,.04);
+}
+.plat-card-img { flex:0 0 66.67%; overflow:hidden; padding:2mm 2mm 1mm; }
+.plat-card-img img { width:100%; height:100%; object-fit:cover; display:block; border-radius:7pt; }
+.plat-card-info { flex:0 0 33.33%; padding:1.5mm 2.5mm; display:grid; grid-template-columns:7mm 1fr; grid-template-rows:auto auto; column-gap:2mm; align-content:center; overflow:hidden; }
+.plat-card-icon {
+  grid-row:1/3; align-self:center;
+  width:7mm; height:7mm; border-radius:5pt;
+  display:flex; align-items:center; justify-content:center;
+  font-size:9pt;
+}
+.plat-card-name { font-size:7pt; font-weight:800; color:var(--text); margin-bottom:0.5pt; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.plat-card-desc { font-size:5.5pt; color:var(--muted); line-height:1.4; word-break:keep-all; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.plat-card-icon-hd {
+  flex:0 0 66.67%; display:flex; align-items:center;
+  justify-content:center; font-size:20pt;
+  margin:2mm 2mm 1mm; border-radius:7pt;
+}
+
+/* ════════════════════════════
+   PAGE 3 – 수업사례
+════════════════════════════ */
+.case-grid {
+  display:grid;
+  grid-template-columns:7mm repeat(3,1fr);
+  grid-template-rows:repeat(4,minmax(0,1fr));
+  gap:2.5mm; flex:1; min-height:0;
+  margin-left:-9.5mm; width:calc(100% + 9.5mm);
+}
+.case-row-label {
+  display:flex; align-items:center; justify-content:center;
+  border-radius:7pt; color:#fff; font-weight:800; font-size:7.5pt;
+  letter-spacing:.1em; writing-mode:vertical-rl; text-orientation:upright;
+}
+.case-card {
+  border:1px solid var(--border); border-radius:7pt; overflow:hidden;
+  display:flex; flex-direction:column; height:100%;
+  box-shadow:0 1px 5px rgba(15,23,42,.04);
+  background:white;
+}
+.case-card-img { flex:0 0 66.67%; overflow:hidden; }
+.case-card-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.case-card-body { flex:0 0 33.33%; padding:2mm 3mm; display:flex; flex-direction:row; flex-wrap:wrap; align-content:center; gap:0 2mm; overflow:hidden; }
+.case-card-tag {
+  display:inline-flex; align-items:center; flex-shrink:0; align-self:center;
+  font-size:5.5pt; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:var(--cyan); background:rgba(8,167,212,.08);
+  border:1px solid rgba(8,167,212,.2);
+  padding:1pt 4pt; border-radius:100pt;
+  width:fit-content; white-space:nowrap;
+}
+.case-card-name { flex:1; min-width:0; font-size:7.5pt; font-weight:800; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; align-self:center; }
+.case-card-desc { width:100%; font-size:6pt; color:var(--muted); margin-top:1mm; line-height:1.5; word-break:keep-all; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+
+/* ════════════════════════════
+   PAGE 2 – 융합수업 사례
+════════════════════════════ */
+.p2-fusion { margin-top:4mm; }
+.p2-fusion-lbl {
+  font-size:6.5pt; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--purple);
+  margin-bottom:2.5mm;
+}
+.p2-fusion-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3mm; }
+.p2-fusion-card {
+  background:rgba(217,27,99,.04);
+  border:1px solid rgba(217,27,99,.15);
+  border-radius:8pt; padding:3mm 3.5mm;
+}
+.p2-fusion-badge {
+  display:inline-flex; align-items:center; gap:1.5mm;
+  font-size:5.5pt; font-weight:700; letter-spacing:.08em;
+  color:var(--purple); background:rgba(217,27,99,.1);
+  border-radius:100pt; padding:1pt 5pt;
+  margin-bottom:1.5mm;
+}
+.p2-fusion-name { font-size:8.5pt; font-weight:800; color:var(--text); word-break:keep-all; line-height:1.3; margin-bottom:1mm; }
+.p2-fusion-desc { font-size:7pt; color:var(--muted); line-height:1.55; word-break:keep-all; }
+
+/* ════════════════════════════
+   PAGE 8 – BACK COVER
+════════════════════════════ */
+.p8 { background:#fff; color:#071A66; }
+.p8-art { display:none; }
+.p8-inner {
+  position:relative; z-index:1; height:100%;
+  display:flex; flex-direction:column;
+  padding:17mm 16mm 21mm;
+}
+.p8-logo { width:86mm; height:auto; margin-left:-2.7mm; margin-bottom:8mm; filter:none; }
+.p8-tagline { font-size:25pt; font-weight:900; color:#071A66; line-height:1.25; margin-bottom:4mm; word-break:keep-all; }
+.p8-tagline span { color:#08A7D4; }
+.p8-sub { font-size:10pt; color:#475569; line-height:1.75; max-width:124mm; word-break:keep-all; }
+
+.p8-mid { flex:1; display:flex; flex-direction:column; justify-content:center; gap:6mm; }
+.p8-cta {
+  width:94mm; border-left:1.2mm solid #D91B63;
+  padding:4mm 5mm; background:rgba(243,248,255,.9);
+  box-shadow:0 3mm 12mm rgba(7,26,102,.08);
+}
+.p8-cta-label { font-size:6.5pt; font-weight:900; letter-spacing:.16em; color:#D91B63; text-transform:uppercase; margin-bottom:2mm; }
+.p8-cta-text { font-size:13pt; font-weight:900; line-height:1.45; color:#071A66; word-break:keep-all; }
+.p8-contact-block { display:grid; grid-template-columns:1fr; gap:3mm; width:92mm; }
+.p8-contact-row { display:flex; align-items:center; gap:4mm; }
+.p8-contact-icon {
+  width:13.5mm; height:13.5mm; border-radius:50%;
+  background:#071A66; border:1px solid rgba(7,26,102,.18);
+  display:flex; align-items:center; justify-content:center;
+  color:white; font-size:13.5pt; flex-shrink:0;
+}
+.p8-contact-row {
+  background:transparent; border:0;
+  border-radius:0; padding:1.2mm 0;
+  box-shadow:none;
+}
+.p8-contact-row:nth-child(2) .p8-contact-icon { background:#08A7D4; }
+.p8-contact-row:nth-child(3) .p8-contact-icon { background:#D91B63; }
+.p8-contact-text { font-size:12.75pt; color:#071A66; font-weight:800; word-break:break-all; }
+.p8-contact-lbl { font-size:9.75pt; color:#64748B; margin-bottom:1pt; font-weight:700; }
+
+.p8-footer {
+  position:absolute; z-index:2; bottom:0; left:0; right:0; height:13.8mm;
+  background:linear-gradient(to right,#071A66 0%,#0A1B67 55%,#10206F 100%);
+  box-shadow:0 -2mm 7mm rgba(7,26,102,.18);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 16mm; color:#fff;
+}
+.p8-copy { font-size:7.5pt; color:rgba(255,255,255,.62); }
+.p8-qr-hint { font-size:7.5pt; color:rgba(255,255,255,.75); display:flex; align-items:center; gap:2mm; }
+
+/* ─── DESIGN RHYTHM PASS: pages 2-7 ─── */
+.page:not(.p1):not(.p8) .pg-body > div:first-child:not(.sec-chip) {
+  flex-shrink:0;
+  margin-bottom:3.2mm !important;
+}
+.page:not(.p1):not(.p8) .sec-chip {
+  font-size:6pt !important;
+  font-weight:900 !important;
+  letter-spacing:.18em !important;
+  padding:1.2pt 7pt !important;
+  margin-bottom:2.5mm !important;
+  border-radius:100pt !important;
+}
+.page:not(.p1):not(.p8) .pg-ttl {
+  font-size:20pt !important;
+  line-height:1.16 !important;
+  letter-spacing:0 !important;
+  margin-bottom:0 !important;
+}
+.page:not(.p1):not(.p8) .pg-body > .pg-ttl {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .cur-cell,
+.page:not(.p1):not(.p8) .plat-card,
+.page:not(.p1):not(.p8) .case-card,
+.page:not(.p1):not(.p8) .p2-bullet,
+.page:not(.p1):not(.p8) .p2-fusion-card {
+  border:1px solid rgba(7,26,102,.10) !important;
+  border-radius:7pt !important;
+  box-shadow:0 1mm 4mm rgba(7,26,102,.045) !important;
+}
+.page:not(.p1):not(.p8) .cur-name,
+.page:not(.p1):not(.p8) .plat-card-name,
+.page:not(.p1):not(.p8) .case-card-name,
+.page:not(.p1):not(.p8) .p2-fusion-name {
+  font-weight:800 !important;
+  letter-spacing:0 !important;
+}
+.page:not(.p1):not(.p8) .cur-desc,
+.page:not(.p1):not(.p8) .plat-card-desc,
+.page:not(.p1):not(.p8) .case-card-desc,
+.page:not(.p1):not(.p8) .p2-fusion-desc,
+.page:not(.p1):not(.p8) .p2-bullet-desc {
+  color:#64748B !important;
+  font-weight:400 !important;
+}
+.page:not(.p1):not(.p8) .case-row-label {
+  border-radius:6pt !important;
+  font-weight:900 !important;
+  letter-spacing:.08em !important;
+  box-shadow:none !important;
+}
+.page:not(.p1):not(.p8) table {
+  border-color:rgba(7,26,102,.10) !important;
+}
+.page:not(.p1):not(.p8) th {
+  font-weight:900 !important;
+}
+.page:not(.p1):not(.p8) td {
+  border-color:rgba(7,26,102,.075) !important;
+}
+.page:not(.p1):not(.p8) table td div[style*="font-size:9pt"] {
+  font-weight:750 !important;
+  letter-spacing:0 !important;
+}
+.cur-grid {
+  gap:2.2mm !important;
+}
+.cur-slot {
+  padding:1.8mm 1.8mm 1mm !important;
+}
+.cur-name {
+  font-size:7.2pt !important;
+}
+.cur-desc {
+  font-size:5.6pt !important;
+  line-height:1.42 !important;
+}
+.plat-card-info {
+  grid-template-columns:6.5mm 1fr !important;
+  padding:1.6mm 2.4mm !important;
+}
+.plat-card-icon {
+  width:6.5mm !important;
+  height:6.5mm !important;
+  border-radius:5pt !important;
+}
+
+/* ─── DESIGN SYSTEM LOCK: body pages ─── */
+.page:not(.p1):not(.p8) .p2-worry,
+.page:not(.p1):not(.p8) .tb-3-body,
+.page:not(.p1):not(.p8) div[style*="background:rgba(7,26,102,.07)"],
+.page:not(.p1):not(.p8) div[style*="background:rgba(8,167,212,.07)"],
+.page:not(.p1):not(.p8) div[style*="background:rgba(217,27,99,.08)"] {
+  background:#F3F8FF !important;
+}
+.page:not(.p1):not(.p8) .p2-bullet,
+.page:not(.p1):not(.p8) .p2-fusion-card,
+.page:not(.p1):not(.p8) .p3-tier,
+.page:not(.p1):not(.p8) .p3-img-wrap,
+.page:not(.p1):not(.p8) .cur-cell,
+.page:not(.p1):not(.p8) .plat-card,
+.page:not(.p1):not(.p8) .case-card,
+.page:not(.p1):not(.p8) div[style*="background:white"][style*="border-radius"],
+.page:not(.p1):not(.p8) div[style*="background:#fff"][style*="border-radius"] {
+  background:#fff !important;
+}
+.page:not(.p1):not(.p8) .p2-worry,
+.page:not(.p1):not(.p8) .p2-bullet,
+.page:not(.p1):not(.p8) .p2-fusion-card,
+.page:not(.p1):not(.p8) .p3-tier,
+.page:not(.p1):not(.p8) .p3-img-wrap,
+.page:not(.p1):not(.p8) .cur-cell,
+.page:not(.p1):not(.p8) .cur-slot img,
+.page:not(.p1):not(.p8) .plat-card,
+.page:not(.p1):not(.p8) .plat-card-img img,
+.page:not(.p1):not(.p8) .plat-card-icon-hd,
+.page:not(.p1):not(.p8) .case-card,
+.page:not(.p1):not(.p8) div[style*="border-radius:9pt"],
+.page:not(.p1):not(.p8) div[style*="border-radius:10pt"],
+.page:not(.p1):not(.p8) div[style*="border-radius:12pt"] {
+  border-radius:8pt !important;
+}
+.page:not(.p1):not(.p8) .case-row-label,
+.page:not(.p1):not(.p8) .p3-item,
+.page:not(.p1):not(.p8) .p5-grade-lbl,
+.page:not(.p1):not(.p8) div[style*="border-radius:5pt"],
+.page:not(.p1):not(.p8) div[style*="border-radius:6pt"],
+.page:not(.p1):not(.p8) div[style*="border-radius:7pt"] {
+  border-radius:7pt !important;
+}
+.page:not(.p1):not(.p8) .p3-img-wrap,
+.page:not(.p1):not(.p8) .p2-bullet,
+.page:not(.p1):not(.p8) .p2-fusion-card,
+.page:not(.p1):not(.p8) .cur-cell,
+.page:not(.p1):not(.p8) .plat-card,
+.page:not(.p1):not(.p8) .case-card,
+.page:not(.p1):not(.p8) div[style*="box-shadow"] {
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.page:not(.p1):not(.p8) .pg-body > div:first-child:not(.sec-chip) {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .sec-chip + .pg-ttl,
+.page:not(.p1):not(.p8) .pg-ttl + * {
+  margin-top:0 !important;
+}
+.page:not(.p1):not(.p8) .pg-ttl {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .p2-worry-sub,
+.page:not(.p1):not(.p8) .p2-bullet-text,
+.page:not(.p1):not(.p8) .p2-fusion-name,
+.page:not(.p1):not(.p8) .p3-tier-name,
+.page:not(.p1):not(.p8) table td div[style*="font-size:9pt"],
+.page:not(.p1):not(.p8) div[style*="font-size:9pt"][style*="line-height"] {
+  font-size:8.5pt !important;
+  line-height:1.58 !important;
+}
+.page:not(.p1):not(.p8) .p2-bullet-desc,
+.page:not(.p1):not(.p8) .p2-fusion-desc,
+.page:not(.p1):not(.p8) .p3-item,
+.page:not(.p1):not(.p8) .cur-desc,
+.page:not(.p1):not(.p8) .plat-card-desc,
+.page:not(.p1):not(.p8) .case-card-desc,
+.page:not(.p1):not(.p8) .p5-subj-lbl,
+.page:not(.p1):not(.p8) div[style*="font-size:6.5pt"],
+.page:not(.p1):not(.p8) div[style*="font-size:7pt"][style*="color:var(--muted)"] {
+  font-size:6.5pt !important;
+  line-height:1.48 !important;
+}
+.page:not(.p1):not(.p8) .p2-circ-icon,
+.page:not(.p1):not(.p8) .p2-bullet-icon,
+.page:not(.p1):not(.p8) .p3-item i,
+.page:not(.p1):not(.p8) .plat-card-icon,
+.page:not(.p1):not(.p8) i[style*="color:"] {
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .p2-circ-icon,
+.page:not(.p1):not(.p8) .p2-bullet-icon,
+.page:not(.p1):not(.p8) .plat-card-icon,
+.page:not(.p1):not(.p8) div[style*="background:rgba("][style*="width:7mm"][style*="height:7mm"] {
+  background:rgba(7,26,102,.10) !important;
+}
+.page:not(.p1):not(.p8) .tb-3,
+.page:not(.p1):not(.p8) .case-row-label,
+.page:not(.p1):not(.p8) .p5-subj-circle,
+.page:not(.p1):not(.p8) div[style*="background:var(--blue)"][style*="color:white"] {
+  background:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .ci-purple,
+.page:not(.p1):not(.p8) .bi-purple,
+.page:not(.p1):not(.p8) .gl-3,
+.page:not(.p1):not(.p8) .p2-fusion-lbl,
+.page:not(.p1):not(.p8) .p2-fusion-badge,
+.page:not(.p1):not(.p8) .case-card-tag {
+  color:var(--blue) !important;
+  border-color:rgba(7,26,102,.18) !important;
+}
+.page:not(.p1):not(.p8) .ci-purple,
+.page:not(.p1):not(.p8) .bi-purple,
+.page:not(.p1):not(.p8) .gl-3,
+.page:not(.p1):not(.p8) .p2-fusion-badge,
+.page:not(.p1):not(.p8) .case-card-tag {
+  background:rgba(7,26,102,.08) !important;
+}
+.p2-wordmap {
+  margin-top:-7mm !important;
+  overflow:visible !important;
+}
+.p2-wordmap::before {
+  content:none;
+}
+.p2-wordmap::after {
+  content:"";
+  position:absolute;
+  top:51%;
+  left:24%;
+  width:52%;
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(7,26,102,.18), transparent);
+  z-index:1;
+}
+.p2-ai-core {
+  width:30mm !important;
+  height:30mm !important;
+  border:1.5px solid var(--blue) !important;
+  box-shadow:0 1.5mm 5mm rgba(7,26,102,.10) !important;
+}
+.p2-ai-core span:first-child {
+  font-size:29pt !important;
+  color:var(--blue) !important;
+  letter-spacing:0 !important;
+}
+.p2-ai-core span:last-child {
+  font-size:6pt !important;
+  color:#64748B !important;
+  letter-spacing:.16em !important;
+}
+.p2-map-node {
+  width:23% !important;
+  z-index:2 !important;
+  position:absolute;
+}
+.p2-map-card {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  padding:2.2mm 2.6mm !important;
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.p2-map-node--fusion .p2-map-card {
+  background:#fff !important;
+  border-color:rgba(7,26,102,.12) !important;
+}
+.p2-map-node--ai .p2-map-card {
+  background:#fff !important;
+  border-color:rgba(7,26,102,.12) !important;
+}
+.p2-map-node--fusion .p2-map-card::before,
+.p2-map-node--ai .p2-map-card::before {
+  content:none;
+}
+.p2-map-head {
+  gap:1.4mm !important;
+  margin-bottom:.8mm !important;
+}
+.p2-map-head i {
+  width:5mm;
+  height:5mm;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:5pt;
+  background:rgba(7,26,102,.08);
+  color:var(--blue) !important;
+  font-size:7.5pt !important;
+}
+.p2-map-node--fusion .p2-map-head i {
+  background:rgba(7,26,102,.08) !important;
+  border:0 !important;
+  color:var(--blue) !important;
+}
+.p2-map-node--ai .p2-map-head i {
+  background:rgba(7,26,102,.08) !important;
+  color:var(--blue) !important;
+}
+.p2-map-head span {
+  color:var(--blue) !important;
+  font-size:8.1pt !important;
+  font-weight:900 !important;
+  letter-spacing:0 !important;
+  white-space:nowrap;
+}
+.p2-map-node--fusion .p2-map-head span {
+  color:var(--blue) !important;
+}
+.p2-map-node--ai .p2-map-head span {
+  color:var(--blue) !important;
+}
+.p2-map-node--fusion .p2-map-desc {
+  color:#64748B !important;
+}
+.p2-map-node--ai .p2-map-desc {
+  color:#64748B !important;
+}
+.p2-wordmap .p2-map-node .p2-map-card {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.p2-wordmap .p2-map-node .p2-map-head i {
+  background:rgba(7,26,102,.08) !important;
+  color:var(--blue) !important;
+  border:0 !important;
+}
+.p2-wordmap .p2-map-node .p2-map-head span {
+  color:var(--blue) !important;
+}
+.p2-wordmap .p2-map-node .p2-map-desc {
+  color:#64748B !important;
+}
+.p2-map-desc {
+  color:#64748B !important;
+  font-size:6.2pt !important;
+  line-height:1.45 !important;
+  word-break:keep-all;
+}
+.p2-map-axis {
+  bottom:12% !important;
+  color:#64748B !important;
+  font-size:6pt !important;
+  font-weight:800 !important;
+  letter-spacing:.12em !important;
+}
+
+/* ─── PRIORITY 1 FINISH: unified body system ─── */
+.page:not(.p1):not(.p8) .pg-body .p2-bullet,
+.page:not(.p1):not(.p8) .pg-body .p2-fusion-card,
+.page:not(.p1):not(.p8) .pg-body .p3-tier,
+.page:not(.p1):not(.p8) .pg-body .p3-item,
+.page:not(.p1):not(.p8) .pg-body .cur-cell,
+.page:not(.p1):not(.p8) .pg-body .plat-card,
+.page:not(.p1):not(.p8) .pg-body .case-card,
+.page:not(.p1):not(.p8) .pg-body .p2-map-card,
+.page:not(.p1):not(.p8) .pg-body > div[style*="background:white"][style*="border"],
+.page:not(.p1):not(.p8) .pg-body > div[style*="background:#fff"][style*="border"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:white"][style*="border"][style*="padding"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:#fff"][style*="border"][style*="padding"] {
+  background:#fff !important;
+  border-color:rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p3-item,
+.page:not(.p1):not(.p8) .pg-body .p5-grade-lbl,
+.page:not(.p1):not(.p8) .pg-body .case-row-label,
+.page:not(.p1):not(.p8) .pg-body .case-card-tag,
+.page:not(.p1):not(.p8) .pg-body span[style*="border-radius:100pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="border-radius:5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="border-radius:6pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="border-radius:7pt"] {
+  border-radius:7pt !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-worry,
+.page:not(.p1):not(.p8) .pg-body .tb-3-body,
+.page:not(.p1):not(.p8) .pg-body div[style*="margin-top:3mm"][style*="background:rgba(7,26,102"],
+.page:not(.p1):not(.p8) .pg-body div[style*="margin-top:3mm"][style*="background:rgba(8,167,212"],
+.page:not(.p1):not(.p8) .pg-body div[style*="margin-bottom:2.5mm"][style*="background:rgba("],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:#F8FAFC"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:#F1F5F9"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:#FCE7F3"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:rgba(217,27,99"],
+.page:not(.p1):not(.p8) .pg-body div[style*="background:rgba(232,95,150"] {
+  background:#F3F8FF !important;
+  border-color:rgba(7,26,102,.12) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .case-row-label,
+.page:not(.p1):not(.p8) .pg-body .p5-grade-lbl,
+.page:not(.p1):not(.p8) .pg-body .p5-subj-circle,
+.page:not(.p1):not(.p8) .pg-body .plat-card-icon {
+  background:rgba(7,26,102,.10) !important;
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .case-row-label {
+  background:var(--blue) !important;
+  color:#fff !important;
+}
+.page:not(.p1):not(.p8) .pg-body div[style*="box-shadow:0 4px"],
+.page:not(.p1):not(.p8) .pg-body div[style*="box-shadow:0 4mm"],
+.page:not(.p1):not(.p8) .pg-body div[style*="box-shadow:0 4px 20px"],
+.page:not(.p1):not(.p8) .pg-body div[style*="box-shadow:0 2px 8px"],
+.page:not(.p1):not(.p8) .pg-body div[style*="box-shadow:0 4px 18px"] {
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .sec-chip {
+  margin-bottom:2.5mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body .pg-ttl {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body th {
+  background:#F3F8FF !important;
+  color:var(--blue) !important;
+  font-weight:900 !important;
+}
+.page:not(.p1):not(.p8) .pg-body table,
+.page:not(.p1):not(.p8) .pg-body th,
+.page:not(.p1):not(.p8) .pg-body td {
+  border-color:rgba(7,26,102,.10) !important;
+}
+
+/* ─── PRIORITY 2 FINISH: color and type discipline ─── */
+.page:not(.p1):not(.p8) .pg-body [style*="color:#D91B63"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:#E85F96"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:var(--purple)"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:var(--amber)"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:var(--green)"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:#0E7490"],
+.page:not(.p1):not(.p8) .pg-body [style*="color:var(--cyan)"] {
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body [style*="background:#D91B63"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:#E85F96"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:var(--purple)"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:#0E7490"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:var(--cyan)"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:var(--green)"],
+.page:not(.p1):not(.p8) .pg-body [style*="background:var(--amber)"] {
+  background:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body i,
+.page:not(.p1):not(.p8) .pg-body .p2-circ-icon,
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-icon,
+.page:not(.p1):not(.p8) .pg-body .plat-card-icon,
+.page:not(.p1):not(.p8) .pg-body div[style*="width:7mm"][style*="height:7mm"],
+.page:not(.p1):not(.p8) .pg-body div[style*="width:26px"][style*="height:26px"] {
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-circ-icon,
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-icon,
+.page:not(.p1):not(.p8) .pg-body .plat-card-icon,
+.page:not(.p1):not(.p8) .pg-body div[style*="width:7mm"][style*="height:7mm"],
+.page:not(.p1):not(.p8) .pg-body div[style*="width:26px"][style*="height:26px"] {
+  background:rgba(7,26,102,.10) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .pg-ttl {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body > div:first-child:not(.sec-chip) {
+  margin-bottom:3mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-worry-sub,
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-text,
+.page:not(.p1):not(.p8) .pg-body .p2-fusion-name,
+.page:not(.p1):not(.p8) .pg-body .p3-tier-name,
+.page:not(.p1):not(.p8) .pg-body .case-card-name,
+.page:not(.p1):not(.p8) .pg-body .plat-card-name,
+.page:not(.p1):not(.p8) .pg-body table td div[style*="font-size:9pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:9pt"][style*="line-height"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:10pt"][style*="color:var(--muted)"] {
+  font-size:8.5pt !important;
+  line-height:1.58 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-desc,
+.page:not(.p1):not(.p8) .pg-body .p2-fusion-desc,
+.page:not(.p1):not(.p8) .pg-body .p3-item,
+.page:not(.p1):not(.p8) .pg-body .cur-desc,
+.page:not(.p1):not(.p8) .pg-body .plat-card-desc,
+.page:not(.p1):not(.p8) .pg-body .case-card-desc,
+.page:not(.p1):not(.p8) .pg-body .p5-subj-lbl,
+.page:not(.p1):not(.p8) .pg-body .p2-map-desc,
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:5.5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:6pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:6.5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:7pt"][style*="color:var(--muted)"] {
+  font-size:6.5pt !important;
+  line-height:1.48 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-wordmap .p2-map-node .p2-map-card {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 1mm 3mm rgba(7,26,102,.045) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-wordmap .p2-map-node .p2-map-head i {
+  background:rgba(7,26,102,.08) !important;
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-wordmap .p2-map-node .p2-map-head span,
+.page:not(.p1):not(.p8) .pg-body .p2-wordmap .p2-map-node .p2-map-desc {
+  color:var(--blue) !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-wordmap .p2-map-node .p2-map-desc {
+  color:#64748B !important;
+}
+
+/* ─── PAGE 5 FINISH: roadmap/table simplification ─── */
+.p5 {
+  background:#F7FAFC !important;
+}
+.p5 .pg-body {
+  padding:6mm 11mm 4.5mm !important;
+  gap:3mm !important;
+}
+.p5 .pg-body > div:first-child {
+  margin-bottom:.2mm !important;
+}
+.p5 .pg-ttl {
+  margin-top:1.4mm !important;
+  margin-bottom:0 !important;
+  font-size:21.5pt !important;
+  line-height:1.12 !important;
+  letter-spacing:0 !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] {
+  height:57mm !important;
+  padding:2.7mm !important;
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.10) !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.2mm rgba(7,26,102,.04) !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div:first-child {
+  margin-bottom:2.2mm !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div:first-child > div {
+  background:#173A8A !important;
+  color:rgba(255,255,255,.82) !important;
+  border-radius:7pt !important;
+  letter-spacing:.10em !important;
+  font-size:6.3pt !important;
+  padding:1.2mm 0 !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div:first-child > div:nth-child(1) {
+  flex:0 0 23% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div:first-child > div:nth-child(2) {
+  flex:0 0 calc(7% - 4mm) !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div:first-child > div:nth-child(3) {
+  flex:0 0 70% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] {
+  overflow:visible !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div {
+  border-radius:7pt !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:0"][style*="width:21%"] {
+  width:23% !important;
+  padding:0 2.4mm !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:0"][style*="width:21%"] i {
+  font-size:9.5pt !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:0"][style*="width:21%"] div div:first-child {
+  font-size:7.7pt !important;
+  line-height:1.25 !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:0"][style*="width:21%"] div div:last-child {
+  font-size:5.8pt !important;
+  line-height:1.35 !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:22.5%"] {
+  left:24.5% !important;
+  width:4% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:26%"][style*="width:74%"] {
+  left:30% !important;
+  width:70% !important;
+  padding-left:2.5mm !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] > div[style*="flex:1;position:relative"] > div[style*="left:26%"][style*="width:74%"] span {
+  font-size:6.9pt !important;
+  letter-spacing:0 !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="border:1.5px solid"] {
+  border-width:1px !important;
+  padding:.6mm !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="left:calc(26% + 20.5%)"] {
+  left:49% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="left:calc(26% + 33.5%)"] {
+  left:61.5% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="left:calc(26% + 46.5%)"] {
+  left:74% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="left:calc(26% + 59.5%)"] {
+  left:86.5% !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="letter-spacing:.1em"] {
+  font-size:5.3pt !important;
+  letter-spacing:.08em !important;
+}
+.p5 .pg-body > div[style*="height:60mm"] div[style*="line-height:1.25"] {
+  font-size:6.8pt !important;
+  line-height:1.22 !important;
+}
+.p5 .pg-body div[style*="background:#FCE7F3"],
+.p5 .pg-body div[style*="background:#EAF7FC"],
+.p5 .pg-body div[style*="background:#E0F7FB"],
+.p5 .pg-body div[style*="background:rgba(232,95,150"],
+.p5 .pg-body div[style*="background:rgba(14,116,144"],
+.p5 .pg-body div[style*="background:rgba(217,27,99"] {
+  background:#F3F8FF !important;
+  border:1px solid rgba(7,26,102,.10) !important;
+}
+.p5 .pg-body div[style*="left:0"][style*="width:21%"],
+.p5 .pg-body div[style*="left:26%"][style*="width:74%"] {
+  box-shadow:none !important;
+}
+.p5 .pg-body div[style*="border:1.5px solid"] {
+  border:1px solid rgba(7,26,102,.18) !important;
+  background:#fff !important;
+  box-shadow:0 .7mm 2mm rgba(7,26,102,.04) !important;
+}
+.p5 .pg-body div[style*="color:#D91B63"],
+.p5 .pg-body div[style*="color:#0E7490"],
+.p5 .pg-body div[style*="color:var(--amber)"],
+.p5 .pg-body div[style*="color:var(--green)"],
+.p5 .pg-body div[style*="color:var(--cyan)"],
+.p5 .pg-body span[style*="color:#D91B63"],
+.p5 .pg-body span[style*="color:#0E7490"],
+.p5 .pg-body i[style*="color:#D91B63"],
+.p5 .pg-body i[style*="color:#0E7490"],
+.p5 .pg-body i[style*="color:var(--cyan)"] {
+  color:var(--blue) !important;
+}
+.p5 .pg-body i {
+  color:var(--blue) !important;
+}
+.p5 .pg-body table {
+  background:#fff !important;
+  border-collapse:separate !important;
+  border-spacing:0 !important;
+  table-layout:fixed !important;
+  height:100% !important;
+}
+.p5 .pg-body table th {
+  background:#F3F8FF !important;
+  border-color:rgba(7,26,102,.10) !important;
+  padding:1.35mm 1.1mm !important;
+}
+.p5 .pg-body table th:first-child,
+.p5 .pg-body table td:first-child {
+  background:#173A8A !important;
+}
+.p5 .pg-body table th div,
+.p5 .pg-body table th div div {
+  color:var(--blue) !important;
+}
+.p5 .pg-body table th:first-child,
+.p5 .pg-body table th:first-child div,
+.p5 .pg-body table td:first-child div {
+  color:#fff !important;
+}
+.p5 .pg-body table td {
+  border-color:rgba(7,26,102,.08) !important;
+  padding:0 !important;
+  vertical-align:middle !important;
+}
+.p5 .pg-body table td[colspan] {
+  background:#F3F8FF !important;
+}
+.p5 .pg-body table td[colspan] span,
+.p5 .pg-body table td[colspan] i {
+  color:var(--blue) !important;
+}
+.p5 .pg-body > div[style*="box-shadow:0 2px 12px"] {
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.2mm rgba(7,26,102,.045) !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.p5 .pg-body > div[style*="box-shadow:0 2px 12px"] > div:first-child {
+  padding:1.7mm 2.8mm !important;
+  background:#173A8A !important;
+}
+.p5 .pg-body > div[style*="box-shadow:0 2px 12px"] > div:first-child span:first-child {
+  font-size:6.4pt !important;
+  letter-spacing:.09em !important;
+}
+.p5 .pg-body > div[style*="box-shadow:0 2px 12px"] > div:first-child span:last-child {
+  font-size:5.4pt !important;
+}
+.p5 .pg-body table th div div:first-child {
+  font-size:8pt !important;
+  line-height:1.2 !important;
+}
+.p5 .pg-body table th div div:last-child {
+  font-size:5.3pt !important;
+  line-height:1.25 !important;
+  margin-top:.4mm !important;
+}
+.p5 .pg-body table td:first-child div:first-child {
+  font-size:10pt !important;
+}
+.p5 .pg-body table td:first-child div:last-child {
+  font-size:5.4pt !important;
+  margin-top:.3mm !important;
+}
+.p5 .pg-body table td:not(:first-child) > div {
+  padding:1.25mm 1.4mm !important;
+}
+.p5 .pg-body table td:not(:first-child) > div > div:first-child {
+  font-size:7.85pt !important;
+  font-weight:800 !important;
+  line-height:1.22 !important;
+  letter-spacing:0 !important;
+}
+.p5 .pg-body table td:not(:first-child) > div > div:last-child {
+  margin-top:.45mm !important;
+  font-size:6pt !important;
+  line-height:1.25 !important;
+  color:#64748B !important;
+}
+.p5 .pg-body table td[colspan] > div {
+  padding:1.3mm 1.5mm !important;
+}
+.p5 .pg-body table td[colspan] span {
+  font-size:6.4pt !important;
+}
+.p5 .pg-body table tbody tr {
+  height:8.5mm !important;
+}
+.p5 .pg-body table tbody tr:nth-child(6),
+.p5 .pg-body table tbody tr:nth-child(12) {
+  height:7.2mm !important;
+}
+.p5 .pg-body table th:first-child {
+  width:11mm !important;
+  background:#F3F8FF !important;
+  color:var(--blue) !important;
+  font-size:7pt !important;
+  font-weight:900 !important;
+  letter-spacing:0 !important;
+}
+.p5 .pg-body table th:first-child div {
+  color:var(--blue) !important;
+}
+.p5 .pg-body table td:first-child {
+  background:#F8FAFC !important;
+  border-right:1px solid rgba(7,26,102,.10) !important;
+  text-align:center !important;
+  color:var(--blue) !important;
+}
+.p5 .pg-body table td:first-child div:first-child,
+.p5 .pg-body table td:first-child div:last-child {
+  display:inline !important;
+  margin:0 !important;
+  color:var(--blue) !important;
+  font-size:7.5pt !important;
+  font-weight:900 !important;
+  line-height:1.25 !important;
+}
+.p5 .pg-body table td:first-child div:last-child {
+  margin-left:.1mm !important;
+}
+.p5 .pg-body table thead th {
+  background:#EAF7FC !important;
+  border-color:rgba(8,167,212,.16) !important;
+}
+.p5 .pg-body table thead th div,
+.p5 .pg-body table thead th div div {
+  color:var(--blue) !important;
+}
+.p5 .pg-body table thead th:first-child {
+  background:#F1F5F9 !important;
+  border-color:rgba(100,116,139,.18) !important;
+  color:#475569 !important;
+}
+.p5 .pg-body table thead th:first-child div,
+.p5 .pg-body table thead th:first-child div div {
+  color:#475569 !important;
+}
+.p5 .pg-body table tbody td:first-child {
+  background:#F8FAFC !important;
+  color:#475569 !important;
+}
+.p5 .pg-body table tbody td:first-child div {
+  color:#475569 !important;
+}
+
+/* ─── PAGE 6 FINISH: platform hierarchy and graphic numbers ─── */
+.p6 .pg-body {
+  padding:8mm 13mm 7mm !important;
+  gap:3mm !important;
+  justify-content:flex-start !important;
+}
+.p6 .pg-body > div:first-child {
+  flex:0 0 auto !important;
+  margin-bottom:.4mm !important;
+}
+.p6 .pg-body > div:first-child .pg-ttl {
+  margin-bottom:0 !important;
+}
+.p6 .pg-body > div:nth-of-type(2) {
+  flex:0 0 76mm !important;
+  display:flex !important;
+  flex-direction:column !important;
+  grid-template-columns:none !important;
+  grid-template-rows:none !important;
+  gap:2.5mm !important;
+  min-height:0 !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div {
+  position:relative !important;
+  overflow:visible !important;
+  align-items:center !important;
+  flex:1 1 0 !important;
+  min-height:0 !important;
+  padding:3.2mm 5mm !important;
+  gap:4.5mm !important;
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.4mm rgba(7,26,102,.04) !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child {
+  position:absolute !important;
+  left:3.5mm !important;
+  right:auto !important;
+  top:4.1mm !important;
+  bottom:auto !important;
+  width:auto !important;
+  min-width:0 !important;
+  height:auto !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  align-items:flex-start !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  isolation:isolate !important;
+  z-index:0 !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child > div:first-child {
+  position:relative !important;
+  z-index:1 !important;
+  font-size:50pt !important;
+  font-weight:950 !important;
+  font-style:italic !important;
+  line-height:.82 !important;
+  color:transparent !important;
+  letter-spacing:-.08em !important;
+  font-family:Inter,'Noto Sans KR',sans-serif !important;
+  text-shadow:none !important;
+  opacity:.44 !important;
+  transform:translateY(0) skewX(-18deg) rotate(-8deg) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div:nth-child(1) > div:first-child > div:first-child {
+  background-image:linear-gradient(145deg,rgba(7,26,102,.78),rgba(8,167,212,.46)) !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div:nth-child(2) > div:first-child > div:first-child {
+  background-image:linear-gradient(145deg,rgba(8,167,212,.72),rgba(14,116,144,.42)) !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div:nth-child(3) > div:first-child > div:first-child {
+  background-image:linear-gradient(145deg,rgba(217,27,99,.62),rgba(7,26,102,.38)) !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child > div:last-child {
+  position:relative !important;
+  z-index:1 !important;
+  display:none !important;
+  width:15mm !important;
+  height:1.2mm !important;
+  margin-top:2mm !important;
+  background:linear-gradient(90deg,var(--blue),rgba(8,167,212,.75)) !important;
+  border-radius:99px !important;
+  box-shadow:0 .5mm 1.5mm rgba(7,26,102,.14) !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child::before {
+  content:none !important;
+  position:absolute;
+  width:22mm;
+  height:22mm;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(7,26,102,.10),rgba(8,167,212,.06));
+  border:1px solid rgba(7,26,102,.10);
+  z-index:0;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child::after {
+  content:none !important;
+  position:absolute;
+  width:28mm;
+  height:28mm;
+  border-radius:50%;
+  border:1px dashed rgba(7,26,102,.16);
+  z-index:0;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:last-child {
+  position:relative !important;
+  z-index:1 !important;
+  min-width:0 !important;
+  padding-left:17mm !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:last-child > div:first-child {
+  font-size:11.2pt !important;
+  line-height:1.3 !important;
+  margin-bottom:1mm !important;
+  color:#0F172A !important;
+  font-weight:900 !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:last-child > div:last-child {
+  font-size:7.5pt !important;
+  line-height:1.48 !important;
+  color:#475569 !important;
+}
+.p6 .pg-body > div:nth-of-type(3) {
+  flex:0 0 29mm !important;
+  padding:2.7mm 3.5mm !important;
+  gap:1.2mm !important;
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 .7mm 2mm rgba(7,26,102,.035) !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:first-child {
+  gap:2mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:first-child > div:first-child {
+  font-size:9pt !important;
+  color:var(--blue) !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:nth-child(3) {
+  height:3.2pt !important;
+  background:linear-gradient(to right,#071A66,#08A7D4) !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:nth-child(4) div div {
+  background:rgba(7,26,102,.40) !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:last-child div div:first-child {
+  color:var(--blue) !important;
+  font-size:8.7pt !important;
+  font-weight:900 !important;
+  margin-bottom:.7mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:last-child div div:last-child {
+  font-size:5.5pt !important;
+  line-height:1.3 !important;
+}
+.p6 .pg-body > div:nth-of-type(4) {
+  flex:0 0 7mm !important;
+  margin:0 !important;
+}
+.p6 .pg-body > div:nth-of-type(4) span {
+  color:var(--blue) !important;
+  font-weight:900 !important;
+}
+.p6 .pg-body > div:nth-of-type(5) {
+  flex:0 0 106mm !important;
+  min-height:0 !important;
+  max-height:106mm !important;
+  gap:2.4mm !important;
+  align-self:stretch !important;
+  margin-top:.2mm !important;
+}
+.p6 .plat-card {
+  min-height:0 !important;
+  height:100% !important;
+}
+.p6 .plat-card-img {
+  flex:0 0 66.666% !important;
+  max-height:66.666% !important;
+  padding:1.8mm 1.8mm .8mm !important;
+}
+.p6 .plat-card-info {
+  flex:0 0 33.334% !important;
+  padding:1.3mm 2.1mm !important;
+  grid-template-columns:5.8mm 1fr !important;
+  column-gap:1.7mm !important;
+}
+.p6 .plat-card-name {
+  font-size:7.2pt !important;
+  line-height:1.15 !important;
+  margin-bottom:.2mm !important;
+}
+.p6 .plat-card-desc {
+  font-size:5.35pt !important;
+  line-height:1.26 !important;
+  -webkit-line-clamp:2 !important;
+}
+.p6 .plat-card-icon {
+  background:rgba(7,26,102,.09) !important;
+  color:var(--blue) !important;
+  width:5.8mm !important;
+  height:5.8mm !important;
+  font-size:8pt !important;
+}
+
+/* ─── PAGE 2/3 FINISH: hierarchy and color polish ─── */
+.p2 .pg-body > div[style*="position:absolute"][style*="top:50%"] {
+  top:50% !important;
+}
+.p2 .pg-body > div[style*="position:absolute"][style*="top:50%"] span {
+  font-size:25pt !important;
+  letter-spacing:0 !important;
+}
+.p2 .pg-body > div[style*="position:absolute"][style*="top:50%"] div {
+  font-size:9.6pt !important;
+  margin-top:1.4mm !important;
+  color:#475569 !important;
+}
+.p2 .p2-wordmap {
+  margin-top:-9mm !important;
+}
+.p2 .p2-wordmap::after {
+  content:none !important;
+}
+.p2 .p2-radial-lines {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none;
+}
+.p2 .p2-radial-lines line {
+  stroke:rgba(7,26,102,.22);
+  stroke-width:.22;
+  stroke-linecap:round;
+  stroke-dasharray:.7 1.6;
+}
+.p2 .p2-ai-core {
+  width:30mm !important;
+  height:30mm !important;
+  border:1.5px solid #0F172A !important;
+}
+.p2 .p2-ai-core span:first-child {
+  font-size:29pt !important;
+}
+.p2 .p2-ai-core span:last-child {
+  font-size:6pt !important;
+}
+.p2 .p2-map-node {
+  width:23% !important;
+}
+.p2 .p2-map-card {
+  padding:2.4mm 2.8mm !important;
+}
+.p2 .p2-map-head span {
+  font-size:8.7pt !important;
+}
+.p2 .p2-map-desc {
+  font-size:6.5pt !important;
+  line-height:1.48 !important;
+}
+.p3-case .student-quote + div {
+  color:var(--blue) !important;
+}
+.p3-case .student-quote {
+  font-size:15.8pt !important;
+  line-height:1.58 !important;
+  letter-spacing:0 !important;
+  word-spacing:0 !important;
+}
+.p3-case .student-quote-mark {
+  font-size:1.05em !important;
+  vertical-align:baseline !important;
+  color:#94A3B8 !important;
+  margin:0 .15mm !important;
+}
+.p3-case .student-quote + div + div {
+  color:#475569 !important;
+}
+.p3-case img {
+  filter:saturate(.72) contrast(.92) brightness(.96) !important;
+}
+.p3-case div[style*="linear-gradient(to right"],
+.p3-case div[style*="linear-gradient(to left"] {
+  opacity:.82 !important;
+}
+.p3-case div[style*="width:5mm"][style*="height:1.5px"] {
+  background:rgba(7,26,102,.45) !important;
+}
+.p3-case div[style*="font-size:7.5pt"][style*="font-weight:700"] span {
+  color:var(--blue) !important;
+}
+.p3-case div[style*="width:11mm"][style*="height:11mm"][style*="border-radius:50%"] {
+  background:var(--blue) !important;
+}
+.p3-case div[style*="text-shadow"] {
+  color:rgba(15,23,42,.82) !important;
+  text-shadow:none !important;
+}
+.page.p4 .pg-body .cur-grid .case-row-label,
+.page.p4 .pg-body .cur-grid .case-row-label[style] {
+  background:var(--blue) !important;
+  color:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  box-shadow:none !important;
+}
+
+/* ─── INNER PAGE RHYTHM: title/body alignment with fold-safe margins ─── */
+.page:not(.p1):not(.p8) .pg-body > div:first-child:not(.sec-chip) {
+  flex-shrink:0 !important;
+  margin-bottom:4mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body .sec-chip {
+  margin-bottom:2.3mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body .pg-ttl {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .pg-ttl + * {
+  margin-top:4mm !important;
+}
+.page:not(.p1):not(.p8) .pg-body > div:first-child p {
+  margin-top:1.4mm !important;
+  margin-bottom:0 !important;
+}
+.page.p4 .pg-body {
+  padding-left:13mm !important;
+  padding-right:13mm !important;
+}
+.page.p4 .cur-grid {
+  margin-left:0 !important;
+  width:100% !important;
+  gap:2.4mm !important;
+}
+.page.p2 > div[style*="bottom:9mm"][style*="right:11mm"],
+.page.p3-case > div[style*="bottom:9mm"][style*="right:11mm"],
+.page.p4 > div[style*="bottom:9mm"][style*="right:11mm"],
+.page.p5 > div[style*="bottom:9mm"][style*="right:11mm"],
+.page.p6 > div[style*="bottom:9mm"][style*="right:11mm"] {
+  display:none !important;
+}
+.page.p2::before,
+.page.p3-case::before,
+.page.p4::before,
+.page.p5::before,
+.page.p6::before,
+.page.p7::before {
+  position:absolute;
+  right:14mm;
+  bottom:9mm;
+  z-index:10;
+  font-size:8pt;
+  font-weight:700;
+  color:#64748B;
+  letter-spacing:.05em;
+  line-height:1;
+}
+.page.p2::before { content:"02"; }
+.page.p3-case::before { content:"03"; }
+.page.p4::before { content:"04"; }
+.page.p5::before { content:"05"; }
+.page.p6::before { content:"06"; }
+.page.p7::before { content:"07"; }
+.page.p3-case .pg-body {
+  gap:0 !important;
+  display:grid !important;
+  grid-template-rows:repeat(3,minmax(0,1fr)) !important;
+}
+.page.p3-case .pg-body > div {
+  flex:none !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+.page.p3-case .pg-body > div > div[style*="padding:7mm"] {
+  justify-content:flex-start !important;
+  padding-top:5.8mm !important;
+  padding-bottom:4mm !important;
+  overflow:hidden !important;
+}
+.page.p3-case .pg-body > div:first-child:not(.sec-chip),
+.page.p3-case .pg-body > div:first-child,
+.page.p3-case .pg-body > div + div {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+.p8 .p8-contact-row {
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+
+/* ─── PAGE 7 FINISH: offer hierarchy simplification ─── */
+.p7 .pg-body {
+  gap:3mm !important;
+}
+.p7 .pg-body > div:first-child p {
+  color:#64748B !important;
+  font-size:7.2pt !important;
+  line-height:1.55 !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.5mm rgba(7,26,102,.045) !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div > div:first-child {
+  background:#F3F8FF !important;
+  border-bottom:1px solid rgba(7,26,102,.10) !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div:nth-child(2) {
+  border:2px solid var(--blue) !important;
+  box-shadow:0 1.5mm 5mm rgba(7,26,102,.11) !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div:nth-child(2) > div:first-child {
+  background:var(--blue) !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div:nth-child(2) > div:first-child div {
+  color:#fff !important;
+}
+.p7 .pg-body [style*="color:var(--purple)"],
+.p7 .pg-body [style*="color:var(--cyan)"],
+.p7 .pg-body [style*="color:var(--green)"],
+.p7 .pg-body [style*="color:var(--amber)"],
+.p7 .pg-body [style*="color:#08A7D4"],
+.p7 .pg-body [style*="color:#0E7490"],
+.p7 .pg-body [style*="color:#D91B63"] {
+  color:var(--blue) !important;
+}
+.p7 .pg-body [style*="background:var(--purple)"],
+.p7 .pg-body [style*="background:var(--cyan)"],
+.p7 .pg-body [style*="background:var(--green)"],
+.p7 .pg-body [style*="background:var(--amber)"],
+.p7 .pg-body [style*="background:#08A7D4"],
+.p7 .pg-body [style*="background:#0E7490"],
+.p7 .pg-body [style*="background:#D91B63"] {
+  background:var(--blue) !important;
+}
+.p7 .pg-body [style*="background:rgba(217,27,99"],
+.p7 .pg-body [style*="background:rgba(8,167,212"],
+.p7 .pg-body [style*="background:rgba(14,116,144"],
+.p7 .pg-body [style*="background:linear-gradient(135deg,rgba(217"] {
+  background:#F3F8FF !important;
+  border-color:rgba(7,26,102,.12) !important;
+}
+.p7 .pg-body div[style*="border-left:3px solid"] {
+  border-left:0 !important;
+}
+.p7 .pg-body i {
+  color:var(--blue) !important;
+}
+.p7 .pg-body div[style*="width:26px"][style*="height:26px"],
+.p7 .pg-body div[style*="width:7mm"][style*="height:7mm"] {
+  background:rgba(7,26,102,.10) !important;
+  color:var(--blue) !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] {
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.5mm rgba(7,26,102,.04) !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] > div:first-child {
+  margin-bottom:2.4mm !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="position:absolute"][style*="top:-2mm"] {
+  display:block !important;
+  top:-1.5mm !important;
+  bottom:-1.5mm !important;
+  background:transparent !important;
+  border:1px dashed rgba(7,26,102,.28) !important;
+  border-radius:8pt !important;
+  z-index:1 !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="position:absolute"][style*="top:13px"] {
+  top:13px !important;
+  height:1px !important;
+  background:rgba(7,26,102,.18) !important;
+  z-index:0 !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="grid-template-columns:repeat(8,1fr)"] > div:not([style*="position:absolute"]) {
+  z-index:2 !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="width:26px"][style*="height:26px"] {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.22) !important;
+  color:var(--blue) !important;
+  box-shadow:0 .6mm 1.8mm rgba(7,26,102,.055) !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] {
+  gap:2.4mm !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div {
+  background:#fff !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.5mm rgba(7,26,102,.04) !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div:first-child {
+  background:#fff !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div:first-child > div[style*="margin-bottom:2.5mm"][style*="padding:2.5mm"] {
+  background:#F3F8FF !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-left:0 !important;
+  border-radius:7pt !important;
+  box-shadow:0 .6mm 2mm rgba(7,26,102,.04) !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div:first-child > div[style*="position:absolute"][style*="top:0"] {
+  background:var(--blue) !important;
+  color:#fff !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div:first-child > div[style*="position:absolute"][style*="top:0"],
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div:first-child > div[style*="position:absolute"][style*="top:0"] * {
+  color:#fff !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div > div[style*="margin-bottom:2.5mm"][style*="padding:2.5mm"] {
+  background:#F3F8FF !important;
+  border:1px solid rgba(7,26,102,.12) !important;
+  border-left:0 !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div > div[style*="margin-bottom:2.5mm"][style*="padding:2.5mm"] div:first-child {
+  color:var(--blue) !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div span[style*="font-weight:700"] {
+  color:var(--blue) !important;
+}
+.p7 .pg-body > div[style*="font-size:6.5pt"][style*="text-transform:uppercase"] {
+  margin-top:0 !important;
+  color:#64748B !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] {
+  color:#fff !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] i {
+  color:#67E8F9 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] .fa-circle,
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] .fa-certificate,
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] .fa-school {
+  color:#67E8F9 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] span,
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] a {
+  color:inherit !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:white"] {
+  color:#fff !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:#08A7D4"],
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] span[style*="color:#08A7D4"],
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:#3CC7DE"] {
+  color:#67E8F9 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:rgba(255,255,255,.6)"] {
+  color:rgba(255,255,255,.72) !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:rgba(255,255,255,.55)"],
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] div[style*="color:rgba(255,255,255,.5)"] {
+  color:rgba(255,255,255,.62) !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] i,
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] .fas {
+  color:#fff !important;
+}
+
+/* ─── SPREAD POLISH: pages 2, 3, 6, 7, 8 ─── */
+.page.p2 .pg-body {
+  position:relative !important;
+}
+.page.p2 .pg-body::after {
+  content:"";
+  position:absolute;
+  left:2mm;
+  bottom:5mm;
+  width:54mm;
+  height:42mm;
+  background-image:radial-gradient(circle, rgba(7,26,102,.16) 0 1px, transparent 1.2px);
+  background-size:4.2mm 4.2mm;
+  opacity:.62;
+  pointer-events:none;
+  z-index:0;
+  mask-image:radial-gradient(ellipse at 20% 80%, #000 0 58%, transparent 76%);
+  -webkit-mask-image:radial-gradient(ellipse at 20% 80%, #000 0 58%, transparent 76%);
+}
+.page.p2 .pg-body > * {
+  position:relative;
+  z-index:1;
+}
+.pg-hd {
+  background:#071A66 !important;
+}
+.pg-hd-logo {
+  height:6.2mm !important;
+  background:transparent !important;
+  mix-blend-mode:normal !important;
+}
+.page.p3-case .pg-body {
+  margin:0 !important;
+  width:100% !important;
+  height:calc(303mm - 15mm) !important;
+  grid-template-rows:repeat(3, minmax(0, 96mm)) !important;
+  align-content:start !important;
+}
+.page.p3-case .pg-body > div {
+  height:96mm !important;
+  max-height:96mm !important;
+}
+.page.p3-case .pg-body > div > div[style*="padding:7mm"] {
+  justify-content:center !important;
+  padding-top:6.2mm !important;
+  padding-bottom:5.2mm !important;
+}
+.page.p3-case .pg-body > div > div[style*="position:relative;overflow:hidden"] > div[style*="bottom:5mm"] {
+  display:flex !important;
+  align-items:center !important;
+  gap:2mm !important;
+  left:5mm !important;
+  right:auto !important;
+  text-align:left !important;
+  max-width:calc(100% - 10mm) !important;
+}
+.page.p3-case .pg-body > div > div[style*="position:relative;overflow:hidden"] > div[style*="bottom:5mm"] > div:first-child {
+  margin:0 !important;
+  flex:0 0 11mm !important;
+}
+.page.p3-case .pg-body > div > div[style*="position:relative;overflow:hidden"] > div[style*="bottom:5mm"] > div:last-child {
+  flex:1 1 auto !important;
+  min-width:0 !important;
+}
+.page.p3-case .pg-body > div:nth-child(2) > div[style*="position:relative;overflow:hidden"] > div[style*="bottom:5mm"] > div:first-child {
+  background:#071A66 !important;
+}
+.page.p3-case .pg-body > div:nth-child(3) > div:first-child {
+  background:#E7E4D5 !important;
+}
+.page.p3-case .pg-body > div:nth-child(3) img {
+  background:#E7E4D5 !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child {
+  left:4mm !important;
+  width:24mm !important;
+  overflow:visible !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div > div:first-child > div:first-child {
+  padding-right:7mm !important;
+  padding-bottom:1mm !important;
+  transform:translateY(0) skewX(-23deg) rotate(-10deg) !important;
+}
+.p6 .pg-body,
+.p7 .pg-body {
+  padding-bottom:9mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3),
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] {
+  flex:0 0 42mm !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] {
+  flex:0 0 75mm !important;
+}
+.p7-featured-plan,
+.p7-featured-option {
+  position:relative !important;
+  overflow:visible !important;
+}
+.p7-featured-plan::before,
+.p7-featured-option::before {
+  content:"";
+  position:absolute;
+  width:6.8mm;
+  height:6.8mm;
+  top:-2.1mm;
+  left:auto;
+  right:3.2mm;
+  background:linear-gradient(135deg,#FF3F96 0%,#D91B63 46%,#B80F24 100%);
+  clip-path:polygon(43% 0,58% 0,59% 32%,82% 10%,92% 21%,68% 44%,100% 43%,100% 58%,68% 59%,91% 82%,81% 93%,58% 69%,57% 100%,42% 100%,41% 69%,18% 92%,7% 81%,31% 59%,0 58%,0 43%,31% 42%,8% 19%,19% 8%,42% 32%);
+  filter:drop-shadow(0 1.5mm 2.6mm rgba(217,27,99,.36));
+  transform:rotate(-12deg);
+  z-index:5;
+}
+.p8-contact-icon {
+  box-sizing:border-box !important;
+  width:14.25mm !important;
+  height:14.25mm !important;
+  min-width:14.25mm !important;
+  aspect-ratio:1 / 1 !important;
+  border-radius:999px !important;
+  overflow:visible !important;
+  line-height:1 !important;
+}
+.p8-contact-icon i {
+  display:block !important;
+  line-height:1 !important;
+}
+
+/* ─── PRINT CATALOG TYPE SCALE: larger reading size ─── */
+.page:not(.p1):not(.p8) .pg-hd-label {
+  font-size:7.6pt !important;
+}
+.page:not(.p1):not(.p8) .sec-chip {
+  font-size:7.4pt !important;
+  padding:2pt 9pt !important;
+}
+.page:not(.p1):not(.p8) .pg-ttl {
+  font-size:23.5pt !important;
+  line-height:1.13 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .student-quote {
+  font-size:17.6pt !important;
+  line-height:1.52 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-worry-sub,
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-text,
+.page:not(.p1):not(.p8) .pg-body .p2-fusion-name,
+.page:not(.p1):not(.p8) .pg-body .p3-tier-name,
+.page:not(.p1):not(.p8) .pg-body .case-card-name,
+.page:not(.p1):not(.p8) .pg-body .plat-card-name,
+.page:not(.p1):not(.p8) .pg-body table td div[style*="font-size:9pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:9pt"][style*="line-height"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:10pt"][style*="color:var(--muted)"] {
+  font-size:9.4pt !important;
+  line-height:1.5 !important;
+}
+.page:not(.p1):not(.p8) .pg-body .p2-bullet-desc,
+.page:not(.p1):not(.p8) .pg-body .p2-fusion-desc,
+.page:not(.p1):not(.p8) .pg-body .p3-item,
+.page:not(.p1):not(.p8) .pg-body .cur-desc,
+.page:not(.p1):not(.p8) .pg-body .plat-card-desc,
+.page:not(.p1):not(.p8) .pg-body .case-card-desc,
+.page:not(.p1):not(.p8) .pg-body .p5-subj-lbl,
+.page:not(.p1):not(.p8) .pg-body .p2-map-desc,
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:5.5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:6pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:6.5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:7pt"][style*="color:var(--muted)"] {
+  font-size:7.2pt !important;
+  line-height:1.42 !important;
+}
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:7.5pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:8pt"],
+.page:not(.p1):not(.p8) .pg-body div[style*="font-size:8.5pt"] {
+  font-size:8.6pt !important;
+  line-height:1.42 !important;
+}
+.p6 .plat-card-name {
+  font-size:7.8pt !important;
+}
+.p6 .plat-card-desc {
+  font-size:6.3pt !important;
+  line-height:1.34 !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] div[style*="font-size:20pt"],
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] div[style*="font-size:18pt"] {
+  font-size:21pt !important;
+}
+
+/* ─── PAGE 2: dotted influence field from AI CORE ─── */
+.p2 .p2-radial-lines {
+  display:none !important;
+}
+.p2 .p2-wordmap {
+  isolation:isolate !important;
+}
+.p2 .p2-wordmap::before {
+  content:"" !important;
+  position:absolute !important;
+  pointer-events:none !important;
+  z-index:1 !important;
+  left:19%;
+  top:18%;
+  width:64%;
+  height:68%;
+  background-image:radial-gradient(circle, rgba(7,26,102,.20) 0 1.15px, transparent 1.35px);
+  background-size:4.2mm 4.2mm;
+  opacity:.72;
+  clip-path:polygon(47% 4%,61% 13%,70% 27%,91% 33%,82% 50%,95% 66%,71% 70%,61% 89%,47% 77%,32% 92%,28% 70%,6% 65%,20% 50%,8% 33%,30% 28%);
+  filter:drop-shadow(0 2mm 7mm rgba(7,26,102,.07));
+}
+.p2 .p2-wordmap::after {
+  content:none !important;
+}
+.p2 .p2-ai-core {
+  z-index:4 !important;
+}
+.p2 .p2-map-node {
+  z-index:3 !important;
+}
+.p2 .p2-map-axis {
+  bottom:10.5% !important;
+  font-size:14.5pt !important;
+  font-weight:800 !important;
+  font-style:italic !important;
+  line-height:1 !important;
+  color:rgba(15,23,42,.18) !important;
+  letter-spacing:-.02em !important;
+  text-transform:none !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+}
+
+/* ─── PAGE 2: profile photos and speech tails ─── */
+.p2 .p2-profile {
+  border:0 !important;
+  box-shadow:0 1.2mm 3.5mm rgba(15,23,42,.20) !important;
+}
+.p2 .p2-profile img {
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+}
+.p2 .p2-speech {
+  position:relative !important;
+  border-radius:8pt !important;
+  box-shadow:0 .8mm 2.4mm rgba(7,26,102,.045) !important;
+}
+.p2 .p2-speech::before {
+  content:none !important;
+  position:absolute;
+  top:5.2mm;
+  width:0;
+  height:0;
+  border-top:2.4mm solid transparent;
+  border-bottom:2.4mm solid transparent;
+}
+.p2 .p2-speech-left::before {
+  left:-2.3mm;
+  border-right:2.8mm solid rgba(15,23,42,.05);
+}
+.p2 .p2-speech-right::before {
+  right:-2.3mm;
+  border-left:2.8mm solid rgba(7,26,102,.07);
+}
+
+/* ─── PAGE 6: larger operation spectrum typography ─── */
+.p6 .pg-body > div:nth-of-type(3) {
+  gap:2mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:first-child > div:first-child {
+  font-size:11pt !important;
+  line-height:1.25 !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:first-child > div:last-child {
+  font-size:7.4pt !important;
+  line-height:1.35 !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:nth-child(2) span {
+  font-size:6.8pt !important;
+  line-height:1.3 !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:last-child > div > div:first-child {
+  font-size:9pt !important;
+  line-height:1.25 !important;
+  margin-bottom:.8mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:last-child > div > div:last-child {
+  font-size:6.7pt !important;
+  line-height:1.38 !important;
+}
+
+/* ─── PAGE 7: keep consultation card contacts readable ─── */
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child {
+  gap:1.4mm !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child > div:first-child {
+  font-size:10.8pt !important;
+  line-height:1.16 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child > div:nth-child(2) {
+  font-size:6.4pt !important;
+  line-height:1.32 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child > div[style*="grid-template-columns:4fr 6fr"] {
+  grid-template-columns:4fr 6fr !important;
+  gap:1mm !important;
+  margin-top:0 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child > div[style*="grid-template-columns:4fr 6fr"] > div {
+  padding:1.2mm 1.5mm !important;
+  min-width:0 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:first-child > div[style*="grid-template-columns:4fr 6fr"] span {
+  font-size:7.9pt !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+  word-break:keep-all !important;
+}
+.p7 .p7-contact-address {
+  grid-column:1 / -1 !important;
+}
+.p7 .p7-contact-address span {
+  white-space:normal !important;
+  overflow-wrap:normal !important;
+  word-break:keep-all !important;
+  font-size:7.2pt !important;
+  line-height:1.25 !important;
+}
+
+/* ─── PAGE 7: tighter vertical fit ─── */
+.p7 .pg-body {
+  gap:2.2mm !important;
+  padding-top:4.2mm !important;
+  padding-bottom:4.2mm !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] {
+  flex:0 0 32mm !important;
+  padding:2.4mm 3.6mm !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] > div:first-child {
+  margin-bottom:1.6mm !important;
+  font-size:8.3pt !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="width:26px"][style*="height:26px"] {
+  width:22px !important;
+  height:22px !important;
+  font-size:9.5pt !important;
+  margin-bottom:1.5mm !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="grid-template-columns:repeat(8,1fr)"] > div:not([style*="position:absolute"]) > div:nth-child(2) {
+  font-size:7pt !important;
+  margin-bottom:.4mm !important;
+}
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] div[style*="grid-template-columns:repeat(8,1fr)"] > div:not([style*="position:absolute"]) > div:nth-child(3) {
+  font-size:5.8pt !important;
+  line-height:1.25 !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] {
+  position:relative !important;
+  padding:3mm 4mm !important;
+  gap:3mm !important;
+  align-items:center !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"]::after {
+  content:"경기도 용인시 흥덕2로 117번길 19, 918호 흥덕리치안레이크타워";
+  position:absolute;
+  left:4mm;
+  right:4mm;
+  bottom:1.6mm;
+  font-size:5.4pt;
+  font-weight:500;
+  line-height:1.2;
+  color:rgba(255,255,255,.46);
+  text-align:center;
+  letter-spacing:0;
+  pointer-events:none;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] > div:last-child {
+  gap:2mm !important;
+  padding-left:3mm !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] img {
+  width:12mm !important;
+  height:12mm !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"]::after {
+  content:none !important;
+}
+
+/* ─── SPREAD ALIGN: page 6 spectrum / page 7 process ─── */
+.p6 .pg-body {
+  gap:2.4mm !important;
+}
+.p6 .pg-body > div:nth-of-type(2) {
+  flex:0 0 80mm !important;
+  gap:2mm !important;
+}
+.p6 .pg-body > div:nth-of-type(2) > div {
+  padding:2.8mm 4.5mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3),
+.p7 .pg-body > div[style*="background:white"][style*="border:1px solid var(--border)"] {
+  flex:0 0 34mm !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div {
+  flex-shrink:0 !important;
+}
+.p6 .pg-body > div:nth-of-type(3) > div:nth-child(3) {
+  display:block !important;
+  width:100% !important;
+  height:5pt !important;
+  min-height:5pt !important;
+  background:linear-gradient(to right,#071A66 0%,#075A9B 38%,#08A7D4 72%,#8CE6F2 100%) !important;
+  border-radius:100px !important;
+  box-shadow:0 .6mm 1.6mm rgba(7,26,102,.12) !important;
+}
+.p6 .pg-body > div:nth-of-type(5) {
+  flex:0 0 94mm !important;
+  max-height:94mm !important;
+}
+.p7 .pg-body {
+  gap:2.4mm !important;
+}
+.p7 .pg-body > div:first-child {
+  flex:0 0 auto !important;
+  margin-bottom:0 !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] {
+  flex:0 0 66mm !important;
+  align-content:stretch !important;
+}
+.p7 .pg-body > div[style*="grid-template-columns:repeat(3,1fr)"] > div {
+  min-height:0 !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] {
+  flex:0 0 62mm !important;
+  align-content:stretch !important;
+}
+.p7 .pg-body > div[style*="display:grid;grid-template-columns:1fr 1fr 1fr"] > div {
+  min-height:0 !important;
+  padding:3mm 4mm !important;
+}
+.p7 .pg-body > div[style*="linear-gradient(135deg,rgba(15,23,42"] {
+  flex:0 0 39mm !important;
+  min-height:0 !important;
+}
+.p7-featured-plan {
+  border-radius:8pt !important;
+}
+.p7-featured-plan > div:first-child {
+  border-radius:6pt 6pt 0 0 !important;
+  margin:-1px -1px 0 -1px !important;
+}
+.p7-featured-option > div:first-child {
+  top:12.4mm !important;
+  left:auto !important;
+  right:4.5mm !important;
+  border-radius:0 7pt 0 7pt !important;
+  z-index:4 !important;
+}
+
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">
+  <i class="fas fa-print"></i> 인쇄 / PDF 저장
+</button>
+
+<!-- ════════ PAGE 1 : 표지 ════════ -->
+<div class="page p1" style="position:relative;overflow:hidden;">
+  <svg class="p1-art" viewBox="0 0 210 297" aria-hidden="true" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="coverPink" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#F4B2C8"/>
+        <stop offset=".52" stop-color="#E85F96"/>
+        <stop offset="1" stop-color="#D91B63"/>
+      </linearGradient>
+      <linearGradient id="coverCyan" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#3CC7DE"/>
+        <stop offset="1" stop-color="#08A7D4"/>
+      </linearGradient>
+      <linearGradient id="coverNavy" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#20236D"/>
+        <stop offset="1" stop-color="#071A66"/>
+      </linearGradient>
+      <pattern id="coverDotsNavy" width="5.2" height="5.2" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r=".55" fill="#071A66"/>
+      </pattern>
+      <pattern id="coverDotsPink" width="6.4" height="6.4" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r=".7" fill="#E85F96"/>
+      </pattern>
+      <pattern id="coverStripes" width="4.3" height="4.3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="1.45" height="4.3" fill="#071A66"/>
+      </pattern>
+      <pattern id="coverLines" width="4" height="4" patternUnits="userSpaceOnUse">
+        <path d="M0 0H4" stroke="#E85F96" stroke-width=".45" opacity=".72"/>
+      </pattern>
+    </defs>
+    <rect width="210" height="297" fill="#fff"/>
+    <circle cx="209" cy="-1" r="38" fill="url(#coverPink)"/>
+    <rect x="135" y="6" width="39" height="31" fill="url(#coverDotsNavy)" opacity=".95"/>
+    <path d="M137 77C137 54.5 157.5 38 179 38H210V77Z" fill="url(#coverPink)" opacity=".82"/>
+    <path d="M172 38H210C210 59.5 193.5 77 172 77Z" fill="url(#coverNavy)"/>
+    <path d="M172 77C193 77 210 94 210 115H172Z" fill="url(#coverCyan)"/>
+    <rect x="116" y="88" width="94" height="61" fill="rgba(255,255,255,.55)"/>
+    <path d="M88 150C88 128 105.5 110.5 127.5 110.5V150Z" fill="rgba(255,255,255,.4)"/>
+    <path d="M61 218H6C23 218 22 232 26.5 232C32 221 48 218 61 218Z" fill="#071A66" opacity=".92"/>
+    <path d="M26.5 218H61V232Z" fill="#F4B2C8"/>
+    <rect x="27" y="184" width="35" height="34" fill="url(#coverStripes)"/>
+    <rect x="40" y="160" width="22" height="20" fill="url(#coverDotsNavy)" opacity=".9"/>
+    <path d="M61 218V151H94C75.8 151 61 165.8 61 184Z" fill="url(#coverNavy)"/>
+    <path d="M94 151V218H61C79.2 218 94 203.2 94 185Z" fill="url(#coverPink)" opacity=".78"/>
+    <path d="M61 218H94V185C94 203.2 79.2 218 61 218Z" fill="url(#coverCyan)" opacity=".95"/>
+    <path d="M62 184C78 184 94 200 94 216" fill="none" stroke="#fff" stroke-width=".55" opacity=".8"/>
+    <path d="M65 184C80 184 94 198 94 213" fill="none" stroke="#fff" stroke-width=".55" opacity=".8"/>
+    <path d="M68 184C82 184 94 196 94 210" fill="none" stroke="#fff" stroke-width=".55" opacity=".8"/>
+    <rect x="181" y="170" width="29" height="43" fill="url(#coverLines)" opacity=".7"/>
+    <rect x="181" y="221" width="26" height="24" fill="url(#coverDotsPink)" opacity=".8"/>
+  </svg>
+
+  <img class="p1-photo p1-photo-students" src="uploads/cover_students.jpg" alt="함께 노트북으로 배우는 학생들">
+  <img class="p1-photo p1-photo-robot" src="uploads/cover_robot_student.jpg" alt="로봇과 노트북으로 학습하는 학생">
+
+  <div class="p1-copy">
+    <div class="p1-kicker">AI · 디지털 리터러시 교육 브랜드</div>
+    <img class="p1-cover-logo" src="uploads/cosmoedu_cover_wordmark.png" alt="COSMOEDU">
+    <div class="p1-ko">코스모에듀<span class="blue">스쿨</span></div>
+    <div class="p1-rule"></div>
+    <div class="p1-desc">학교 · 학원 · 대안학교를 위한<br><b>AI · 코딩</b> 수업 구축 완성 패키지</div>
+  </div>
+
+  <div class="p1-badge">CREATIVE<br>DIGITAL<br>LEADERSHIP</div>
+
+  <div class="p1-service" aria-label="제공 수업 목록">
+    <div class="p1-service-row"><i class="fas fa-microchip"></i><span>AI 수업</span></div>
+    <div class="p1-service-row"><i class="fas fa-desktop"></i><span>디지털 리터러시</span></div>
+    <div class="p1-service-row"><i class="fas fa-brain"></i><span>컴퓨팅 사고력</span></div>
+    <div class="p1-service-row"><i class="fas fa-user-graduate"></i><span>진로 교육</span></div>
+    <div class="p1-service-row"><i class="fas fa-laptop"></i><span>에듀웨어 렌탈</span></div>
+  </div>
+
+  <div class="p1-features">
+    <div class="p1-feature">
+      <div class="p1-feature-icon"><i class="fas fa-cube"></i></div>
+      <div class="p1-feature-title">커리큘럼부터 기기까지<br>통합 패키지</div>
+      <div class="p1-feature-desc">수업 운영에 필요한 요소를<br>한 번에 준비합니다.</div>
+    </div>
+    <div class="p1-feature">
+      <div class="p1-feature-icon"><i class="fas fa-pen-to-square"></i></div>
+      <div class="p1-feature-title">학교 환경에 맞춘<br>도입 설계</div>
+      <div class="p1-feature-desc">기관의 목표와 여건에 맞춰<br>실행 가능한 모델을 제안합니다.</div>
+    </div>
+    <div class="p1-feature">
+      <div class="p1-feature-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="p1-feature-title">AI 시대를 준비하는<br>핵심 역량 교육</div>
+      <div class="p1-feature-desc">아이들이 만들고 표현하며<br>미래 역량을 기르도록 돕습니다.</div>
+    </div>
+  </div>
+
+  <div class="p1-footer">
+    <span><i class="fas fa-globe"></i> school.cosmoedu.co.kr</span>
+    <span><i class="fas fa-phone"></i> 010-4121-6551</span>
+  </div>
+</div>
+
+<!-- ════════ PAGE 2 : 수업특징 ════════ -->
+<div class="page p2">
+  <div style="position:absolute;bottom:9mm;right:11mm;font-size:8pt;font-weight:700;color:var(--dim);letter-spacing:.05em;z-index:10;">02</div>
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 수업특징</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body" style="display:flex;flex-direction:column;gap:0;padding:6mm 10mm 5mm;position:relative;">
+
+    <!-- 타이틀 -->
+    <div style="flex-shrink:0;">
+      <div class="sec-chip">Education Philosophy</div>
+      <h2 class="pg-ttl">우리 학교의 교육철학은 그대로,<br><span class="hl">배움의 언어에 AI 한 가지를 더합니다.</span></h2>
+    </div>
+
+    <!-- ══ 상단: 질문 (flex:3) ══ -->
+    <div style="flex:3;display:flex;flex-direction:column;justify-content:center;gap:4mm;">
+      <div style="display:flex;flex-direction:column;gap:2mm;padding:0 20%;margin-top:0;">
+        <div style="display:flex;align-items:flex-end;gap:2mm;">
+          <div class="p2-profile" style="flex-shrink:0;width:18mm;height:18mm;border-radius:50%;overflow:hidden;border:1.5px solid white;box-shadow:0 2px 4px rgba(15,23,42,.15);">
+            <image-slot id="p2-parent" style="display:none"></image-slot><img src="uploads/브로셔_이미지/2페이지-철학/teacher1.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="학부모 프로필">
+          </div>
+          <div class="p2-speech p2-speech-left" style="max-width:72%;background:rgba(15,23,42,.05);border:1px solid rgba(15,23,42,.12);border-radius:0 8pt 8pt 8pt;padding:2.5mm 4mm;">
+            <div style="font-size:8pt;color:var(--muted);line-height:1.7;word-break:keep-all;">"AI가 중요하다는 것은 아는데, 어떻게 시작해야 할지 모르겠어요."</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:2mm;flex-direction:row-reverse;">
+          <div class="p2-profile" style="flex-shrink:0;width:18mm;height:18mm;border-radius:50%;overflow:hidden;border:1.5px solid white;box-shadow:0 2px 4px rgba(7,26,102,.3);">
+            <image-slot id="p2-teacher" style="display:none"></image-slot><img src="uploads/브로셔_이미지/2페이지-철학/teacher2.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="교사 프로필">
+          </div>
+          <div class="p2-speech p2-speech-right" style="max-width:72%;background:rgba(7,26,102,.07);border:1px solid rgba(7,26,102,.16);border-radius:8pt 0 8pt 8pt;padding:2.5mm 4mm;">
+            <div style="font-size:8pt;color:var(--text);line-height:1.7;word-break:keep-all;">"AI가 넘쳐나는 세상에서도, 스스로 판단하고 표현하는 아이로 키우고 싶습니다."</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:2mm;">
+          <div class="p2-profile" style="flex-shrink:0;width:18mm;height:18mm;border-radius:50%;overflow:hidden;border:1.5px solid white;box-shadow:0 2px 4px rgba(15,23,42,.15);">
+            <image-slot id="p2-director" style="display:none"></image-slot><img src="uploads/브로셔_이미지/2페이지-철학/teacher3.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="원장 프로필">
+          </div>
+          <div class="p2-speech p2-speech-left" style="max-width:72%;background:rgba(15,23,42,.05);border:1px solid rgba(15,23,42,.12);border-radius:0 8pt 8pt 8pt;padding:2.5mm 4mm;">
+            <div style="font-size:8pt;color:var(--muted);line-height:1.7;word-break:keep-all;">"AI 수업을 하고 싶은데, 믿을 수 있는 선생님을 찾는 것 자체가 너무 어렵습니다."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 우리는 고민합니다 (정중앙 absolute) ══ -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;text-align:center;width:100%;pointer-events:none;">
+      <span style="font-size:24pt;font-weight:900;color:var(--text);letter-spacing:-.02em;">우리는 고민합니다.</span>
+      <div style="font-size:10pt;color:var(--muted);margin-top:1.5mm;font-weight:500;">같은 고민을 하는 교육기관들과 함께, 답을 만들어가고 있습니다.</div>
+    </div>
+
+    <!-- ══ 중앙: AI 워드맵 (flex:4) ══ -->
+    <div class="p2-wordmap" style="flex:4;position:relative;min-height:0;overflow:hidden;margin-top:-9mm;">
+
+      <!-- AI 코어 (흰 배경 + 검은 테두리 + 검은 볼드 AI) -->
+      <div class="p2-ai-core" style="position:absolute;top:51%;left:50%;transform:translate(-50%,-50%);
+                  width:34mm;height:34mm;border-radius:50%;
+                  background:white;border:2px solid #0F172A;
+                  display:flex;flex-direction:column;align-items:center;justify-content:center;
+                  z-index:3;box-shadow:0 4px 18px rgba(15,23,42,.12);">
+        <span style="font-size:33pt;font-weight:900;color:#0F172A;letter-spacing:-.04em;line-height:1;">AI</span>
+        <span style="font-size:6.75pt;color:rgba(15,23,42,.4);letter-spacing:.18em;margin-top:0.5mm;">CORE</span>
+      </div>
+      <svg class="p2-radial-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="50" y1="51" x2="37" y2="28"></line>
+        <line x1="50" y1="51" x2="23" y2="51"></line>
+        <line x1="50" y1="51" x2="37" y2="74"></line>
+        <line x1="50" y1="51" x2="64" y2="28"></line>
+        <line x1="50" y1="51" x2="77" y2="51"></line>
+        <line x1="50" y1="51" x2="64" y2="74"></line>
+      </svg>
+      <!-- 정육각형 꼭지점 배치 (center:50%,51% / r=32%) -->
+      <!-- cos60=0.5, sin60=0.866 → 상단: top=51%-27.7%=23.3%, 좌우: ±16% / 중간: ±32% / 하단: top=51%+27.7%=78.7% -->
+
+      <!-- 120° 상좌 : 음악·예술 -->
+      <div class="p2-map-node p2-map-node--fusion" style="position:absolute;top:28%;left:37%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(217,27,99,.07);border:1px solid rgba(217,27,99,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-music" style="font-size:9pt;color:#D91B63;flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:#D91B63;">음악·예술</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">MakeCode · 블록코딩<br>픽셀아트 · 음악 · 뮤직비디오</div>
+        </div>
+      </div>
+
+      <!-- 180° 좌 : 환경·사회 -->
+      <div class="p2-map-node p2-map-node--fusion" style="position:absolute;top:51%;left:23%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(14,116,144,.07);border:1px solid rgba(14,116,144,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-leaf" style="font-size:9pt;color:#0E7490;flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:#0E7490;">환경·사회</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">앱 제작 · 바이브코딩<br>SDGs 프로젝트</div>
+        </div>
+      </div>
+
+      <!-- 240° 하좌 : 과학·역사 -->
+      <div class="p2-map-node p2-map-node--fusion" style="position:absolute;top:74%;left:37%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(8,167,212,.07);border:1px solid rgba(8,167,212,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-flask" style="font-size:9pt;color:var(--cyan);flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:var(--cyan);">과학·역사</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">ZEP 메타버스<br>방탈출 퀴즈 제작</div>
+        </div>
+      </div>
+
+      <!-- 60° 상우 : 디지털 리터러시 -->
+      <div class="p2-map-node p2-map-node--ai" style="position:absolute;top:28%;left:64%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(7,26,102,.07);border:1px solid rgba(7,26,102,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-laptop-code" style="font-size:9pt;color:var(--blue);flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:var(--blue);">디지털 리터러시</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">읽고 쓰고 만드는<br>디지털 기초 역량</div>
+        </div>
+      </div>
+
+      <!-- 0° 우 : AI 크리에이티브 -->
+      <div class="p2-map-node p2-map-node--ai" style="position:absolute;top:51%;left:77%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(8,167,212,.07);border:1px solid rgba(8,167,212,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-lightbulb" style="font-size:9pt;color:var(--cyan);flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:var(--cyan);">AI 크리에이티브</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">AI 도구로 직접 만드는<br>창의적 결과물</div>
+        </div>
+      </div>
+
+      <!-- 300° 하우 : 컴퓨팅 사고력 -->
+      <div class="p2-map-node p2-map-node--ai" style="position:absolute;top:74%;left:64%;width:21%;z-index:2;transform:translate(-50%,-50%);">
+        <div class="p2-map-card" style="background:rgba(217,27,99,.07);border:1px solid rgba(217,27,99,.2);border-radius:8pt;padding:2mm 2.5mm;">
+          <div class="p2-map-head" style="display:flex;align-items:center;gap:1.5mm;margin-bottom:1mm;">
+            <i class="fas fa-brain" style="font-size:9pt;color:var(--purple);flex-shrink:0;"></i>
+            <span style="font-size:9pt;font-weight:900;color:var(--purple);">컴퓨팅 사고력</span>
+          </div>
+          <div class="p2-map-desc" style="font-size:7pt;color:var(--muted);line-height:1.5;">논리적 문제 분해<br>알고리즘 설계</div>
+        </div>
+      </div>
+
+      <div class="p2-map-axis" style="position:absolute;bottom:15%;left:50%;transform:translateX(-140%);font-size:8.8pt;font-weight:400;color:var(--dim);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;">← 융합 교과 영역</div>
+      <div class="p2-map-axis" style="position:absolute;bottom:15%;left:50%;transform:translateX(40%);font-size:8.8pt;font-weight:400;color:var(--dim);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;">AI 수업 역량 →</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════ PAGE 3 : 수업사례 ════════ -->
+<div class="page p3-case" style="background:#fff;">
+  <div style="position:absolute;bottom:9mm;right:11mm;font-size:8pt;font-weight:700;color:var(--dim);letter-spacing:.05em;z-index:10;">03</div>
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 수업사례</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body" style="padding:0;gap:0;">
+
+    <!-- ── Row 1: 표현 ── -->
+    <div style="flex:1;display:flex;min-height:0;border-bottom:1.5px solid #E2E8F0;">
+      <!-- 왼쪽: 이미지 + 키워드 -->
+      <div style="flex:0 0 42%;position:relative;overflow:hidden;">
+        <img src="uploads/mk학교_지역소개콘텐츠_ZEP메타버스_중1죠해나.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="MK 온라인학교">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.18) 0%,transparent 60%);"></div>
+        <div style="position:absolute;bottom:5mm;left:5mm;">
+          <div style="width:11mm;height:11mm;border-radius:50%;background:rgba(8,167,212,.9);display:flex;align-items:center;justify-content:center;margin-bottom:2mm;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+            <span style="font-size:8pt;font-weight:900;color:white;letter-spacing:-.02em;">표현</span>
+          </div>
+          <div style="font-size:7.5pt;font-weight:700;color:rgba(255,255,255,.9);text-shadow:0 1px 4px rgba(0,0,0,.4);">자기를 <span style="color:#67E8F9;font-weight:900;">표현</span>해보는 경험</div>
+        </div>
+      </div>
+      <!-- 오른쪽: 인터뷰 텍스트 -->
+      <div style="flex:1;padding:7mm 9mm 6mm 8mm;display:flex;flex-direction:column;justify-content:center;background:#fff;">
+        <div class="student-quote"><span class="student-quote-mark">“</span>제가 사는 도시를 메타버스로 만들었어요.<br>친구들이 방문하러 왔을 때 진짜 뿌듯했어요.<span class="student-quote-mark">”</span></div>
+        <div style="font-size:8.5pt;font-weight:700;color:#08A7D4;margin-bottom:1.5mm;">러시아 거주 초6 여학생</div>
+        <div style="font-size:9pt;color:#475569;line-height:1.85;word-break:keep-all;">ZEP 메타버스로 자신의 도시를 소개하는 공간을 만들었습니다.<br>NPC를 직접 배치하고, 지역 안내 멘트를 기획해 넣었습니다.<br>완성된 공간을 수업 시간에 다른 나라 친구들이 방문하며 발표했습니다.</div>
+        <div style="margin-top:3mm;display:flex;align-items:center;gap:2mm;"><div style="width:5mm;height:1.5px;background:var(--cyan);border-radius:2px;"></div><span style="font-size:7pt;font-weight:700;color:var(--dim);letter-spacing:.08em;">MK 온라인학교 · ZEP 메타버스</span></div>
+      </div>
+    </div>
+
+    <!-- ── Row 2: 연결 ── -->
+    <div style="flex:1;display:flex;min-height:0;border-bottom:1.5px solid #E2E8F0;">
+      <!-- 오른쪽 텍스트 먼저 (이미지 오른쪽 배치로 좌우 교차) -->
+      <div style="flex:1;padding:7mm 8mm 6mm 9mm;display:flex;flex-direction:column;justify-content:center;background:#F8FAFC;">
+        <div class="student-quote"><span class="student-quote-mark">“</span>제가 모은 곤충 사진으로 퀴즈를 만들었더니,<br>친구들이 더 많이 알게 됐어요.<span class="student-quote-mark">”</span></div>
+        <div style="font-size:8.5pt;font-weight:700;color:#D91B63;margin-bottom:1.5mm;">곤충 이름을 줄줄 외우는 초2 남학생</div>
+        <div style="font-size:9pt;color:#475569;line-height:1.85;word-break:keep-all;">인터넷에서 찾은 곤충 사진들로 바이브코딩으로 퀴즈 사이트를 직접 만들었습니다.<br>수업 시간에 친구들과 함께 게임을 했습니다.<br>곤충에 관심 없던 친구들도 자연스럽게 그 주제를 탐색하게 됐습니다.</div>
+        <div style="margin-top:3mm;display:flex;align-items:center;gap:2mm;"><div style="width:5mm;height:1.5px;background:#D91B63;border-radius:2px;"></div><span style="font-size:7pt;font-weight:700;color:var(--dim);letter-spacing:.08em;">하늘아이 대안학교 · 바이브코딩</span></div>
+      </div>
+      <!-- 왼쪽(오른편 배치): 이미지 + 키워드 -->
+      <div style="flex:0 0 42%;position:relative;overflow:hidden;">
+        <img src="uploads/곤충맞추기.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="곤충 퀴즈">
+        <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(0,0,0,.18) 0%,transparent 60%);"></div>
+        <div style="position:absolute;bottom:5mm;right:5mm;text-align:right;">
+          <div style="width:11mm;height:11mm;border-radius:50%;background:rgba(217,27,99,.9);display:flex;align-items:center;justify-content:center;margin-bottom:2mm;margin-left:auto;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+            <span style="font-size:8pt;font-weight:900;color:white;letter-spacing:-.02em;">연결</span>
+          </div>
+          <div style="font-size:7.5pt;font-weight:700;color:rgba(0,0,0,.8);text-shadow:none;">친구들과 <span style="color:#D91B63;font-weight:900;">연결</span>되는 경험</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Row 3: 완성 ── -->
+    <div style="flex:1;display:flex;min-height:0;">
+      <!-- 왼쪽: 이미지 + 키워드 -->
+      <div style="flex:0 0 42%;position:relative;overflow:hidden;background:#F1F5F9;">
+        <img src="uploads/브로셔_이미지/3페이지-사례/SDGs지속가능한개발주제_앱만들기_중2김유주2.jpg" style="width:100%;height:85%;object-fit:contain;display:block;padding:4mm 3mm 0;" alt="SDGs 앱 만들기">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.08) 0%,transparent 60%);"></div>
+        <div style="position:absolute;bottom:5mm;left:5mm;">
+          <div style="width:11mm;height:11mm;border-radius:50%;background:rgba(4,120,87,.9);display:flex;align-items:center;justify-content:center;margin-bottom:2mm;box-shadow:0 2px 8px rgba(0,0,0,.25);">
+            <span style="font-size:8pt;font-weight:900;color:white;letter-spacing:-.02em;">완성</span>
+          </div>
+          <div style="font-size:7.5pt;font-weight:700;color:rgba(0,0,0,.8);text-shadow:none;">프로젝트를 <span style="color:#0E7490;font-weight:900;">완성</span>해보는 경험</div>
+        </div>
+      </div>
+      <!-- 오른쪽: 인터뷰 텍스트 -->
+      <div style="flex:1;padding:7mm 9mm 6mm 8mm;display:flex;flex-direction:column;justify-content:center;background:#fff;">
+        <div class="student-quote"><span class="student-quote-mark">“</span>제가 직접 주제를 정하고 앱을 만들어 보았어요.<br>처음부터 끝까지 완성했어요.<span class="student-quote-mark">”</span></div>
+        <div style="font-size:8.5pt;font-weight:700;color:#0E7490;margin-bottom:1.5mm;">코딩센터 · 중2 여학생</div>
+        <div style="font-size:9pt;color:#475569;line-height:1.85;word-break:keep-all;">SDGs 17개 목표 중 '육상 생태계 보전'을 직접 골랐습니다.<br>주변 동식물을 촬영하면 지도에 위치가 기록되고, 개인 도감으로 쌓이는 앱을 바이브코딩으로 완성했습니다.<br>주제 선정부터 기획·구현까지 스스로 해냈습니다.</div>
+        <div style="margin-top:3mm;display:flex;align-items:center;gap:2mm;"><div style="width:5mm;height:1.5px;background:#0E7490;border-radius:2px;"></div><span style="font-size:7pt;font-weight:700;color:var(--dim);letter-spacing:.08em;">코딩센터 · 바이브코딩</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════ PAGE 4 : 커리큘럼 ════════ -->
+<div class="page p4">
+  <div style="position:absolute;bottom:9mm;right:11mm;font-size:8pt;font-weight:700;color:var(--dim);letter-spacing:.05em;z-index:10;">04</div>
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 커리큘럼</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body">
+    <div class="sec-chip">Curriculum</div>
+    <h2 class="pg-ttl" style="margin-bottom:3mm;">학년별 맞춤 도구로<br><span class="hl">단계적으로 성장합니다</span></h2>
+
+    <div class="cur-grid">
+      <!-- Row 1: 초1~3 -->
+      <div class="case-row-label" style="background:#EAF7FC;color:#071A66;">초1~3</div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-11-x" style="display:none"></image-slot><img src="uploads/브로셔_이미지/4페이지-학습도구/타자.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="타자"></div>
+        <span class="cur-name">타자 · 한글 · 오피스도구</span>
+        <span class="cur-desc">빠른 타자와 한글 문서 작성으로<br>디지털 기초 체력을 키웁니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-21-x" style="display:none"></image-slot><img src="uploads/메이크코드아케이드.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="메이크코드"></div>
+        <span class="cur-name">메이크코드 아케이드</span>
+        <span class="cur-desc">블록코딩으로 나만의 게임을 직접 만들며<br>논리적 사고력을 기릅니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-31-x" style="display:none"></image-slot><img src="uploads/브로셔_이미지/4페이지-학습도구/크리에이티브.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="크리에이티브"></div>
+        <span class="cur-name">크리에이티브</span>
+        <span class="cur-desc">그림·음악·영상 등 다양한 도구로<br>창의적 표현력을 키웁니다</span>
+      </div>
+
+      <!-- Row 2: 초4~6 -->
+      <div class="case-row-label" style="background:#DDF8FF;color:#0E7490;">초4~6</div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-12-x" style="display:none"></image-slot><img src="uploads/브로셔_이미지/4페이지-학습도구/PPT.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="PPT"></div>
+        <span class="cur-name">PPT</span>
+        <span class="cur-desc">발표 자료를 직접 기획하고 제작하며<br>전달력과 표현력을 완성합니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-22-x" style="display:none"></image-slot><img src="uploads/스크래치_화면.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="스크래치"></div>
+        <span class="cur-name">스크래치 · 엔트리</span>
+        <span class="cur-desc">캐릭터와 애니메이션을 코딩하며<br>컴퓨팅 사고력의 기초를 다집니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-32-x" style="display:none"></image-slot><img src="uploads/zep.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="ZEP"></div>
+        <span class="cur-name">ZEP 메타버스</span>
+        <span class="cur-desc">나만의 메타버스 공간을 설계하며<br>공간 감각과 콘텐츠 기획력을 키웁니다</span>
+      </div>
+
+      <!-- Row 3: 중등 -->
+      <div class="case-row-label" style="background:#FCE7F3;color:#D91B63;">중등</div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-13-x" style="display:none"></image-slot><img src="uploads/엑셀.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="엑셀"></div>
+        <span class="cur-name">엑셀</span>
+        <span class="cur-desc">데이터 정리와 함수 활용으로<br>실무형 디지털 문해력을 기릅니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-23-x" style="display:none"></image-slot><img src="uploads/앱인벤터.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="앱인벤터"></div>
+        <span class="cur-name">앱인벤터</span>
+        <span class="cur-desc">스마트폰 앱을 직접 기획하고 구현하며<br>알고리즘과 UX 설계를 배웁니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-33-x" style="display:none"></image-slot><img src="uploads/브로셔_이미지/4페이지-학습도구/바이브코딩_키즈.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="바이브코딩"></div>
+        <span class="cur-name">바이브코딩</span>
+        <span class="cur-desc">AI와 대화하며 웹·앱을 만드는<br>차세대 코딩 방식을 경험합니다</span>
+      </div>
+
+      <!-- Row 4: 고등 -->
+      <div class="case-row-label" style="background:#E0F7FB;color:#0E7490;">고등</div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-14-x" style="display:none"></image-slot><img src="uploads/데이터분석.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="데이터분석"></div>
+        <span class="cur-name">데이터분석 및 시각화</span>
+        <span class="cur-desc">실제 데이터를 시각화하고 해석하며<br>비판적 사고력과 통계 감각을 키웁니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-24-x" style="display:none"></image-slot><img src="uploads/파이썬.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="파이썬"></div>
+        <span class="cur-name">파이썬 · 머신러닝</span>
+        <span class="cur-desc">텍스트 코딩으로 실제 프로그램을 만들며<br>AI·자동화의 원리를 배웁니다</span>
+      </div>
+      <div class="cur-cell">
+        <div class="cur-slot"><image-slot id="cur-34-x" style="display:none"></image-slot><img src="uploads/주제탐구보고서.png" style="width:100%;height:100%;object-fit:cover;display:block;" alt="주제탐구보고서"></div>
+        <span class="cur-name">주제탐구보고서</span>
+        <span class="cur-desc">관심 주제를 직접 조사·분석해<br>논문 형식의 보고서로 완성합니다</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PAGE 5 : 커리큘럼 소개 ════════ -->
+<div class="page p5" style="background:var(--light)">
+  <div style="position:absolute;bottom:9mm;right:11mm;font-size:8pt;font-weight:700;color:var(--dim);letter-spacing:.05em;z-index:10;">05</div>
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 커리큘럼</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body" style="padding:7mm 12mm 6mm;gap:4mm;">
+
+    <!-- 타이틀 -->
+    <div style="flex-shrink:0;">
+      <div class="sec-chip">Curriculum Overview</div>
+      <h2 class="pg-ttl">학년군별 <span class="hl">연간 학습로드맵</span></h2>
+    </div>
+
+    <!-- ── 학년군별 로드맵: 초등 기초 3트랙 → 중·고등 진로트랙별 심화 4단계 ── -->
+    <div style="flex-shrink:0;height:60mm;display:flex;flex-direction:column;">
+      <div style="display:flex;flex-shrink:0;margin-bottom:2mm;gap:2mm;">
+        <div style="flex:0 0 21%;font-size:6pt;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.12em;text-align:center;text-transform:uppercase;background:#0F172A;border-radius:6pt;padding:1.5mm 0;">초등 · 기초 3트랙</div>
+        <div style="flex:0 0 calc(5% - 4mm);"></div>
+        <div style="flex:1;font-size:6pt;font-weight:800;color:rgba(255,255,255,.6);letter-spacing:.12em;text-align:center;text-transform:uppercase;background:#0F172A;border-radius:6pt;padding:1.5mm 0;">중·고등 · 진로 트랙별 심화 4단계</div>
+      </div>
+      <div style="flex:1;position:relative;min-height:0;">
+
+        <!-- 초등 3트랙 (좌측 21%) -->
+        <div style="position:absolute;top:0;left:0;width:21%;height:31%;background:#FCE7F3;border-radius:8pt;display:flex;align-items:center;gap:2mm;padding:0 3mm;">
+          <i class="fas fa-palette" style="font-size:11pt;color:#D91B63;flex-shrink:0;"></i>
+          <div><div style="font-size:7.5pt;font-weight:900;color:#D91B63;">AI 크리에이티브</div><div style="font-size:5.5pt;color:var(--muted);">이미지·음악·영상·메타버스</div></div>
+        </div>
+        <div style="position:absolute;top:34.5%;left:0;width:21%;height:31%;background:#EAF7FC;border-radius:8pt;display:flex;align-items:center;gap:2mm;padding:0 3mm;">
+          <i class="fas fa-laptop-code" style="font-size:11pt;color:#071A66;flex-shrink:0;"></i>
+          <div><div style="font-size:7.5pt;font-weight:900;color:#071A66;">디지털 리터러시</div><div style="font-size:5.5pt;color:var(--muted);">기초 활용, 인터넷, 오피스</div></div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;width:21%;height:31%;background:#E0F7FB;border-radius:8pt;display:flex;align-items:center;gap:2mm;padding:0 3mm;">
+          <i class="fas fa-puzzle-piece" style="font-size:11pt;color:#0E7490;flex-shrink:0;"></i>
+          <div><div style="font-size:7.5pt;font-weight:900;color:#0E7490;">컴퓨팅 사고력</div><div style="font-size:5.5pt;color:var(--muted);">블록코딩, 알고리즘, 인공지능</div></div>
+        </div>
+
+        <!-- 화살표 -->
+        <div style="position:absolute;top:0;left:22.5%;width:3%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-around;">
+          <i class="fas fa-chevron-right" style="font-size:9pt;color:var(--dim);"></i>
+          <i class="fas fa-chevron-right" style="font-size:9pt;color:var(--dim);"></i>
+          <i class="fas fa-chevron-right" style="font-size:9pt;color:var(--dim);"></i>
+        </div>
+
+        <!-- 중·고등 3개 진로트랙 레인 (우측 26%~100%) -->
+        <div style="position:absolute;top:0;left:26%;width:74%;height:31%;background:#FCE7F3;border-radius:8pt;display:flex;align-items:center;padding-left:3mm;">
+          <span style="font-size:6.5pt;font-weight:800;color:#D91B63;">예술·미디어 진로 트랙</span>
+        </div>
+        <div style="position:absolute;top:34.5%;left:26%;width:74%;height:31%;background:#EAF7FC;border-radius:8pt;display:flex;align-items:center;padding-left:3mm;">
+          <span style="font-size:6.5pt;font-weight:800;color:#071A66;">인문사회 진로 트랙</span>
+        </div>
+        <div style="position:absolute;bottom:0;left:26%;width:74%;height:31%;background:#E0F7FB;border-radius:8pt;display:flex;align-items:center;padding-left:3mm;">
+          <span style="font-size:6.5pt;font-weight:800;color:#0E7490;">과학기술(STEM) 진로 트랙</span>
+        </div>
+
+        <!-- 심화 4단계 카드 (레인 위 오버레이) -->
+        <div style="position:absolute;top:0;height:65.5%;left:calc(26% + 20.5%);width:11%;background:white;border:1.5px solid #D91B63;border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:#D91B63;letter-spacing:.1em;">STEP A</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">크리에이티브</div>
+        </div>
+        <div style="position:absolute;bottom:0;height:31%;left:calc(26% + 20.5%);width:11%;background:white;border:1.5px solid #0E7490;border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:#0E7490;letter-spacing:.1em;">STEP A</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">앱인벤터<br>엔지니어</div>
+        </div>
+        <div style="position:absolute;top:0;height:100%;left:calc(26% + 33.5%);width:11%;background:white;border:1.5px solid var(--amber);border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:var(--amber);letter-spacing:.1em;">STEP B</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">바이브코딩</div>
+        </div>
+        <div style="position:absolute;top:34.5%;height:31%;left:calc(26% + 46.5%);width:11%;background:white;border:1.5px solid var(--blue);border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:var(--blue);letter-spacing:.1em;">STEP C</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">데이터분석</div>
+        </div>
+        <div style="position:absolute;bottom:0;height:31%;left:calc(26% + 46.5%);width:11%;background:white;border:1.5px solid var(--green);border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:var(--green);letter-spacing:.1em;">STEP C</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">머신러닝 / AI</div>
+        </div>
+        <div style="position:absolute;top:34.5%;height:65.5%;left:calc(26% + 59.5%);width:11%;background:white;border:1.5px solid var(--cyan);border-radius:8pt;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1mm;">
+          <div style="font-size:5pt;font-weight:800;color:var(--cyan);letter-spacing:.1em;">STEP D</div>
+          <div style="font-size:6.5pt;font-weight:900;color:var(--text);line-height:1.25;">주제탐구보고서<br>(수행평가 연계)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 연간 테이블 (1회차 기준, 월별 세로 배열) ── -->
+    <div style="flex-shrink:0;border:1px solid var(--border);border-radius:8pt;overflow:hidden;box-shadow:0 2px 12px rgba(15,23,42,.08);">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:2mm 3mm;background:#0F172A;">
+        <span style="font-size:6pt;font-weight:800;color:rgba(255,255,255,.8);letter-spacing:.1em;text-transform:uppercase;">연간 학습 일정 — 1회차 기준</span>
+        <span style="font-size:5pt;color:rgba(255,255,255,.4);">* 2·3회차는 심화 콘텐츠로 운영</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;table-layout:fixed;">
+        <thead>
+          <tr>
+            <th style="width:10mm;padding:2mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.1);font-size:5pt;color:rgba(255,255,255,.4);font-weight:700;text-align:center;">월</th>
+            <th style="padding:2mm;background:rgba(7,26,102,.1);border-right:1px solid rgba(15,23,42,.1);border-bottom:1px solid rgba(15,23,42,.1);"><div style="text-align:center;"><div style="font-size:8.5pt;font-weight:900;color:#071A66;">1~3학년</div><div style="font-size:5pt;color:var(--muted);">초등 1·2·3학년</div></div></th>
+            <th style="padding:2mm;background:rgba(232,95,150,.08);border-right:1px solid rgba(15,23,42,.1);border-bottom:1px solid rgba(15,23,42,.1);"><div style="text-align:center;"><div style="font-size:8.5pt;font-weight:900;color:#D91B63;">4~6학년</div><div style="font-size:5pt;color:var(--muted);">초등 4·5·6학년</div></div></th>
+            <th style="padding:2mm;background:rgba(14,116,144,.08);border-right:1px solid rgba(15,23,42,.1);border-bottom:1px solid rgba(15,23,42,.1);"><div style="text-align:center;"><div style="font-size:8.5pt;font-weight:900;color:#0E7490;">중등</div><div style="font-size:5pt;color:var(--muted);">중학교</div></div></th>
+            <th style="padding:2mm;background:rgba(7,26,102,.08);border-right:1px solid rgba(15,23,42,.1);border-bottom:1px solid rgba(15,23,42,.1);"><div style="text-align:center;"><div style="font-size:8.5pt;font-weight:900;color:#071A66;">고등 AI 개발자</div><div style="font-size:5pt;color:var(--muted);">고등학교</div></div></th>
+            <th style="padding:2mm;background:rgba(217,27,99,.08);border-bottom:1px solid rgba(15,23,42,.1);"><div style="text-align:center;"><div style="font-size:8.5pt;font-weight:900;color:#D91B63;">AI 크리에이터</div><div style="font-size:5pt;color:var(--muted);">고등학교</div></div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">3</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">마우스·키보드 기초</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">컴퓨터 기초</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">문서기초·글꼴</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">한글·워드</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">서비스 기획·UI</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">App Inventor</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">변수·자료형·입출력</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Python 기초</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 이미지 프롬프트</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">생성형 AI</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">4</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">그림판 활용</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">그림판</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">보고서·학급신문</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">한글·워드</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">날씨·지도 API</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">App Inventor</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">함수·모듈</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Python</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 음악 창작 체험</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">음악 생성 AI</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">5</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">PPT 기초·디자인</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">PPT</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">PPT 기초·애니메이션</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">PPT</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 텍스트 분류</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">App Inventor</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">리스트·딕셔너리</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Python</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 영상 제작 체험</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">영상 생성 AI</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">6</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">발표자료 기획</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">PPT</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">발표자료 인포그래픽</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">PPT</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">사용자 테스트</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">App Inventor</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">자동화 스크립트</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Python</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">이미지+음악 편집</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">영상 편집 도구</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">7</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">1학기 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">1학기 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">1학기 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">1학기 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 콘텐츠 발표</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#2D3748;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">8</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td colspan="5" style="background:rgba(232,95,150,.05);border-bottom:1px solid rgba(232,95,150,.1);"><div style="text-align:center;padding:1.5mm;display:flex;align-items:center;justify-content:center;gap:2mm;"><i class="fas fa-sun" style="font-size:9pt;color:#E85F96;"></i><span style="font-size:6.5pt;font-weight:800;color:#E85F96;">여름방학</span></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">9</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">픽셀캐릭터 디자인</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">MakeCode</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">변수·리스트 심화</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Scratch</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">게임 기획·에셋</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Vibe Coding</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">Jupyter·pandas 기초</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">데이터사이언스</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">스토리보드 작성</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">뮤직비디오 기획</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">10</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">음악·효과음 제작</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">MakeCode</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">충돌·점수 시스템</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Scratch</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">충돌·점수 시스템</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Vibe Coding</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">결측값·데이터 정제</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">pandas</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">AI 음악 트랙 완성</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">음악 생성 AI</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">11</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">게임로직 코딩</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">MakeCode</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">머신러닝/인공지능</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">머신러닝포키즈 · 이미지 인식</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">LocalStorage 랭킹</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Vibe Coding</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">matplotlib 시각화</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">matplotlib</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">장면별 이미지 생성</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">이미지 생성 AI</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">12</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">레벨 디자인·완성</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">MakeCode</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">머신러닝/인공지능</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">머신러닝포키즈 · 동작 인식</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">랭킹 UI·게임 완성</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">Vibe Coding</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">SDGs 공공데이터</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">pandas</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">영상 편집 기초</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">영상 편집 도구</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#1E293B;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">1</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">제작·발표·공유</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">2학기 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">게임 발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">발표회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td><td style="border-right:1px solid rgba(15,23,42,.07);border-bottom:1px solid rgba(15,23,42,.07);vertical-align:middle;background:white;"><div style="padding:2mm 2.5mm;"><div style="font-size:9pt;font-weight:700;color:var(--text);line-height:1.3;word-break:keep-all;">뮤직비디오 시사회</div><div style="font-size:7pt;color:var(--muted);margin-top:1mm;">발표</div></div></td></tr>
+          <tr><td style="width:10mm;padding:1.5mm;background:#2D3748;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.06);text-align:center;vertical-align:middle;"><div style="font-size:11pt;font-weight:900;color:white;line-height:1;">2</div><div style="font-size:5.5pt;color:rgba(255,255,255,.45);margin-top:1mm;">월</div></td><td colspan="5" style="background:rgba(232,95,150,.05);border-bottom:1px solid rgba(232,95,150,.1);"><div style="text-align:center;padding:1.5mm;display:flex;align-items:center;justify-content:center;gap:2mm;"><i class="fas fa-snowflake" style="font-size:9pt;color:#08A7D4;"></i><span style="font-size:6.5pt;font-weight:800;color:#08A7D4;">겨울방학</span></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ════════ PAGE 6 : 플랫폼 ════════ -->
+<div class="page p6">
+  <div style="position:absolute;bottom:9mm;right:11mm;font-size:8pt;font-weight:700;color:var(--dim);letter-spacing:.05em;z-index:10;">06</div>
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 플랫폼</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body" style="gap:3mm;">
+    <div>
+      <div class="sec-chip">Platform</div>
+      <h2 class="pg-ttl">수업이 쉬워지는<br><span class="hl">올인원 교육 플랫폼</span></h2>
+    </div>
+
+    <!-- 특장점 3가지 (3행) -->
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:2mm;">
+      <div style="flex:1;display:flex;align-items:center;gap:4mm;background:linear-gradient(135deg,rgba(7,26,102,.07),rgba(7,26,102,.02));border:1.5px solid rgba(7,26,102,.18);border-radius:9pt;padding:3mm 4.5mm;">
+        <div style="flex-shrink:0;width:11mm;display:flex;flex-direction:column;align-items:center;gap:1mm;">
+          <div style="font-size:18pt;font-weight:900;color:var(--blue);line-height:1;">1</div>
+          <div style="width:24px;height:2px;background:var(--blue);border-radius:2px;"></div>
+        </div>
+        <div>
+          <div style="font-size:12pt;font-weight:900;color:var(--text);margin-bottom:1.5mm;word-break:keep-all;">코스모에듀 하나면 AI 코딩교육을 시작할 수 있습니다.</div>
+          <div style="font-size:9pt;color:var(--muted);line-height:1.6;word-break:keep-all;">학년·수준별 커리큘럼이 이미 준비되어 있습니다.</div>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;gap:4mm;background:linear-gradient(135deg,rgba(8,167,212,.07),rgba(8,167,212,.02));border:1.5px solid rgba(8,167,212,.18);border-radius:9pt;padding:3mm 4.5mm;">
+        <div style="flex-shrink:0;width:11mm;display:flex;flex-direction:column;align-items:center;gap:1mm;">
+          <div style="font-size:18pt;font-weight:900;color:var(--cyan);line-height:1;">2</div>
+          <div style="width:24px;height:2px;background:var(--cyan);border-radius:2px;"></div>
+        </div>
+        <div>
+          <div style="font-size:12pt;font-weight:900;color:var(--text);margin-bottom:1.5mm;word-break:keep-all;">수업한 내용이 자동으로 모여 포트폴리오가 됩니다.</div>
+          <div style="font-size:9pt;color:var(--muted);line-height:1.6;word-break:keep-all;">작품이 클라우드에 자동 저장되고 따로 정리 없이 포트폴리오로 쌓입니다.</div>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;gap:4mm;background:linear-gradient(135deg,rgba(217,27,99,.07),rgba(217,27,99,.02));border:1.5px solid rgba(217,27,99,.18);border-radius:9pt;padding:3mm 4.5mm;">
+        <div style="flex-shrink:0;width:11mm;display:flex;flex-direction:column;align-items:center;gap:1mm;">
+          <div style="font-size:18pt;font-weight:900;color:var(--purple);line-height:1;">3</div>
+          <div style="width:24px;height:2px;background:var(--purple);border-radius:2px;"></div>
+        </div>
+        <div>
+          <div style="font-size:12pt;font-weight:900;color:var(--text);margin-bottom:1.5mm;word-break:keep-all;">학교 상황에 맞는 방식으로 시작할 수 있습니다.</div>
+          <div style="font-size:9pt;color:var(--muted);line-height:1.6;word-break:keep-all;">강사가 없어도, 시간이 부족해도, 예산이 적어도 —<br>1day 출강부터 원격수업, 강사 교육, 자율 코스웨어까지 현장에 맞는 방식을 함께 찾아드립니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 운영 스펙트럼 -->
+    <div style="flex:0.3;min-height:0;padding:3mm 4mm;background:#F8FAFC;border:1px solid var(--border);border-radius:10pt;display:flex;flex-direction:column;justify-content:center;gap:1.5mm;">
+      <div style="display:flex;align-items:baseline;gap:3mm;">
+        <div style="font-size:9pt;font-weight:900;color:#0F172A;letter-spacing:.02em;">운영 방식 스펙트럼</div>
+        <div style="font-size:6pt;color:var(--muted);">선택하거나 조합할 수 있습니다</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-bottom:1mm;">
+        <span style="font-size:5.5pt;font-weight:700;color:var(--dim);letter-spacing:.06em;">← 코스모에듀 주도</span>
+        <span style="font-size:5.5pt;font-weight:700;color:var(--dim);letter-spacing:.06em;">학교 자립 →</span>
+      </div>
+      <div style="height:5pt;min-height:5pt;flex-shrink:0;width:100%;background:linear-gradient(to right,#071A66 0%,#075A9B 38%,#08A7D4 72%,#8CE6F2 100%);border-radius:100px;box-shadow:0 .6mm 1.6mm rgba(7,26,102,.12);"></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);flex-shrink:0;">
+        <div style="display:flex;justify-content:center;"><div style="width:1px;height:3pt;background:#08A7D4;"></div></div>
+        <div style="display:flex;justify-content:center;"><div style="width:1px;height:3pt;background:#08A7D4;"></div></div>
+        <div style="display:flex;justify-content:center;"><div style="width:1px;height:3pt;background:#3CC7DE;"></div></div>
+        <div style="display:flex;justify-content:center;"><div style="width:1px;height:3pt;background:#8CE6F2;"></div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;">
+        <div style="text-align:center;">
+          <div style="font-size:7.5pt;font-weight:900;color:#071A66;margin-bottom:1mm;">1day 출강</div>
+          <div style="font-size:5.5pt;color:var(--muted);line-height:1.55;">강사가 직접 방문해 체험 수업을 진행합니다</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:7.5pt;font-weight:900;color:#08A7D4;margin-bottom:1mm;">원격수업 / 맞춤설계</div>
+          <div style="font-size:5.5pt;color:var(--muted);line-height:1.55;">전담 강사가 매주 화상으로 수업합니다</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:7.5pt;font-weight:900;color:#0F5F8F;margin-bottom:1mm;">강사 교육</div>
+          <div style="font-size:5.5pt;color:var(--muted);line-height:1.55;">내부 교사·강사가 직접 수업할 수 있도록 키웁니다</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:7.5pt;font-weight:900;color:#0891B2;margin-bottom:1mm;">자율활동</div>
+          <div style="font-size:5.5pt;color:var(--muted);line-height:1.55;">코스웨어로 학생이 스스로 진행합니다</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 구분선 -->
+    <div style="display:flex;align-items:center;gap:3mm;flex-shrink:0;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <span style="font-size:6pt;color:var(--dim);font-weight:600;letter-spacing:.1em;">플랫폼 주요 기능</span>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+
+    <!-- 플랫폼 기능 카드 6개 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:2.5mm;flex:1;min-height:0;">
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/코스웨어.png" alt="코스웨어"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(14,116,144,.1);color:var(--green)"><i class="fas fa-graduation-cap"></i></div>
+          <div class="plat-card-name">코스웨어</div>
+          <div class="plat-card-desc">학생이 혼자서도 진행하는 자기주도 학습</div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/녹화영상.png" alt="녹화영상"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(8,167,212,.1);color:var(--cyan)"><i class="fas fa-video"></i></div>
+          <div class="plat-card-name">원격수업 · 녹화영상</div>
+          <div class="plat-card-desc">실시간 원격수업 진행 및 녹화 영상 제공</div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/클라우드.png" alt="클라우드저장"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(217,27,99,.1);color:var(--purple)"><i class="fas fa-cloud"></i></div>
+          <div class="plat-card-name">클라우드 저장</div>
+          <div class="plat-card-desc">학생 작업물을 클라우드에 안전하게 저장</div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/포트폴리오.png" alt="포트폴리오"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(14,116,144,.1);color:var(--green)"><i class="fas fa-folder-open"></i></div>
+          <div class="plat-card-name">포트폴리오</div>
+          <div class="plat-card-desc">완성 작품을 자동으로 포트폴리오화</div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/학습진도.png" alt="학습진도"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(7,26,102,.1);color:var(--blue)"><i class="fas fa-chart-line"></i></div>
+          <div class="plat-card-name">학습관리 · 과제출제</div>
+          <div class="plat-card-desc">학생별 현황 확인 및 수업 후 과제 바로 출제</div>
+        </div>
+      </div>
+      <div class="plat-card">
+        <div class="plat-card-img"><img src="uploads/브로셔_이미지/6페이지_플랫폼기능/자격증기출문제.png" alt="자격증기출문제"></div>
+        <div class="plat-card-info">
+          <div class="plat-card-icon" style="background:rgba(232,95,150,.1);color:var(--amber)"><i class="fas fa-certificate"></i></div>
+          <div class="plat-card-name">자격증 기출문제</div>
+          <div class="plat-card-desc">코딩 자격증 기출 문제 제공</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ PAGE 7 : 솔루션 ════════ -->
+<div class="page p7" style="background:var(--light)">
+  <div class="pg-hd">
+    <span class="pg-hd-label">코스모에듀 솔루션 & 도입 안내</span>
+    <img class="pg-hd-logo" src="uploads/cosmoedu_logo(black)_1024x180.png" alt="코스모에듀">
+  </div>
+  <div class="pg-body" style="padding:5mm 11mm 5mm;overflow:hidden;gap:3mm;">
+    <div>
+      <div class="sec-chip">Solution Package</div>
+      <h2 class="pg-ttl">우리 교육기관에 필요한 맞춤형 플랜<br><span class="hl">플랫폼 + 수업 + 렌탈</span></h2>
+      <p style="font-size:7pt;color:var(--muted);line-height:1.5;word-break:keep-all;margin-top:1mm;margin-bottom:0;">장비가 없어도, 강사가 없어도, 예산이 적어도 — 지금 상황에서 필요한 것만 골라 시작할 수 있습니다.</p>
+    </div>
+
+    <!-- 가격 카드 3종 -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;flex:1 1 auto;align-content:center;">
+
+      <!-- PLAN A -->
+      <div style="background:white;border:1.5px solid var(--border);border-radius:10pt;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:rgba(7,26,102,.07);padding:3mm 4mm;border-bottom:1px solid rgba(7,26,102,.12);">
+          <div style="font-size:6pt;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:1mm;">PLAN A</div>
+          <div style="font-size:9.5pt;font-weight:900;color:var(--text);word-break:keep-all;">콘텐츠만<br>필요하다면</div>
+        </div>
+        <div style="padding:3mm 4mm;flex:1;">
+          <div style="font-size:20pt;font-weight:900;color:var(--blue);line-height:1;">11만원</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:1.5mm;">/월 · VAT 포함 · 학교당</div>
+          <div style="display:flex;gap:1.5mm;margin-bottom:2mm;flex-wrap:wrap;">
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.08);color:var(--blue);border-radius:100pt;font-weight:700;">학생 수 무관</span>
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.08);color:var(--blue);border-radius:100pt;font-weight:700;">학급 수 무관</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1.5mm;">
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>코스모에듀 플랫폼</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>AI·코딩 커리큘럼</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>교안 제공</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>학습관리 시스템</div>
+          </div>
+          <div style="margin-top:3mm;padding:2mm 2.5mm;background:rgba(7,26,102,.06);border:1px solid rgba(7,26,102,.15);border-radius:6pt;font-size:6.5pt;color:var(--blue);word-break:keep-all;">컴퓨터·강사 있음<br>수업 콘텐츠만 필요할 때</div>
+        </div>
+      </div>
+
+      <!-- PLAN B -->
+      <div class="p7-featured-plan" style="background:white;border:2px solid var(--blue);border-radius:10pt;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(7,26,102,.18);">
+        <div style="background:var(--blue);padding:3mm 4mm;border-bottom:1px solid var(--blue);border-top-left-radius:8.5pt;border-top-right-radius:8.5pt;">
+          <div style="font-size:6pt;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.7);margin-bottom:1mm;">PLAN B · 추천</div>
+          <div style="font-size:9.5pt;font-weight:900;color:white;word-break:keep-all;">콘텐츠 +<br>원격수업</div>
+        </div>
+        <div style="padding:3mm 4mm;flex:1;">
+          <div style="font-size:20pt;font-weight:900;color:var(--blue);line-height:1;">27.5만원~</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:1.5mm;">/월 · 플랫폼 11 + 원격수업 16.5</div>
+          <div style="display:flex;gap:1.5mm;margin-bottom:2mm;flex-wrap:wrap;">
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.1);color:var(--blue);border-radius:100pt;font-weight:700;">주 1회 · 50분</span>
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.1);color:var(--blue);border-radius:100pt;font-weight:700;">학생 20명 이하</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1.5mm;">
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>PLAN A 전체 포함</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>원격 전문 강사 파견</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>주 1~2회 라이브 수업</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7.5pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:7pt;width:3mm;"></i>학습 현황 관리</div>
+          </div>
+          <div style="margin-top:3mm;padding:2mm 2.5mm;background:rgba(7,26,102,.07);border:1px solid rgba(7,26,102,.2);border-radius:6pt;font-size:6.5pt;color:var(--blue);word-break:keep-all;">컴퓨터 있음, 강사 없음<br>주 1회 원격수업 포함</div>
+        </div>
+      </div>
+
+      <!-- PLAN C -->
+      <div style="background:white;border:1.5px solid var(--border);border-radius:10pt;overflow:hidden;display:flex;flex-direction:column;">
+        <div style="background:rgba(7,26,102,.07);padding:3mm 4mm;border-bottom:1px solid rgba(7,26,102,.12);">
+          <div style="font-size:6pt;font-weight:700;letter-spacing:.12em;color:var(--muted);margin-bottom:1mm;">PLAN C · 올인원</div>
+          <div style="font-size:9.5pt;font-weight:900;color:var(--text);word-break:keep-all;">ALL-IN-ONE<br>노트북 렌탈 포함</div>
+        </div>
+        <div style="padding:3mm 4mm;flex:1;">
+          <div style="font-size:18pt;font-weight:900;color:var(--blue);line-height:1;">50만원~</div>
+          <div style="font-size:7pt;color:var(--muted);margin-bottom:1.5mm;">/월 · PLAN B + 노트북 렌탈</div>
+          <div style="display:flex;gap:1.5mm;margin-bottom:2mm;flex-wrap:wrap;">
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.08);color:var(--blue);border-radius:100pt;font-weight:700;">최소 5대~</span>
+            <span style="font-size:5.5pt;padding:1pt 5pt;background:rgba(7,26,102,.08);color:var(--blue);border-radius:100pt;font-weight:700;">설치·배송 포함</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5mm;margin-bottom:2mm;">
+            <div style="background:var(--light);border:1px solid rgba(7,26,102,.15);border-radius:5pt;padding:2mm;">
+              <div style="font-size:6pt;color:var(--muted);margin-bottom:1mm;">임대형 (월납)</div>
+              <div style="font-size:9pt;font-weight:900;color:var(--blue);">4.5만원</div>
+              <div style="font-size:5.5pt;color:var(--dim);">대당/월 · 12개월</div>
+            </div>
+            <div style="background:var(--light);border:1px solid rgba(7,26,102,.15);border-radius:5pt;padding:2mm;">
+              <div style="font-size:6pt;color:var(--muted);margin-bottom:1mm;">인수형</div>
+              <div style="font-size:9pt;font-weight:900;color:var(--blue);">6.8만원~</div>
+              <div style="font-size:5.5pt;color:var(--dim);">대당/월 · 12개월</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1.5mm;">
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:6pt;width:3mm;"></i>PLAN B 전체 포함</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:6pt;width:3mm;"></i>최소 5대~ · 설치·배송 포함</div>
+            <div style="display:flex;align-items:center;gap:2mm;font-size:7pt;color:var(--text);"><i class="fas fa-check" style="color:var(--blue);font-size:6pt;width:3mm;"></i>A/S 및 유지보수 포함</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 도입 절차 -->
+    <div style="background:white;border:1px solid var(--border);border-radius:9pt;padding:3.5mm 4.5mm;flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:center;">
+      <div style="font-size:9pt;font-weight:900;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4mm;">도입절차</div>
+      <div style="display:grid;grid-template-columns:repeat(8,1fr);gap:0;position:relative;">
+        <div style="position:absolute;top:13px;left:calc(1/16*100%);right:calc(1/16*100%);height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:0;"></div>
+        <div style="position:absolute;top:-2mm;bottom:-2mm;left:calc(1/8*100%);width:calc(2/8*100%);background:#EAF7FC;border-radius:10pt;z-index:0;"></div>
+        <div style="position:absolute;top:-2mm;bottom:-2mm;left:calc(5/8*100%);width:calc(2/8*100%);background:#FCE7F3;border-radius:10pt;z-index:0;"></div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-comments"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">신청·상담</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">플랜 파악</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#08A7D4;color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-map-marker-alt"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">현장방문</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">환경 확인</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--cyan);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-drafting-compass"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">피팅상담</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">맞춤 제안</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--muted);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-file-invoice"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">견적서 발송</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">메일 안내</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#0E7490;color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-file-signature"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">계약·결제</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">견적 확정</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--purple);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-key"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">계정발급</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">환경 세팅</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--green);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">강사교육</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">원격수업</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 1mm;">
+          <div style="width:26px;height:26px;border-radius:50%;background:var(--amber);color:white;display:flex;align-items:center;justify-content:center;font-size:11pt;margin-bottom:2.5mm;"><i class="fas fa-rocket"></i></div>
+          <div style="font-size:8pt;font-weight:800;color:var(--text);margin-bottom:1mm;">수업시작</div>
+          <div style="font-size:6.5pt;color:var(--muted);line-height:1.4;word-break:keep-all;">즉시 개시</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1day 캠프 · 원격수업 · 렌탈 상세 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;flex:1 1 auto;align-content:start;">
+
+      <!-- 1day 코딩캠프 (맨 왼쪽) -->
+      <div class="p7-featured-option" style="background:linear-gradient(135deg,rgba(217,27,99,.05),rgba(217,27,99,.04));border:1.5px solid rgba(217,27,99,.25);border-radius:9pt;padding:3.5mm 4.5mm;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;background:linear-gradient(135deg,var(--purple),#D91B63);padding:1.5pt 7pt;border-radius:9pt 0 8pt 0;font-size:5pt;font-weight:800;color:white;letter-spacing:.06em;">출장수업</div>
+        <div style="display:flex;align-items:center;gap:2mm;margin-bottom:2mm;">
+          <div style="width:7mm;height:7mm;border-radius:6pt;background:rgba(217,27,99,.15);color:var(--purple);display:flex;align-items:center;justify-content:center;font-size:9pt;flex-shrink:0;"><i class="fas fa-campground"></i></div>
+          <div style="font-size:9pt;font-weight:900;color:var(--text);">1day 코딩캠프 / 진로캠프</div>
+        </div>
+        <div style="margin-bottom:2.5mm;padding:2.5mm 3mm;background:rgba(217,27,99,.08);border-radius:7pt;border-left:3px solid var(--purple);">
+          <div style="font-size:18pt;font-weight:900;color:var(--purple);line-height:1;">50만원~</div>
+          <div style="font-size:6.5pt;color:var(--muted);margin-top:1mm;">/회 · 1일 현장 출장 · VAT 별도</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5mm;">
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--purple);font-weight:700;flex-shrink:0;">운영 방식</span><span style="color:var(--muted);">월 1회 현장 방문 출장 수업</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--purple);font-weight:700;flex-shrink:0;">수업 시간</span><span style="color:var(--muted);">1일 4~6시간 · 일정 협의 후 확정</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--purple);font-weight:700;flex-shrink:0;">수업 주제</span><span style="color:var(--muted);">AI 창작 · 코딩 · 메타버스 등 선택</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--purple);font-weight:700;flex-shrink:0;">대상</span><span style="color:var(--muted);">학교·기관 전 학년 맞춤 구성</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--purple);font-weight:700;flex-shrink:0;">강사</span><span style="color:var(--muted);">코딩교육지도사 1급 전문 강사</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;padding-left:7mm;"><span style="color:var(--muted);">진로진학 컨설턴트 1급 전문 강사</span></div>
+        </div>
+      </div>
+
+      <!-- 원격수업 -->
+      <div style="background:white;border:1px solid rgba(8,167,212,.2);border-radius:9pt;padding:3.5mm 4.5mm;">
+        <div style="display:flex;align-items:center;gap:2mm;margin-bottom:2mm;">
+          <div style="width:7mm;height:7mm;border-radius:6pt;background:rgba(8,167,212,.12);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:9pt;flex-shrink:0;"><i class="fas fa-video"></i></div>
+          <div style="font-size:9pt;font-weight:900;color:var(--text);">원격수업</div>
+        </div>
+        <div style="margin-bottom:2.5mm;padding:2.5mm 3mm;background:rgba(8,167,212,.07);border-radius:7pt;border-left:3px solid var(--cyan);">
+          <div style="font-size:18pt;font-weight:900;color:var(--cyan);line-height:1;">16.5만원</div>
+          <div style="font-size:6.5pt;color:var(--muted);margin-top:1mm;">/월 · 주 1회 기준 · VAT 포함</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5mm;">
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">수업 횟수</span><span style="color:var(--muted);">주 1회(월 4회) 기본 · 수업 추가 가능</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">수업 시간</span><span style="color:var(--muted);">40~60분 · 시간표 맞춤 조율</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">수업 방식</span><span style="color:var(--muted);">줌·구글미트 실시간 · 녹화 제공</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">강사 자격</span><span style="color:var(--muted);">코딩교육지도사 1급 이상</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">학생 수</span><span style="color:var(--muted);">최대 10명 · 분반 운영 가능</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--cyan);font-weight:700;flex-shrink:0;">피드백</span><span style="color:var(--muted);">수업 후 리포트 자동 발송</span></div>
+        </div>
+      </div>
+
+      <!-- 노트북 렌탈 -->
+      <div style="background:white;border:1px solid rgba(7,26,102,.2);border-radius:9pt;padding:3.5mm 4.5mm;">
+        <div style="display:flex;align-items:center;gap:2mm;margin-bottom:2mm;">
+          <div style="width:7mm;height:7mm;border-radius:6pt;background:rgba(7,26,102,.12);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:9pt;flex-shrink:0;"><i class="fas fa-laptop"></i></div>
+          <div style="font-size:9pt;font-weight:900;color:var(--text);">노트북 렌탈</div>
+        </div>
+        <div style="margin-bottom:2.5mm;padding:2.5mm 3mm;background:rgba(7,26,102,.06);border-radius:7pt;border-left:3px solid var(--blue);">
+          <div style="font-size:18pt;font-weight:900;color:var(--blue);line-height:1;">4.5만원~</div>
+          <div style="font-size:6.5pt;color:var(--muted);margin-top:1mm;">/대·월 · 임대형 12개월 기준</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.5mm;">
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">최소 수량</span><span style="color:var(--muted);">5대부터 · 수량 추가 가능</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">임대형</span><span style="color:var(--muted);">4.5만원/대/월 · 12개월 약정</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">인수형</span><span style="color:var(--muted);">6.8만원/대/월 · 12개월 약정</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;padding-left:10.5mm;"><span style="color:var(--muted);">약정기간 종료 후 기기 소유권 이전</span></div>
+
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">배송</span><span style="color:var(--muted);">세팅 완료 후 직배송</span></div>
+          <div style="display:flex;gap:2mm;font-size:7pt;"><span style="color:var(--blue);font-weight:700;flex-shrink:0;">A/S</span><span style="color:var(--muted);">임대 기간 내 무상 A/S</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 상담 신청 + 대표 약력 -->
+    <div style="flex:1 1 auto;align-content:center;display:grid;grid-template-columns:5.8fr 4.2fr;gap:4mm;align-items:center;background:linear-gradient(135deg,rgba(15,23,42,.96),rgba(30,58,138,.92));border-radius:10pt;padding:4mm 5mm;">
+
+      <!-- 상담 메시지 -->
+      <div style="display:flex;flex-direction:column;gap:2.5mm;">
+        <div style="font-size:12.5pt;font-weight:900;color:white;line-height:1.25;word-break:keep-all;">30분 상담으로 <span style="color:#67E8F9;">우리 학교에 맞는 플랜</span>을 찾아드립니다</div>
+        <div style="font-size:6.7pt;color:rgba(255,255,255,.68);line-height:1.55;word-break:keep-all;">학교 현황과 예산을 알려주시면 맞춤 커리큘럼과 견적서를 보내드립니다.</div>
+        <div style="display:grid;grid-template-columns:4fr 6fr;gap:2mm;margin-top:.5mm;align-items:stretch;">
+          <div style="display:flex;align-items:center;gap:1.7mm;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:7pt;padding:2mm 2.4mm;">
+            <i class="fas fa-phone" style="color:#67E8F9;font-size:8.5pt;"></i>
+            <span style="font-size:9pt;font-weight:800;color:white;white-space:nowrap;">010-4121-6551</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1.7mm;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:7pt;padding:2mm 2.4mm;">
+            <i class="fas fa-envelope" style="color:#67E8F9;font-size:8.5pt;"></i>
+            <span style="font-size:9pt;font-weight:800;color:white;white-space:nowrap;"><a href="mailto:cosmoedu@cosmoedu.co.kr">cosmoedu@cosmoedu.co.kr</a></span>
+          </div>
+          <div class="p7-contact-address" style="grid-column:1 / -1;display:flex;align-items:center;gap:1.7mm;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:7pt;padding:2mm 2.4mm;">
+            <i class="fas fa-location-dot" style="color:#67E8F9;font-size:8.5pt;"></i>
+            <span style="font-size:7.2pt;font-weight:700;color:rgba(255,255,255,.88);line-height:1.25;word-break:keep-all;">경기도 용인시 흥덕2로 117번길 19, 918호 흥덕리치안레이크타워</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대표 약력 -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:3mm;align-items:center;border-left:1px solid rgba(255,255,255,.14);padding-left:4mm;min-width:44mm;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:1.5mm;">
+          <img src="uploads/전두표.png" style="width:14mm;height:14mm;border-radius:50%;object-fit:cover;border:2px solid rgba(96,165,250,.4);" alt="대표 사진">
+          <div style="text-align:center;">
+            <div style="font-size:7.5pt;font-weight:900;color:white;">전두표</div>
+            <div style="font-size:5pt;color:#08A7D4;font-weight:700;">대표</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1.4mm;">
+          <div style="display:flex;gap:1.5mm;font-size:5.5pt;color:rgba(255,255,255,.6);align-items:center;"><i class="fas fa-circle" style="color:#08A7D4;font-size:3pt;flex-shrink:0;"></i>(현) 코스모에듀벤처 대표</div>
+          <div style="display:flex;gap:1.5mm;font-size:5.5pt;color:#3CC7DE;font-weight:700;align-items:center;"><i class="fas fa-certificate" style="color:#3CC7DE;font-size:3pt;flex-shrink:0;"></i>코딩교육지도사 1급</div>
+          <div style="display:flex;gap:1.5mm;font-size:5.5pt;color:#3CC7DE;font-weight:700;align-items:center;"><i class="fas fa-certificate" style="color:#3CC7DE;font-size:3pt;flex-shrink:0;"></i>진로진학컨설턴트 1급</div>
+          <div style="display:flex;gap:1.5mm;font-size:5.5pt;color:rgba(255,255,255,.6);align-items:center;"><i class="fas fa-circle" style="color:#08A7D4;font-size:3pt;flex-shrink:0;"></i>삼일고·청담고·군포중앙고·용인공유학교 등 출강</div>
+          <div style="display:flex;gap:1.5mm;font-size:5.5pt;color:rgba(255,255,255,.6);align-items:center;"><i class="fas fa-circle" style="color:#08A7D4;font-size:3pt;flex-shrink:0;"></i>(전) NLYC청소년새생명캠프 간사</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════ PAGE 8 : 표지 뒤 ════════ -->
+<div class="page p8">
+  <svg class="p8-art" viewBox="0 0 210 297" aria-hidden="true" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="backPink" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#F4B2C8"/>
+        <stop offset=".55" stop-color="#E85F96"/>
+        <stop offset="1" stop-color="#D91B63"/>
+      </linearGradient>
+      <linearGradient id="backCyan" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#3CC7DE"/>
+        <stop offset="1" stop-color="#08A7D4"/>
+      </linearGradient>
+      <linearGradient id="backNavy" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#20236D"/>
+        <stop offset="1" stop-color="#071A66"/>
+      </linearGradient>
+      <pattern id="backDotsNavy" width="5.2" height="5.2" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r=".55" fill="#071A66"/>
+      </pattern>
+      <pattern id="backDotsPink" width="6.4" height="6.4" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r=".7" fill="#E85F96"/>
+      </pattern>
+      <pattern id="backStripes" width="4.3" height="4.3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="1.45" height="4.3" fill="#071A66"/>
+      </pattern>
+    </defs>
+    <rect width="210" height="297" fill="#fff"/>
+    <circle cx="203" cy="8" r="32" fill="url(#backPink)"/>
+    <rect x="129" y="14" width="39" height="31" fill="url(#backDotsNavy)" opacity=".9"/>
+    <path d="M134 64C134 43 153 28 174 28H210V64Z" fill="url(#backPink)" opacity=".78"/>
+    <path d="M174 28H210C210 47.8 193.8 64 174 64Z" fill="url(#backNavy)"/>
+    <path d="M174 64C194 64 210 80 210 100H174Z" fill="url(#backCyan)"/>
+    <rect x="20" y="195" width="35" height="34" fill="url(#backStripes)" opacity=".95"/>
+    <path d="M58 231V164H91C72.8 164 58 178.8 58 197Z" fill="url(#backNavy)"/>
+    <path d="M91 164V231H58C76.2 231 91 216.2 91 198Z" fill="url(#backPink)" opacity=".75"/>
+    <path d="M58 231H91V198C91 216.2 76.2 231 58 231Z" fill="url(#backCyan)" opacity=".95"/>
+    <rect x="168" y="206" width="28" height="24" fill="url(#backDotsPink)" opacity=".8"/>
+  </svg>
+  <div class="p8-inner">
+    <div>
+      <img class="p8-logo" src="uploads/cosmoedu_cover_wordmark.png" alt="코스모에듀">
+      <div class="p8-tagline">우리 학교에 맞는<br><span>AI·코딩 수업</span>을 시작하세요.</div>
+      <p class="p8-sub">학교 현황과 목표를 알려주시면, 커리큘럼·강사·기기·플랫폼을 포함해서<br>우리 교육기관에 맞는 도입 방식을 함께 찾습니다.</p>
+    </div>
+
+    <div class="p8-mid">
+      <div class="p8-contact-block">
+        <div class="p8-contact-row">
+          <div class="p8-contact-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <div class="p8-contact-lbl">전화 상담</div>
+            <div class="p8-contact-text">010-4121-6551</div>
+          </div>
+        </div>
+        <div class="p8-contact-row">
+          <div class="p8-contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="p8-contact-lbl">이메일 문의</div>
+            <div class="p8-contact-text"><a href="mailto:cosmoedu@cosmoedu.co.kr">cosmoedu@cosmoedu.co.kr</a></div>
+          </div>
+        </div>
+        <div class="p8-contact-row">
+          <div class="p8-contact-icon"><i class="fas fa-globe"></i></div>
+          <div>
+            <div class="p8-contact-lbl">홈페이지</div>
+            <div class="p8-contact-text">school.cosmoedu.co.kr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p8-footer">
+      <div class="p8-copy">© 2026 코스모에듀벤처. All rights reserved.</div>
+      </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
+
+
