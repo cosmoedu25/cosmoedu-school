@@ -26,6 +26,14 @@
     .cat-nav{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
     .cat-nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--border);color:var(--muted);transition:all .15s}
     .cat-nav a.active,.cat-nav a:hover{background:#6C47FF;border-color:#6C47FF;color:white}
+    .student-lede{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--white);border:1px solid var(--border);border-radius:22px;overflow:hidden;margin-bottom:48px;box-shadow:0 18px 50px rgba(15,23,42,.08)}
+    .student-lede-img{min-height:330px;background:#E2E8F0}
+    .student-lede-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .student-lede-body{padding:40px 42px;display:flex;flex-direction:column;justify-content:center}
+    .student-quote{font-size:clamp(24px,3.2vw,34px);font-weight:700;line-height:1.55;letter-spacing:-.02em;color:#0F172A;margin-bottom:18px;word-break:keep-all}
+    .student-meta{font-size:14px;font-weight:800;color:var(--brand);margin-bottom:14px}
+    .student-desc{font-size:15px;color:#475569;line-height:1.8;word-break:keep-all}
+    @media(max-width:760px){.student-lede{grid-template-columns:1fr}.student-lede-img{min-height:220px}.student-lede-body{padding:28px 22px}}
     .sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--brand);text-transform:uppercase;margin-bottom:6px}
     .sec-title{font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
     .sec-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
@@ -91,10 +99,21 @@
 <main class="main">
 
   <div class="cat-nav">
+    <a href="online.html">온라인 수업</a>
     <a href="daean.html">대안학교</a>
     <a href="coding.html" class="active">코딩센터 · 공부방</a>
-    <a href="online.html">온라인 수업</a>
   </div>
+
+  <section class="student-lede">
+    <div class="student-lede-img">
+      <img src="../brochure/uploads/브로셔_이미지/3페이지-사례/SDGs지속가능한개발주제_앱만들기_중2김유주2.jpg" alt="SDGs 앱 만들기 결과물">
+    </div>
+    <div class="student-lede-body">
+      <div class="student-quote">"제가 직접 주제를 정하고 앱을 만들어 보았어요.<br>처음부터 끝까지 완성했어요."</div>
+      <div class="student-meta">코딩센터 · 중2 여학생</div>
+      <div class="student-desc">SDGs 17개 목표 중 생태계 보전을 직접 골랐습니다. 주변 동식물을 촬영하고 기록하는 앱을 앱인벤터로 구현해, 주제 선정부터 기획·구현까지 스스로 해냈습니다.</div>
+    </div>
+  </section>
 
   <!-- Story 1: SDGs 앱 -->
   <div class="sec-label">Story 01</div>
@@ -102,7 +121,7 @@
   <div class="sec-sub">환경을 주제로 직접 앱을 기획하고 완성한 중2 학생의 이야기</div>
 
   <div class="story">
-    <img src="../brochure/uploads/SDGs지속가능한개발주제_앱만들기_중2김유주.jpg" class="story-img" alt="SDGs 생태 기록 앱 EcoLog">
+    <img src="../brochure/uploads/브로셔_이미지/3페이지-사례/SDGs지속가능한개발주제_앱만들기_중2김유주2.jpg" class="story-img" alt="SDGs 생태 기록 앱 EcoLog">
     <div class="story-body">
       <div class="kw-badge kw-green"><i class="bi bi-stars"></i> 완성</div>
       <h2>SDGs 생태 기록 앱 EcoLog</h2>

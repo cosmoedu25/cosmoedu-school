@@ -36,6 +36,14 @@
     .cat-nav{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
     .cat-nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--border);color:var(--muted);transition:all .15s}
     .cat-nav a.active,.cat-nav a:hover{background:var(--brand);border-color:var(--brand);color:white}
+    .student-lede{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--white);border:1px solid var(--border);border-radius:22px;overflow:hidden;margin-bottom:48px;box-shadow:0 18px 50px rgba(15,23,42,.08)}
+    .student-lede-img{min-height:330px;background:#E2E8F0}
+    .student-lede-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .student-lede-body{padding:40px 42px;display:flex;flex-direction:column;justify-content:center}
+    .student-quote{font-size:clamp(24px,3.2vw,34px);font-weight:700;line-height:1.55;letter-spacing:-.02em;color:#0F172A;margin-bottom:18px;word-break:keep-all}
+    .student-meta{font-size:14px;font-weight:800;color:#7C3AED;margin-bottom:14px}
+    .student-desc{font-size:15px;color:#475569;line-height:1.8;word-break:keep-all}
+    @media(max-width:760px){.student-lede{grid-template-columns:1fr}.student-lede-img{min-height:220px}.student-lede-body{padding:28px 22px}}
     .sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:#7C3AED;text-transform:uppercase;margin-bottom:6px}
     .sec-title{font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
     .sec-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
@@ -101,10 +109,21 @@
 <main class="main">
 
   <div class="cat-nav">
+    <a href="online.html">온라인 수업</a>
     <a href="daean.html" class="active">대안학교</a>
     <a href="coding.html">코딩센터 · 공부방</a>
-    <a href="online.html">온라인 수업</a>
   </div>
+
+  <section class="student-lede">
+    <div class="student-lede-img">
+      <img src="../brochure/uploads/곤충맞추기.png" alt="하늘아이 대안학교 곤충 퀴즈 결과물">
+    </div>
+    <div class="student-lede-body">
+      <div class="student-quote">"제가 모은 곤충 사진으로 퀴즈를 만들었더니,<br>친구들이 더 많이 알게 됐어요."</div>
+      <div class="student-meta">곤충 이름을 줄줄 외우는 초2 남학생</div>
+      <div class="student-desc">인터넷에서 찾은 곤충 사진들로 바이브코딩 퀴즈 사이트를 직접 만들었습니다. 수업 시간에 친구들과 함께 게임을 했고, 곤충에 관심 없던 친구들도 자연스럽게 주제를 탐색하게 됐습니다.</div>
+    </div>
+  </section>
 
   <!-- Story 1: 연결 - 곤충박사 -->
   <div class="sec-label">Story 01</div>

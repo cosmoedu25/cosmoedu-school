@@ -389,11 +389,30 @@ img{max-width:100%}
 .kakao-float-label{font-size:.67rem;font-weight:700;color:var(--muted);white-space:nowrap}
 @media(max-width:768px){.float-stack{bottom:1.2rem;right:1rem}.kakao-float-btn{width:48px;height:48px}.float-consult-btn{width:48px;height:48px;font-size:1.15rem}}
 
-/* ── 원격수업 + 노트북 나란히 ── */
-.svc-row{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 3.5rem;align-items:start}
-.svc-col{min-width:0}
-.svc-divider{background:var(--border);align-self:stretch}
-@media(max-width:900px){.svc-row{grid-template-columns:1fr;gap:0}.svc-divider{height:1px;margin:2.5rem 0}}
+/* ── 선택 옵션 카드 ── */
+.option-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.option-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;box-shadow:0 2px 10px rgba(15,23,42,.05);display:flex;flex-direction:column;min-height:330px;transition:all var(--tr);position:relative;overflow:hidden}
+.option-card:hover{transform:translateY(-5px);border-color:rgba(37,99,235,.28);box-shadow:0 14px 36px rgba(15,23,42,.1)}
+.option-card.featured{border-color:rgba(124,58,237,.22);background:linear-gradient(180deg,#fff,rgba(124,58,237,.035))}
+.option-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:1rem;background:rgba(37,99,235,.08);color:var(--blue)}
+.option-card.featured .option-icon{background:rgba(124,58,237,.1);color:var(--purple)}
+.option-card.remote .option-icon{background:rgba(8,145,178,.1);color:var(--cyan)}
+.option-kicker{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+.option-title{font-size:1.2rem;font-weight:850;color:var(--text);line-height:1.35;margin-bottom:.75rem;word-break:keep-all}
+.option-price{display:flex;align-items:baseline;gap:.25rem;margin-bottom:.85rem;color:var(--blue)}
+.option-card.featured .option-price{color:var(--purple)}
+.option-card.remote .option-price{color:var(--cyan)}
+.option-price strong{font-size:1.8rem;font-weight:900;line-height:1}
+.option-price span{font-size:.8rem;color:var(--muted);font-weight:600}
+.option-desc{font-size:.9rem;color:var(--muted);line-height:1.65;word-break:keep-all;margin-bottom:1rem}
+.option-list{display:flex;flex-direction:column;gap:.55rem;margin-top:auto}
+.option-list li{display:flex;align-items:flex-start;gap:.5rem;font-size:.84rem;color:var(--muted);line-height:1.55;word-break:keep-all}
+.option-list i{color:var(--blue);font-size:.75rem;margin-top:.28rem;flex-shrink:0}
+.option-card.featured .option-list i{color:var(--purple)}
+.option-card.remote .option-list i{color:var(--cyan)}
+.option-actions{display:flex;gap:.55rem;margin-top:1.15rem;flex-wrap:wrap}
+.option-actions .btn{font-size:.82rem;padding:.55rem 1rem;border-radius:9px}
+@media(max-width:1000px){.option-grid{grid-template-columns:1fr}.option-card{min-height:auto}}
 
 /* ── 견적 모달 ── */
 .qmodal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
@@ -1002,40 +1021,69 @@ img{max-width:100%}
 </section>
 
 
-<!-- ══ REMOTE + LAPTOP ══ -->
+<!-- ══ OPTIONAL SERVICES ══ -->
 <section class="sec sec-alt" id="remote">
   <div class="wrap">
-    <div class="svc-row">
-
-    <!-- 원격수업 -->
-    <div class="svc-col" id="remote-col">
-    <div class="rv">
-      <div class="sec-label">원격수업</div>
-      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem">
-        <h2 class="sec-title" style="margin-bottom:0">원격수업은<br><span class="hl">어떻게 진행되나요?</span></h2>
-        <button class="btn btn-p" onclick="openRemoteModal()" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
-      </div>
-      <p class="sec-sub">주 1회 60분, Zoom 또는 Google Meet으로 진행하는 실시간 AI·코딩 수업입니다.<br>전문 강사가 직접 가르치며, 수업 녹화본과 과제 피드백을 제공합니다.<br>불가피한 사정 시 보충 수업을 제공하고, 방학·행사 기간은 일정 조율이 가능합니다.</p>
+    <div class="center rv">
+      <div class="sec-label">선택 옵션</div>
+      <h2 class="sec-title">필요한 구성만<br><span class="hl">추가로 조합하세요</span></h2>
+      <p class="sec-sub" style="margin:0 auto">캠프, 원격수업, 기기 렌탈까지 학교 상황과 예산에 맞춰 필요한 옵션만 선택할 수 있습니다.</p>
     </div>
 
-    </div><!-- /svc-col remote -->
+    <div class="option-grid">
+      <article class="option-card featured rv d1">
+        <div class="option-icon"><i class="fas fa-campground"></i></div>
+        <div class="option-kicker">1day camp</div>
+        <h3 class="option-title">1day 코딩캠프 / 진로캠프</h3>
+        <div class="option-price"><strong>50만원~</strong><span>/회</span></div>
+        <p class="option-desc">하루 일정으로 운영하는 방문형 코딩·AI·진로 캠프입니다. 학년군과 기관 목표에 맞춰 주제와 난이도를 설계합니다.</p>
+        <ul class="option-list">
+          <li><i class="fas fa-check"></i>1일 현장 방문 출장 수업</li>
+          <li><i class="fas fa-check"></i>1회 4~6시간, 일정 협의 후 확정</li>
+          <li><i class="fas fa-check"></i>AI 창작, 코딩, 메타버스 등 주제 선택</li>
+          <li><i class="fas fa-check"></i>코딩교육지도사 1급 전문 강사</li>
+          <li><i class="fas fa-check"></i>진로진학 컨설턴트 1급 전문 강사</li>
+        </ul>
+        <div class="option-actions">
+          <a class="btn btn-p" href="#contact"><i class="fas fa-arrow-right"></i> 상담하기</a>
+        </div>
+      </article>
 
-    <div class="svc-divider"></div>
+      <article class="option-card remote rv d2" id="remote-col">
+        <div class="option-icon"><i class="fas fa-video"></i></div>
+        <div class="option-kicker">live online</div>
+        <h3 class="option-title">원격수업</h3>
+        <div class="option-price"><strong>16.5만원</strong><span>/월</span></div>
+        <p class="option-desc">Zoom 또는 Google Meet으로 진행하는 실시간 AI·코딩 수업입니다. 전문 강사가 직접 수업하고 피드백을 제공합니다.</p>
+        <ul class="option-list">
+          <li><i class="fas fa-check"></i>주 1회, 40~60분 기본 운영</li>
+          <li><i class="fas fa-check"></i>수업 횟수와 시간은 맞춤 조율</li>
+          <li><i class="fas fa-check"></i>수업 녹화본 및 과제 피드백 제공</li>
+          <li><i class="fas fa-check"></i>최대 10명 기준 분반 운영 가능</li>
+        </ul>
+        <div class="option-actions">
+          <button class="btn btn-p" onclick="openRemoteModal()"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
+        </div>
+      </article>
 
-    <!-- 노트북 렌탈 -->
-    <div class="svc-col" id="laptop">
-    <div class="rv">
-      <div class="sec-label">노트북 렌탈</div>
-      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem">
-        <h2 class="sec-title" style="margin-bottom:0">노트북 렌탈은<br><span class="hl">어떻게 되나요?</span></h2>
-        <button class="btn btn-p" onclick="openLaptopModal()" style="font-size:.83rem;padding:.45rem 1.1rem;white-space:nowrap;flex-shrink:0;align-self:flex-end;margin-bottom:.15rem"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
-      </div>
-      <p class="sec-sub">대당 월 4.5만원(임대형) 또는 6.8만원(인수형)으로 교육용 노트북을 이용하세요.<br>Windows 11, Intel i3, 8GB RAM, VS Code·Python 등 수업 환경이 미리 세팅되어 배송됩니다.<br>원격 지원 환경 구성 포함, 초기 세팅비 별도.</p>
+      <article class="option-card rv d3" id="laptop">
+        <div class="option-icon"><i class="fas fa-laptop"></i></div>
+        <div class="option-kicker">device rental</div>
+        <h3 class="option-title">노트북 렌탈</h3>
+        <div class="option-price"><strong>4.5만원~</strong><span>/대·월</span></div>
+        <p class="option-desc">수업 환경이 세팅된 교육용 노트북을 제공합니다. 초기 기기 준비 부담을 줄이고 바로 수업을 시작할 수 있습니다.</p>
+        <ul class="option-list">
+          <li><i class="fas fa-check"></i>최소 5대부터 수량 추가 가능</li>
+          <li><i class="fas fa-check"></i>임대형 4.5만원/대/월</li>
+          <li><i class="fas fa-check"></i>인수형 6.8만원/대/월</li>
+          <li><i class="fas fa-check"></i>약정기간 종료 후 기기 소유권 이전</li>
+          <li><i class="fas fa-check"></i>세팅 완료 후 직배송, 임대 기간 내 무상 A/S</li>
+        </ul>
+        <div class="option-actions">
+          <button class="btn btn-p" onclick="openLaptopModal()"><i class="fas fa-arrow-right"></i> 자세히 보기</button>
+        </div>
+      </article>
     </div>
-
-    </div><!-- /svc-col laptop -->
-
-    </div><!-- /svc-row -->
   </div>
 </section>
 
@@ -1054,39 +1102,39 @@ img{max-width:100%}
 
     <div class="cases-grid">
 
-      <!-- 사례 1: 대안학교 -->
-      <a href="cases/daean.html" class="case-card rv">
-        <div class="case-photo">
-          <img src="brochure/uploads/곤충맞추기.png" alt="하늘아이 대안학교 곤충퀴즈 수업" class="case-img">
-        </div>
-        <div class="case-body">
-          <div class="case-tag">대안학교</div>
-          <h4 class="case-title">하늘아이 대안학교</h4>
-          <p class="case-desc">곤충박사가 친구들의 선생님이 되었습니다. 혼자만의 이야기가 모두가 기다리는 퀴즈 게임으로 이어진 연결의 수업.</p>
-        </div>
-      </a>
-
-      <!-- 사례 2: 코딩센터 -->
-      <a href="cases/coding.html" class="case-card rv d1">
-        <div class="case-photo">
-          <img src="brochure/uploads/포레나북수원센터_파이썬_동물게임.jpg" alt="포레나북수원센터 파이썬 수업" class="case-img">
-        </div>
-        <div class="case-body">
-          <div class="case-tag">코딩센터 · 학원</div>
-          <h4 class="case-title">코딩앤플레이 포레나북수원센터</h4>
-          <p class="case-desc">처음 코딩을 접한 학생이 환경 SDGs 앱을 기획하고 완성했습니다. 아이디어만 있으면 됩니다.</p>
-        </div>
-      </a>
-
-      <!-- 사례 3: 온라인학교 -->
-      <a href="cases/online.html" class="case-card rv d2">
+      <!-- 사례 1: 온라인학교 -->
+      <a href="cases/online.html" class="case-card rv">
         <div class="case-photo">
           <img src="brochure/uploads/mk학교_지역소개콘텐츠_ZEP메타버스_중1죠해나.png" alt="MK 온라인학교 메타버스 수업" class="case-img">
         </div>
         <div class="case-body">
           <div class="case-tag">온라인학교</div>
-          <h4 class="case-title">MK 온라인학교</h4>
-          <p class="case-desc">러시아·카자흐스탄·베트남 등 5개국 학생들이 메타버스로 자기 세계를 만들어 서로에게 보여줬습니다.</p>
+          <h4 class="case-title">"제가 사는 도시를 메타버스로 만들었어요."</h4>
+          <p class="case-desc">러시아에 사는 학생이 ZEP 메타버스로 자기 도시를 소개하고, 친구들이 직접 방문하는 공간을 만들었습니다.</p>
+        </div>
+      </a>
+
+      <!-- 사례 2: 대안학교 -->
+      <a href="cases/daean.html" class="case-card rv d1">
+        <div class="case-photo">
+          <img src="brochure/uploads/곤충맞추기.png" alt="하늘아이 대안학교 곤충퀴즈 수업" class="case-img">
+        </div>
+        <div class="case-body">
+          <div class="case-tag">대안학교</div>
+          <h4 class="case-title">"제가 모은 곤충 사진으로 퀴즈를 만들었어요."</h4>
+          <p class="case-desc">곤충 이름을 줄줄 외우던 학생의 관심사가 친구들이 함께 참여하는 바이브코딩 퀴즈가 됐습니다.</p>
+        </div>
+      </a>
+
+      <!-- 사례 3: 코딩센터 -->
+      <a href="cases/coding.html" class="case-card rv d2">
+        <div class="case-photo">
+          <img src="brochure/uploads/브로셔_이미지/3페이지-사례/SDGs지속가능한개발주제_앱만들기_중2김유주2.jpg" alt="SDGs 앱 만들기" class="case-img">
+        </div>
+        <div class="case-body">
+          <div class="case-tag">코딩센터 · 학원</div>
+          <h4 class="case-title">"제가 직접 주제를 정하고 앱을 만들어 보았어요."</h4>
+          <p class="case-desc">중2 학생이 SDGs 주제를 정하고 생태 기록 앱을 처음부터 끝까지 직접 완성했습니다.</p>
         </div>
       </a>
 

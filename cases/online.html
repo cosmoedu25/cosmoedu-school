@@ -26,6 +26,14 @@
     .cat-nav{display:flex;gap:12px;margin-bottom:48px;flex-wrap:wrap}
     .cat-nav a{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;border:2px solid var(--border);color:var(--muted);transition:all .15s}
     .cat-nav a.active,.cat-nav a:hover{background:#6C47FF;border-color:#6C47FF;color:white}
+    .student-lede{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:var(--white);border:1px solid var(--border);border-radius:22px;overflow:hidden;margin-bottom:48px;box-shadow:0 18px 50px rgba(15,23,42,.08)}
+    .student-lede-img{min-height:330px;background:#E2E8F0}
+    .student-lede-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .student-lede-body{padding:40px 42px;display:flex;flex-direction:column;justify-content:center}
+    .student-quote{font-size:clamp(24px,3.2vw,34px);font-weight:700;line-height:1.55;letter-spacing:-.02em;color:#0F172A;margin-bottom:18px;word-break:keep-all}
+    .student-meta{font-size:14px;font-weight:800;color:var(--brand);margin-bottom:14px}
+    .student-desc{font-size:15px;color:#475569;line-height:1.8;word-break:keep-all}
+    @media(max-width:760px){.student-lede{grid-template-columns:1fr}.student-lede-img{min-height:220px}.student-lede-body{padding:28px 22px}}
     .sec-label{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--brand);text-transform:uppercase;margin-bottom:6px}
     .sec-title{font-size:clamp(20px,3vw,28px);font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
     .sec-sub{font-size:15px;color:var(--muted);margin-bottom:40px}
@@ -99,10 +107,21 @@
 <main class="main">
 
   <div class="cat-nav">
+    <a href="online.html" class="active">온라인 수업</a>
     <a href="daean.html">대안학교</a>
     <a href="coding.html">코딩센터 · 공부방</a>
-    <a href="online.html" class="active">온라인 수업</a>
   </div>
+
+  <section class="student-lede">
+    <div class="student-lede-img">
+      <img src="../brochure/uploads/mk학교_지역소개콘텐츠_ZEP메타버스_중1죠해나.png" alt="MK 온라인학교 ZEP 메타버스 결과물">
+    </div>
+    <div class="student-lede-body">
+      <div class="student-quote">"제가 사는 도시를 메타버스로 만들었어요.<br>친구들이 방문하러 왔을 때 진짜 뿌듯했어요."</div>
+      <div class="student-meta">러시아 거주 초6 여학생</div>
+      <div class="student-desc">ZEP 메타버스로 자신의 도시를 소개하는 공간을 만들었습니다. NPC를 직접 배치하고, 지역 안내 멘트를 기획해 넣었습니다. 완성된 공간을 다른 나라 친구들이 방문하며 발표했습니다.</div>
+    </div>
+  </section>
 
   <div class="sec-label">Story 01</div>
   <div class="sec-title">내가 사는 곳을 나만의 방식으로 보여줍니다</div>
@@ -117,11 +136,6 @@
       <p>선교사·주재원 자녀들을 위한 MK 온라인학교. 타국에서 자라는 아이들은 언어와 문화 사이에서 정체성의 혼란을 겪기도 합니다. 비슷한 처지의 친구들과 매주 화면으로만 만납니다.</p>
       <p>코스모에듀 수업에서 아이들은 <strong>ZEP 메타버스 맵 만들기</strong>를 배웠습니다. 각자 자신이 살고 있는 지역을 직접 메타버스로 만들어 친구들에게 소개했습니다. 러시아의 겨울 풍경, 카자흐스탄의 초원, 베트남의 골목길이 하나의 가상 세계 안에서 이어졌습니다.</p>
       <p>"나는 한국 사람인지 러시아 사람인지 모르겠어요"라고 했던 학생이, "저는 두 나라의 것을 다 알아요"라고 말하게 된 수업이었습니다.</p>
-
-      <div class="quote-box">
-        <div class="quote-text">"내가 사는 동네를 친구들이 직접 걸어다닐 수 있는 맵으로 만들었어요. 처음으로 내 세계가 특별하다는 걸 느꼈어요."</div>
-        <div class="quote-credit">— MK 온라인학교 수업 참여 학생</div>
-      </div>
 
       <div class="made-box">
         <h4>만든 것</h4>
